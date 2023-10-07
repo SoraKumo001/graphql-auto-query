@@ -1,5 +1,9 @@
 # graphql-auto-query
 
+Automatic generation of GraphQL queries from GraphQL schemas
+
+[schema.graphql](https://raw.githubusercontent.com/SoraKumo001/graphql-auto-query/master/test/source.graphql) -> [query.graphql](https://raw.githubusercontent.com/SoraKumo001/graphql-auto-query/master/test/output.graphql)
+
 ## usage
 
 |               |                    |                                 |
@@ -27,6 +31,6 @@ graphql-auto-query schema/schema.graphql -o query.graphql
 import fs from "fs";
 import { generate } from "graphql-auto-query";
 
-const schema = fs.read("schema.graphql");
+const schema = fs.readFileSync("schema.graphql", "utf-8");
 console.log(generate(schema));
 ```
