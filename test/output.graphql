@@ -2,6 +2,7 @@ fragment user on User {
   id
   email
   name
+  roles
   createdAt
   updatedAt
 }
@@ -11,22 +12,7 @@ fragment post on Post {
   published
   title
   content
-  author{
-    id
-    email
-    name
-    createdAt
-    updatedAt
-  }
   authorId
-  cardId
-  card{
-    id
-    name
-    mimeType
-    createdAt
-    updatedAt
-  }
   createdAt
   updatedAt
   publishedAt
@@ -35,38 +21,6 @@ fragment post on Post {
 fragment category on Category {
   id
   name
-  createdAt
-  updatedAt
-}
-
-fragment system on System {
-  id
-  title
-  description
-  iconId
-  icon{
-    id
-    name
-    mimeType
-    createdAt
-    updatedAt
-  }
-  cardId
-  card{
-    id
-    name
-    mimeType
-    createdAt
-    updatedAt
-  }
-  createdAt
-  updatedAt
-}
-
-fragment fireStore on FireStore {
-  id
-  name
-  mimeType
   createdAt
   updatedAt
 }
@@ -95,71 +49,33 @@ query CountCategory(
   )
 }
 
-query CountSystem(
-  $filter: SystemFilter
-) {
-  countSystem(
-    filter: $filter
-  )
-}
-
-query CountFireStore(
-  $filter: FireStoreFilter
-) {
-  countFireStore(
-    filter: $filter
-  )
-}
-
 query FindUniqueUser(
   $filter: UserUniqueFilter!,
-  $PostFilter: PostFilter,
-  $PostOrderBy: [PostOrderBy!],
-  $PostLimit: Int,
-  $PostOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter,
-  $PostCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findUniqueUser(
     filter: $filter
   ) {
     ...user
-    post(
-      filter: $PostFilter,
-      orderBy: $PostOrderBy,
-      limit: $PostLimit,
-      offset: $PostOffset
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -167,138 +83,48 @@ query FindUniqueUser(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
       )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
     }
-    postCount(
-      filter: $PostCountFilter
+    postsCount(
+      filter: $PostsCountFilter
     )
   }
 }
 
 query FindUniquePost(
   $filter: PostUniqueFilter!,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
   $PostsCountFilter: PostFilter,
-  $CategoriesCountFilter: CategoryFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsCountFilter: PostFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
 ) {
   findUniquePost(
     filter: $filter
   ) {
     ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
     categories(
       filter: $CategoriesFilter,
       orderBy: $CategoriesOrderBy,
@@ -313,43 +139,6 @@ query FindUniquePost(
         offset: $PostsOffset
       ) {
         ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
       }
       postsCount(
         filter: $PostsCountFilter
@@ -357,135 +146,6 @@ query FindUniquePost(
     }
     categoriesCount(
       filter: $CategoriesCountFilter
-    )
-    postFiles(
-      filter: $PostFilesFilter,
-      orderBy: $PostFilesOrderBy,
-      limit: $PostFilesLimit,
-      offset: $PostFilesOffset
-    ) {
-      ...fireStore
-      systemIcons(
-        filter: $SystemIconsFilter,
-        orderBy: $SystemIconsOrderBy,
-        limit: $SystemIconsLimit,
-        offset: $SystemIconsOffset
-      ) {
-        ...system
-      }
-      systemIconsCount(
-        filter: $SystemIconsCountFilter
-      )
-      systemCards(
-        filter: $SystemCardsFilter,
-        orderBy: $SystemCardsOrderBy,
-        limit: $SystemCardsLimit,
-        offset: $SystemCardsOffset
-      ) {
-        ...system
-      }
-      systemCardsCount(
-        filter: $SystemCardsCountFilter
-      )
-      postCards(
-        filter: $PostCardsFilter,
-        orderBy: $PostCardsOrderBy,
-        limit: $PostCardsLimit,
-        offset: $PostCardsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postCardsCount(
-        filter: $PostCardsCountFilter
-      )
-      posts(
-        filter: $PostsFilter,
-        orderBy: $PostsOrderBy,
-        limit: $PostsLimit,
-        offset: $PostsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postsCount(
-        filter: $PostsCountFilter
-      )
-    }
-    postFilesCount(
-      filter: $PostFilesCountFilter
     )
   }
 }
@@ -501,27 +161,7 @@ query FindUniqueCategory(
   $CategoriesLimit: Int,
   $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findUniqueCategory(
     filter: $filter
@@ -534,6 +174,9 @@ query FindUniqueCategory(
       offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -541,377 +184,9 @@ query FindUniqueCategory(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
-    }
-    postsCount(
-      filter: $PostsCountFilter
-    )
-  }
-}
-
-query FindUniqueSystem(
-  $filter: SystemUniqueFilter!
-) {
-  findUniqueSystem(
-    filter: $filter
-  ) {
-    ...system
-  }
-}
-
-query FindUniqueFireStore(
-  $filter: FireStoreUniqueFilter!,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
-  $PostsFilter: PostFilter,
-  $PostsOrderBy: [PostOrderBy!],
-  $PostsLimit: Int,
-  $PostsOffset: Int,
-  $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $PostCardsCountFilter: PostFilter
-) {
-  findUniqueFireStore(
-    filter: $filter
-  ) {
-    ...fireStore
-    systemIcons(
-      filter: $SystemIconsFilter,
-      orderBy: $SystemIconsOrderBy,
-      limit: $SystemIconsLimit,
-      offset: $SystemIconsOffset
-    ) {
-      ...system
-    }
-    systemIconsCount(
-      filter: $SystemIconsCountFilter
-    )
-    systemCards(
-      filter: $SystemCardsFilter,
-      orderBy: $SystemCardsOrderBy,
-      limit: $SystemCardsLimit,
-      offset: $SystemCardsOffset
-    ) {
-      ...system
-    }
-    systemCardsCount(
-      filter: $SystemCardsCountFilter
-    )
-    postCards(
-      filter: $PostCardsFilter,
-      orderBy: $PostCardsOrderBy,
-      limit: $PostCardsLimit,
-      offset: $PostCardsOffset
-    ) {
-      ...post
-      categories(
-        filter: $CategoriesFilter,
-        orderBy: $CategoriesOrderBy,
-        limit: $CategoriesLimit,
-        offset: $CategoriesOffset
-      ) {
-        ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      categoriesCount(
-        filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
-    }
-    postCardsCount(
-      filter: $PostCardsCountFilter
-    )
-    posts(
-      filter: $PostsFilter,
-      orderBy: $PostsOrderBy,
-      limit: $PostsLimit,
-      offset: $PostsOffset
-    ) {
-      ...post
-      categories(
-        filter: $CategoriesFilter,
-        orderBy: $CategoriesOrderBy,
-        limit: $CategoriesLimit,
-        offset: $CategoriesOffset
-      ) {
-        ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      categoriesCount(
-        filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
       )
     }
     postsCount(
@@ -923,54 +198,32 @@ query FindUniqueFireStore(
 query FindFirstUser(
   $filter: UserFilter,
   $orderBy: [UserOrderBy!],
-  $PostFilter: PostFilter,
-  $PostOrderBy: [PostOrderBy!],
-  $PostLimit: Int,
-  $PostOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter,
-  $PostCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findFirstUser(
     filter: $filter,
     orderBy: $orderBy
   ) {
     ...user
-    post(
-      filter: $PostFilter,
-      orderBy: $PostOrderBy,
-      limit: $PostLimit,
-      offset: $PostOffset
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -978,97 +231,13 @@ query FindFirstUser(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
       )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
     }
-    postCount(
-      filter: $PostCountFilter
+    postsCount(
+      filter: $PostsCountFilter
     )
   }
 }
@@ -1076,42 +245,36 @@ query FindFirstUser(
 query FindFirstPost(
   $filter: PostFilter,
   $orderBy: [PostOrderBy!],
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
   $PostsCountFilter: PostFilter,
-  $CategoriesCountFilter: CategoryFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsCountFilter: PostFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
 ) {
   findFirstPost(
     filter: $filter,
     orderBy: $orderBy
   ) {
     ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
     categories(
       filter: $CategoriesFilter,
       orderBy: $CategoriesOrderBy,
@@ -1126,43 +289,6 @@ query FindFirstPost(
         offset: $PostsOffset
       ) {
         ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
       }
       postsCount(
         filter: $PostsCountFilter
@@ -1170,135 +296,6 @@ query FindFirstPost(
     }
     categoriesCount(
       filter: $CategoriesCountFilter
-    )
-    postFiles(
-      filter: $PostFilesFilter,
-      orderBy: $PostFilesOrderBy,
-      limit: $PostFilesLimit,
-      offset: $PostFilesOffset
-    ) {
-      ...fireStore
-      systemIcons(
-        filter: $SystemIconsFilter,
-        orderBy: $SystemIconsOrderBy,
-        limit: $SystemIconsLimit,
-        offset: $SystemIconsOffset
-      ) {
-        ...system
-      }
-      systemIconsCount(
-        filter: $SystemIconsCountFilter
-      )
-      systemCards(
-        filter: $SystemCardsFilter,
-        orderBy: $SystemCardsOrderBy,
-        limit: $SystemCardsLimit,
-        offset: $SystemCardsOffset
-      ) {
-        ...system
-      }
-      systemCardsCount(
-        filter: $SystemCardsCountFilter
-      )
-      postCards(
-        filter: $PostCardsFilter,
-        orderBy: $PostCardsOrderBy,
-        limit: $PostCardsLimit,
-        offset: $PostCardsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postCardsCount(
-        filter: $PostCardsCountFilter
-      )
-      posts(
-        filter: $PostsFilter,
-        orderBy: $PostsOrderBy,
-        limit: $PostsLimit,
-        offset: $PostsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postsCount(
-        filter: $PostsCountFilter
-      )
-    }
-    postFilesCount(
-      filter: $PostFilesCountFilter
     )
   }
 }
@@ -1315,27 +312,7 @@ query FindFirstCategory(
   $CategoriesLimit: Int,
   $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findFirstCategory(
     filter: $filter,
@@ -1349,6 +326,9 @@ query FindFirstCategory(
       offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -1356,381 +336,9 @@ query FindFirstCategory(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
-    }
-    postsCount(
-      filter: $PostsCountFilter
-    )
-  }
-}
-
-query FindFirstSystem(
-  $filter: SystemFilter,
-  $orderBy: [SystemOrderBy!]
-) {
-  findFirstSystem(
-    filter: $filter,
-    orderBy: $orderBy
-  ) {
-    ...system
-  }
-}
-
-query FindFirstFireStore(
-  $filter: FireStoreFilter,
-  $orderBy: [FireStoreOrderBy!],
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
-  $PostsFilter: PostFilter,
-  $PostsOrderBy: [PostOrderBy!],
-  $PostsLimit: Int,
-  $PostsOffset: Int,
-  $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $PostCardsCountFilter: PostFilter
-) {
-  findFirstFireStore(
-    filter: $filter,
-    orderBy: $orderBy
-  ) {
-    ...fireStore
-    systemIcons(
-      filter: $SystemIconsFilter,
-      orderBy: $SystemIconsOrderBy,
-      limit: $SystemIconsLimit,
-      offset: $SystemIconsOffset
-    ) {
-      ...system
-    }
-    systemIconsCount(
-      filter: $SystemIconsCountFilter
-    )
-    systemCards(
-      filter: $SystemCardsFilter,
-      orderBy: $SystemCardsOrderBy,
-      limit: $SystemCardsLimit,
-      offset: $SystemCardsOffset
-    ) {
-      ...system
-    }
-    systemCardsCount(
-      filter: $SystemCardsCountFilter
-    )
-    postCards(
-      filter: $PostCardsFilter,
-      orderBy: $PostCardsOrderBy,
-      limit: $PostCardsLimit,
-      offset: $PostCardsOffset
-    ) {
-      ...post
-      categories(
-        filter: $CategoriesFilter,
-        orderBy: $CategoriesOrderBy,
-        limit: $CategoriesLimit,
-        offset: $CategoriesOffset
-      ) {
-        ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      categoriesCount(
-        filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
-    }
-    postCardsCount(
-      filter: $PostCardsCountFilter
-    )
-    posts(
-      filter: $PostsFilter,
-      orderBy: $PostsOrderBy,
-      limit: $PostsLimit,
-      offset: $PostsOffset
-    ) {
-      ...post
-      categories(
-        filter: $CategoriesFilter,
-        orderBy: $CategoriesOrderBy,
-        limit: $CategoriesLimit,
-        offset: $CategoriesOffset
-      ) {
-        ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      categoriesCount(
-        filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
       )
     }
     postsCount(
@@ -1744,41 +352,16 @@ query FindManyUser(
   $orderBy: [UserOrderBy!],
   $limit: Int,
   $offset: Int,
-  $PostFilter: PostFilter,
-  $PostOrderBy: [PostOrderBy!],
-  $PostLimit: Int,
-  $PostOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter,
-  $PostCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findManyUser(
     filter: $filter,
@@ -1787,13 +370,16 @@ query FindManyUser(
     offset: $offset
   ) {
     ...user
-    post(
-      filter: $PostFilter,
-      orderBy: $PostOrderBy,
-      limit: $PostLimit,
-      offset: $PostOffset
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -1801,97 +387,13 @@ query FindManyUser(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
       )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
     }
-    postCount(
-      filter: $PostCountFilter
+    postsCount(
+      filter: $PostsCountFilter
     )
   }
 }
@@ -1901,36 +403,16 @@ query FindManyPost(
   $orderBy: [PostOrderBy!],
   $limit: Int,
   $offset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
   $PostsCountFilter: PostFilter,
-  $CategoriesCountFilter: CategoryFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsCountFilter: PostFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
 ) {
   findManyPost(
     filter: $filter,
@@ -1939,6 +421,20 @@ query FindManyPost(
     offset: $offset
   ) {
     ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
     categories(
       filter: $CategoriesFilter,
       orderBy: $CategoriesOrderBy,
@@ -1953,43 +449,6 @@ query FindManyPost(
         offset: $PostsOffset
       ) {
         ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
       }
       postsCount(
         filter: $PostsCountFilter
@@ -1997,135 +456,6 @@ query FindManyPost(
     }
     categoriesCount(
       filter: $CategoriesCountFilter
-    )
-    postFiles(
-      filter: $PostFilesFilter,
-      orderBy: $PostFilesOrderBy,
-      limit: $PostFilesLimit,
-      offset: $PostFilesOffset
-    ) {
-      ...fireStore
-      systemIcons(
-        filter: $SystemIconsFilter,
-        orderBy: $SystemIconsOrderBy,
-        limit: $SystemIconsLimit,
-        offset: $SystemIconsOffset
-      ) {
-        ...system
-      }
-      systemIconsCount(
-        filter: $SystemIconsCountFilter
-      )
-      systemCards(
-        filter: $SystemCardsFilter,
-        orderBy: $SystemCardsOrderBy,
-        limit: $SystemCardsLimit,
-        offset: $SystemCardsOffset
-      ) {
-        ...system
-      }
-      systemCardsCount(
-        filter: $SystemCardsCountFilter
-      )
-      postCards(
-        filter: $PostCardsFilter,
-        orderBy: $PostCardsOrderBy,
-        limit: $PostCardsLimit,
-        offset: $PostCardsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postCardsCount(
-        filter: $PostCardsCountFilter
-      )
-      posts(
-        filter: $PostsFilter,
-        orderBy: $PostsOrderBy,
-        limit: $PostsLimit,
-        offset: $PostsOffset
-      ) {
-        ...post
-        categories(
-          filter: $CategoriesFilter,
-          orderBy: $CategoriesOrderBy,
-          limit: $CategoriesLimit,
-          offset: $CategoriesOffset
-        ) {
-          ...category
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        categoriesCount(
-          filter: $CategoriesCountFilter
-        )
-        postFiles(
-          filter: $PostFilesFilter,
-          orderBy: $PostFilesOrderBy,
-          limit: $PostFilesLimit,
-          offset: $PostFilesOffset
-        ) {
-          ...fireStore
-          systemIconsCount(
-            filter: $SystemIconsCountFilter
-          )
-          systemCardsCount(
-            filter: $SystemCardsCountFilter
-          )
-          postCardsCount(
-            filter: $PostCardsCountFilter
-          )
-          postsCount(
-            filter: $PostsCountFilter
-          )
-        }
-        postFilesCount(
-          filter: $PostFilesCountFilter
-        )
-      }
-      postsCount(
-        filter: $PostsCountFilter
-      )
-    }
-    postFilesCount(
-      filter: $PostFilesCountFilter
     )
   }
 }
@@ -2144,27 +474,7 @@ query FindManyCategory(
   $CategoriesLimit: Int,
   $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $PostCardsCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
   findManyCategory(
     filter: $filter,
@@ -2180,6 +490,9 @@ query FindManyCategory(
       offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -2187,93 +500,9 @@ query FindManyCategory(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
       )
     }
     postsCount(
@@ -2282,193 +511,35 @@ query FindManyCategory(
   }
 }
 
-query FindManySystem(
-  $filter: SystemFilter,
-  $orderBy: [SystemOrderBy!],
-  $limit: Int,
-  $offset: Int
+mutation SignIn(
+  $email: String!
 ) {
-  findManySystem(
-    filter: $filter,
-    orderBy: $orderBy,
-    limit: $limit,
-    offset: $offset
-  ) {
-    ...system
-  }
+  signIn(
+    email: $email
+  )
 }
 
-query FindManyFireStore(
-  $filter: FireStoreFilter,
-  $orderBy: [FireStoreOrderBy!],
-  $limit: Int,
-  $offset: Int,
-  $SystemIconsFilter: SystemFilter,
-  $SystemIconsOrderBy: [SystemOrderBy!],
-  $SystemIconsLimit: Int,
-  $SystemIconsOffset: Int,
-  $SystemIconsCountFilter: SystemFilter,
-  $SystemCardsFilter: SystemFilter,
-  $SystemCardsOrderBy: [SystemOrderBy!],
-  $SystemCardsLimit: Int,
-  $SystemCardsOffset: Int,
-  $SystemCardsCountFilter: SystemFilter,
-  $PostCardsFilter: PostFilter,
-  $PostCardsOrderBy: [PostOrderBy!],
-  $PostCardsLimit: Int,
-  $PostCardsOffset: Int,
-  $CategoriesFilter: CategoryFilter,
-  $CategoriesOrderBy: [CategoryOrderBy!],
-  $CategoriesLimit: Int,
-  $CategoriesOffset: Int,
+mutation SignOut {
+  signOut
+}
+
+mutation CreateOneUser(
+  $input: UserCreateInput!,
   $PostsFilter: PostFilter,
   $PostsOrderBy: [PostOrderBy!],
   $PostsLimit: Int,
   $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
   $CategoriesCountFilter: CategoryFilter,
-  $PostFilesCountFilter: FireStoreFilter,
-  $PostsCountFilter: PostFilter,
-  $PostFilesFilter: FireStoreFilter,
-  $PostFilesOrderBy: [FireStoreOrderBy!],
-  $PostFilesLimit: Int,
-  $PostFilesOffset: Int,
-  $PostCardsCountFilter: PostFilter
+  $PostsCountFilter: PostFilter
 ) {
-  findManyFireStore(
-    filter: $filter,
-    orderBy: $orderBy,
-    limit: $limit,
-    offset: $offset
+  createOneUser(
+    input: $input
   ) {
-    ...fireStore
-    systemIcons(
-      filter: $SystemIconsFilter,
-      orderBy: $SystemIconsOrderBy,
-      limit: $SystemIconsLimit,
-      offset: $SystemIconsOffset
-    ) {
-      ...system
-    }
-    systemIconsCount(
-      filter: $SystemIconsCountFilter
-    )
-    systemCards(
-      filter: $SystemCardsFilter,
-      orderBy: $SystemCardsOrderBy,
-      limit: $SystemCardsLimit,
-      offset: $SystemCardsOffset
-    ) {
-      ...system
-    }
-    systemCardsCount(
-      filter: $SystemCardsCountFilter
-    )
-    postCards(
-      filter: $PostCardsFilter,
-      orderBy: $PostCardsOrderBy,
-      limit: $PostCardsLimit,
-      offset: $PostCardsOffset
-    ) {
-      ...post
-      categories(
-        filter: $CategoriesFilter,
-        orderBy: $CategoriesOrderBy,
-        limit: $CategoriesLimit,
-        offset: $CategoriesOffset
-      ) {
-        ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      categoriesCount(
-        filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
-      )
-    }
-    postCardsCount(
-      filter: $PostCardsCountFilter
-    )
+    ...user
     posts(
       filter: $PostsFilter,
       orderBy: $PostsOrderBy,
@@ -2476,6 +547,9 @@ query FindManyFireStore(
       offset: $PostsOffset
     ) {
       ...post
+      author {
+        ...user
+      }
       categories(
         filter: $CategoriesFilter,
         orderBy: $CategoriesOrderBy,
@@ -2483,98 +557,491 @@ query FindManyFireStore(
         offset: $CategoriesOffset
       ) {
         ...category
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
       }
       categoriesCount(
         filter: $CategoriesCountFilter
-      )
-      postFiles(
-        filter: $PostFilesFilter,
-        orderBy: $PostFilesOrderBy,
-        limit: $PostFilesLimit,
-        offset: $PostFilesOffset
-      ) {
-        ...fireStore
-        systemIcons(
-          filter: $SystemIconsFilter,
-          orderBy: $SystemIconsOrderBy,
-          limit: $SystemIconsLimit,
-          offset: $SystemIconsOffset
-        ) {
-          ...system
-        }
-        systemIconsCount(
-          filter: $SystemIconsCountFilter
-        )
-        systemCards(
-          filter: $SystemCardsFilter,
-          orderBy: $SystemCardsOrderBy,
-          limit: $SystemCardsLimit,
-          offset: $SystemCardsOffset
-        ) {
-          ...system
-        }
-        systemCardsCount(
-          filter: $SystemCardsCountFilter
-        )
-        postCards(
-          filter: $PostCardsFilter,
-          orderBy: $PostCardsOrderBy,
-          limit: $PostCardsLimit,
-          offset: $PostCardsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postCardsCount(
-          filter: $PostCardsCountFilter
-        )
-        posts(
-          filter: $PostsFilter,
-          orderBy: $PostsOrderBy,
-          limit: $PostsLimit,
-          offset: $PostsOffset
-        ) {
-          ...post
-          categoriesCount(
-            filter: $CategoriesCountFilter
-          )
-          postFilesCount(
-            filter: $PostFilesCountFilter
-          )
-        }
-        postsCount(
-          filter: $PostsCountFilter
-        )
-      }
-      postFilesCount(
-        filter: $PostFilesCountFilter
       )
     }
     postsCount(
       filter: $PostsCountFilter
     )
   }
+}
+
+mutation CreateOnePost(
+  $input: PostCreateInput!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $PostsCountFilter: PostFilter,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
+) {
+  createOnePost(
+    input: $input
+  ) {
+    ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categories(
+      filter: $CategoriesFilter,
+      orderBy: $CategoriesOrderBy,
+      limit: $CategoriesLimit,
+      offset: $CategoriesOffset
+    ) {
+      ...category
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categoriesCount(
+      filter: $CategoriesCountFilter
+    )
+  }
+}
+
+mutation CreateOneCategory(
+  $input: CategoryCreateInput!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter,
+  $PostsCountFilter: PostFilter
+) {
+  createOneCategory(
+    input: $input
+  ) {
+    ...category
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
+    ) {
+      ...post
+      author {
+        ...user
+      }
+      categories(
+        filter: $CategoriesFilter,
+        orderBy: $CategoriesOrderBy,
+        limit: $CategoriesLimit,
+        offset: $CategoriesOffset
+      ) {
+        ...category
+      }
+      categoriesCount(
+        filter: $CategoriesCountFilter
+      )
+    }
+    postsCount(
+      filter: $PostsCountFilter
+    )
+  }
+}
+
+mutation CreateManyUser(
+  $input: [UserCreateInput!]!
+) {
+  createManyUser(
+    input: $input
+  )
+}
+
+mutation CreateManyPost(
+  $input: [PostCreateInput!]!
+) {
+  createManyPost(
+    input: $input
+  )
+}
+
+mutation CreateManyCategory(
+  $input: [CategoryCreateInput!]!
+) {
+  createManyCategory(
+    input: $input
+  )
+}
+
+mutation UpdateOneUser(
+  $where: UserUniqueFilter!,
+  $data: UserUpdateInput!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter,
+  $PostsCountFilter: PostFilter
+) {
+  updateOneUser(
+    where: $where,
+    data: $data
+  ) {
+    ...user
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
+    ) {
+      ...post
+      author {
+        ...user
+      }
+      categories(
+        filter: $CategoriesFilter,
+        orderBy: $CategoriesOrderBy,
+        limit: $CategoriesLimit,
+        offset: $CategoriesOffset
+      ) {
+        ...category
+      }
+      categoriesCount(
+        filter: $CategoriesCountFilter
+      )
+    }
+    postsCount(
+      filter: $PostsCountFilter
+    )
+  }
+}
+
+mutation UpdateOnePost(
+  $where: PostUniqueFilter!,
+  $data: PostUpdateInput!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $PostsCountFilter: PostFilter,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
+) {
+  updateOnePost(
+    where: $where,
+    data: $data
+  ) {
+    ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categories(
+      filter: $CategoriesFilter,
+      orderBy: $CategoriesOrderBy,
+      limit: $CategoriesLimit,
+      offset: $CategoriesOffset
+    ) {
+      ...category
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categoriesCount(
+      filter: $CategoriesCountFilter
+    )
+  }
+}
+
+mutation UpdateOneCategory(
+  $where: CategoryUniqueFilter!,
+  $data: CategoryUpdateInput!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter,
+  $PostsCountFilter: PostFilter
+) {
+  updateOneCategory(
+    where: $where,
+    data: $data
+  ) {
+    ...category
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
+    ) {
+      ...post
+      author {
+        ...user
+      }
+      categories(
+        filter: $CategoriesFilter,
+        orderBy: $CategoriesOrderBy,
+        limit: $CategoriesLimit,
+        offset: $CategoriesOffset
+      ) {
+        ...category
+      }
+      categoriesCount(
+        filter: $CategoriesCountFilter
+      )
+    }
+    postsCount(
+      filter: $PostsCountFilter
+    )
+  }
+}
+
+mutation UpdateManyUser(
+  $where: UserFilter!,
+  $data: UserUpdateInput!
+) {
+  updateManyUser(
+    where: $where,
+    data: $data
+  )
+}
+
+mutation UpdateManyPost(
+  $where: PostFilter!,
+  $data: PostUpdateInput!
+) {
+  updateManyPost(
+    where: $where,
+    data: $data
+  )
+}
+
+mutation UpdateManyCategory(
+  $where: CategoryFilter!,
+  $data: CategoryUpdateInput!
+) {
+  updateManyCategory(
+    where: $where,
+    data: $data
+  )
+}
+
+mutation DeleteOneUser(
+  $where: UserUniqueFilter!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter,
+  $PostsCountFilter: PostFilter
+) {
+  deleteOneUser(
+    where: $where
+  ) {
+    ...user
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
+    ) {
+      ...post
+      author {
+        ...user
+      }
+      categories(
+        filter: $CategoriesFilter,
+        orderBy: $CategoriesOrderBy,
+        limit: $CategoriesLimit,
+        offset: $CategoriesOffset
+      ) {
+        ...category
+      }
+      categoriesCount(
+        filter: $CategoriesCountFilter
+      )
+    }
+    postsCount(
+      filter: $PostsCountFilter
+    )
+  }
+}
+
+mutation DeleteOnePost(
+  $where: PostUniqueFilter!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $PostsCountFilter: PostFilter,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter
+) {
+  deleteOnePost(
+    where: $where
+  ) {
+    ...post
+    author {
+      ...user
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categories(
+      filter: $CategoriesFilter,
+      orderBy: $CategoriesOrderBy,
+      limit: $CategoriesLimit,
+      offset: $CategoriesOffset
+    ) {
+      ...category
+      posts(
+        filter: $PostsFilter,
+        orderBy: $PostsOrderBy,
+        limit: $PostsLimit,
+        offset: $PostsOffset
+      ) {
+        ...post
+      }
+      postsCount(
+        filter: $PostsCountFilter
+      )
+    }
+    categoriesCount(
+      filter: $CategoriesCountFilter
+    )
+  }
+}
+
+mutation DeleteOneCategory(
+  $where: CategoryUniqueFilter!,
+  $PostsFilter: PostFilter,
+  $PostsOrderBy: [PostOrderBy!],
+  $PostsLimit: Int,
+  $PostsOffset: Int,
+  $CategoriesFilter: CategoryFilter,
+  $CategoriesOrderBy: [CategoryOrderBy!],
+  $CategoriesLimit: Int,
+  $CategoriesOffset: Int,
+  $CategoriesCountFilter: CategoryFilter,
+  $PostsCountFilter: PostFilter
+) {
+  deleteOneCategory(
+    where: $where
+  ) {
+    ...category
+    posts(
+      filter: $PostsFilter,
+      orderBy: $PostsOrderBy,
+      limit: $PostsLimit,
+      offset: $PostsOffset
+    ) {
+      ...post
+      author {
+        ...user
+      }
+      categories(
+        filter: $CategoriesFilter,
+        orderBy: $CategoriesOrderBy,
+        limit: $CategoriesLimit,
+        offset: $CategoriesOffset
+      ) {
+        ...category
+      }
+      categoriesCount(
+        filter: $CategoriesCountFilter
+      )
+    }
+    postsCount(
+      filter: $PostsCountFilter
+    )
+  }
+}
+
+mutation DeleteManyUser(
+  $where: UserFilter!
+) {
+  deleteManyUser(
+    where: $where
+  )
+}
+
+mutation DeleteManyPost(
+  $where: PostFilter!
+) {
+  deleteManyPost(
+    where: $where
+  )
+}
+
+mutation DeleteManyCategory(
+  $where: CategoryFilter!
+) {
+  deleteManyCategory(
+    where: $where
+  )
 }
 

@@ -1,4 +1,3 @@
-import fs from "fs";
 import {
   buildSchema,
   GraphQLEnumType,
@@ -27,15 +26,12 @@ class AutoQuery {
   schema: GraphQLSchema;
   types: GraphQLObjectType<any, any>[];
   fragments: {
-    [key: string]: { name: string; value: GraphQLObjectType<any, any> };
+    [key: string]: string;
   } = {};
-  queries: { [key: string]: { name: string; value: string } } = {};
 
   constructor(schema: GraphQLSchema) {
     this.schema = schema;
     this.types = this.createTypes();
-    this.createFragment();
-    this.createQuery();
   }
 
   getBaseType(
@@ -71,28 +67,17 @@ class AutoQuery {
     );
   }
 
-  createFragmentFields(
-    fieldMaps: GraphQLFieldMap<any, any>,
-    maxLevel: number,
-    level = 0
-  ): string {
-    const fields = Object.values(fieldMaps).filter(({ args }) => !args.length);
-    if (!fields.length || level >= maxLevel) return "";
+  createFragmentFields(fieldMaps: GraphQLFieldMap<any, any>): string {
+    const fields = Object.values(fieldMaps).filter(
+      (field) => !field.args.length && !this.isFields(field.type)
+    );
     return [
       "{",
-      ...fields.map(
-        (field) =>
-          `${createSpaces((level + 1) * 2)}${
-            field.name
-          }${this.createFragmentFields(
-            this.getFieldTypes(this.getBaseType(field.type)),
-            maxLevel,
-            level + 1
-          )}`
-      ),
-      `${createSpaces(level * 2)}}`,
+      ...fields.map((field) => `${createSpaces(2)}${field.name}`),
+      `}`,
     ].join("\n");
   }
+
   createOutputFields(
     field: GraphQLField<any, any>,
     argsMap: {
@@ -101,15 +86,15 @@ class AutoQuery {
     maxLevel: number,
     level = 0
   ): string {
+    if (level > maxLevel) return "";
     const type = this.getBaseType(field.type);
+    const fragment = this.fragments[type.name];
     const fieldMaps = this.getFieldTypes(type);
     const fields = Object.values(fieldMaps).filter(
-      (field) =>
-        field.args.length && (level <= maxLevel || !this.isFields(field.type))
+      (field) => field.args.length || this.isFields(field.type)
     );
 
     const name = upperFirst(field.name);
-    const fragment = this.fragments[type.name];
     return [
       `${createSpaces((level + 1) * 2)}${field.name}${
         field.args.length
@@ -135,14 +120,14 @@ class AutoQuery {
               " {",
               fragment
                 ? `${createSpaces((level + 2) * 2)}...${
-                    this.fragments[type.name].name
+                    this.fragments[type.name]
                   }`
                 : [],
-              fields.map((field) =>
-                [
-                  this.createOutputFields(field, argsMap, maxLevel, level + 1),
-                ].join("\n")
-              ),
+              fields
+                .map((field) =>
+                  this.createOutputFields(field, argsMap, maxLevel, level + 1)
+                )
+                .filter((v) => v),
               fragment || fields.length
                 ? [`${createSpaces((level + 1) * 2)}}`]
                 : [],
@@ -154,12 +139,18 @@ class AutoQuery {
     ].join("\n");
   }
   createFragment() {
-    this.types
-      .filter(({ name }) => !["Query", "Mutation"].includes(name))
-      .forEach((v) => {
+    return this.types
+      .filter(
+        ({ name }) => !["Query", "Mutation", "Subscription"].includes(name)
+      )
+      .map((v) => {
         const name = lowercaseFirst(v.name);
-        this.fragments[v.name] = { name, value: v };
-      });
+        this.fragments[v.name] = name;
+        return `fragment ${name} on ${v.name} ${this.createFragmentFields(
+          v.getFields()
+        )}\n`;
+      })
+      .join("\n");
   }
 
   createOperation(operation: string, name: string, args: [string, string][]) {
@@ -173,44 +164,39 @@ class AutoQuery {
         : ""
     } {`;
   }
-  createQuery() {
-    Object.values(
-      this.types.find(({ name }) => name === "Query")?.getFields() ?? {}
-    ).forEach((v) => {
-      const argsMap: { [key: string]: string } = {};
-      const children = this.createOutputFields(v, argsMap, 2);
-      const args = Object.entries(argsMap);
-      this.queries[v.name] = {
-        name: upperFirst(v.name),
-        value:
+
+  createOperations(operation: string, maxLevel = 2) {
+    const name = lowercaseFirst(operation);
+    return Object.values(
+      this.types.find(({ name }) => name === operation)?.getFields() ?? {}
+    )
+      .map((v) => {
+        const argsMap: { [key: string]: string } = {};
+        const children = this.createOutputFields(v, argsMap, maxLevel);
+        const args = Object.entries(argsMap);
+
+        return (
           [
-            this.createOperation("query", upperFirst(v.name), args),
+            this.createOperation(name, upperFirst(v.name), args),
             children,
             "}",
-          ].join("\n") + "\n",
-      };
-    });
+          ].join("\n") + "\n"
+        );
+      })
+      .join("\n");
   }
-  output() {
-    console.log(
-      Object.entries(this.fragments)
-        .map(
-          (v) =>
-            `fragment ${v[1].name} on ${v[0]} ${this.createFragmentFields(
-              v[1].value.getFields(),
-              2
-            )}\n`
-        )
-        .join("\n")
-    );
-    console.log(
-      Object.values(this.queries)
-        .map((v) => v.value)
-        .join("\n")
-    );
+
+  generate(depth: number) {
+    return [
+      this.createFragment(),
+      this.createOperations("Query", depth),
+      this.createOperations("Mutation", depth),
+      this.createOperations("Subscription", depth),
+    ].join("\n");
   }
 }
 
-const schemaText = fs.readFileSync("schema/schema.graphql", "utf-8");
-const autoQuery = new AutoQuery(buildSchema(schemaText));
-autoQuery.output();
+export const generate = async (schemaText: string, depth = 2) => {
+  const autoQuery = new AutoQuery(buildSchema(schemaText));
+  return autoQuery.generate(depth);
+};
