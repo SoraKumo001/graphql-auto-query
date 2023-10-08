@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import fs from "fs";
+import { promises as fs } from "fs";
 import path from "path";
 import minimist from "minimist";
 import "@colors/colors";
@@ -25,7 +25,7 @@ const main = async () => {
     console.log(`\t-d, --depth Output depth levels`);
     console.log(`\t-o, --output output file path`);
   } else {
-    const readSchemaText = (path: string) =>
+    const readSchema = (path: string) =>
       path.match(/^https?:\/\//)
         ? fetch(path, {
             method: "POST",
@@ -36,16 +36,18 @@ const main = async () => {
             body: JSON.stringify({ query: getIntrospectionQuery() }),
           })
             .then((res) => res.json())
-            .then((res) => printSchema(buildClientSchema(res.data)))
-        : fs.readFileSync(path, "utf-8");
+            .then((res) => {
+              return printSchema(buildClientSchema(res.data));
+            })
+        : fs.readFile(path, "utf-8");
 
     const url = argv._[0];
     const output = argv.o ?? argv.output;
     const depth = argv.d ?? argv.depth;
-    const schemaText = await readSchemaText(url);
-    const text = await generate(schemaText, depth);
+    const schema = await readSchema(url);
+    const text = generate(schema, depth);
     if (output) {
-      fs.writeFileSync(output, text);
+      fs.writeFile(output, text);
     } else {
       console.log(text);
     }

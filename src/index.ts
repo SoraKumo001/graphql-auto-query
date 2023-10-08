@@ -105,10 +105,11 @@ class AutoQuery {
                   const argName = level
                     ? `${name}${upperFirst(arg.name)}`
                     : arg.name;
-                  argsMap[argName] = arg.type.toString();
+                  const genName = this.generateName(argsMap, argName, false);
+                  argsMap[genName] = arg.type.toString();
                   return `${createSpaces((level + 2) * 2)}${
                     arg.name
-                  }: $${argName}`;
+                  }: $${genName}`;
                 })
                 .join(",\n"),
               `${createSpaces((level + 1) * 2)})`,
@@ -138,13 +139,28 @@ class AutoQuery {
       }`,
     ].join("\n");
   }
+  generateName(
+    target: { [key: string]: string },
+    name: string,
+    types: boolean
+  ) {
+    const values = new Set(Object.values(target));
+    const typeNames = types
+      ? new Set(this.types.map((v) => v.name))
+      : undefined;
+    let genName = lowercaseFirst(name);
+    while (values.has(genName) || typeNames?.has(genName)) {
+      genName = `${genName}_`;
+    }
+    return genName;
+  }
   createFragment() {
     return this.types
       .filter(
         ({ name }) => !["Query", "Mutation", "Subscription"].includes(name)
       )
       .map((v) => {
-        const name = lowercaseFirst(v.name);
+        const name = this.generateName(this.fragments, v.name, true);
         this.fragments[v.name] = name;
         return `fragment ${name} on ${v.name} ${this.createFragmentFields(
           v.getFields()
@@ -196,7 +212,9 @@ class AutoQuery {
   }
 }
 
-export const generate = async (schemaText: string, depth = 2) => {
-  const autoQuery = new AutoQuery(buildSchema(schemaText));
+export const generate = (schema: string | GraphQLSchema, depth = 2) => {
+  const autoQuery = new AutoQuery(
+    schema instanceof GraphQLSchema ? schema : buildSchema(schema)
+  );
   return autoQuery.generate(depth);
 };
