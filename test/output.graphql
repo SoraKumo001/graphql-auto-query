@@ -55,12 +55,52 @@ query FindUniqueUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findUniqueUser(
     filter: $filter
@@ -75,21 +115,115 @@ query FindUniqueUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -100,12 +234,67 @@ query FindUniquePost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   findUniquePost(
     filter: $filter
@@ -120,32 +309,160 @@ query FindUniquePost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -156,12 +473,52 @@ query FindUniqueCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findUniqueCategory(
     filter: $filter
@@ -176,21 +533,115 @@ query FindUniqueCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -202,12 +653,52 @@ query FindFirstUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findFirstUser(
     filter: $filter,
@@ -223,21 +714,115 @@ query FindFirstUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -249,12 +834,67 @@ query FindFirstPost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   findFirstPost(
     filter: $filter,
@@ -270,32 +910,160 @@ query FindFirstPost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -307,12 +1075,52 @@ query FindFirstCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findFirstCategory(
     filter: $filter,
@@ -328,21 +1136,115 @@ query FindFirstCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -356,12 +1258,52 @@ query FindManyUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findManyUser(
     filter: $filter,
@@ -379,21 +1321,115 @@ query FindManyUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -407,12 +1443,67 @@ query FindManyPost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   findManyPost(
     filter: $filter,
@@ -430,32 +1521,160 @@ query FindManyPost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -469,12 +1688,52 @@ query FindManyCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   findManyCategory(
     filter: $filter,
@@ -492,21 +1751,115 @@ query FindManyCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -529,12 +1882,52 @@ mutation CreateOneUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   createOneUser(
     input: $input
@@ -549,21 +1942,115 @@ mutation CreateOneUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -574,12 +2061,67 @@ mutation CreateOnePost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   createOnePost(
     input: $input
@@ -594,32 +2136,160 @@ mutation CreateOnePost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -630,12 +2300,52 @@ mutation CreateOneCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   createOneCategory(
     input: $input
@@ -650,21 +2360,115 @@ mutation CreateOneCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -700,12 +2504,52 @@ mutation UpdateOneUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   updateOneUser(
     where: $where,
@@ -721,21 +2565,115 @@ mutation UpdateOneUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -747,12 +2685,67 @@ mutation UpdateOnePost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   updateOnePost(
     where: $where,
@@ -768,32 +2761,160 @@ mutation UpdateOnePost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -805,12 +2926,52 @@ mutation UpdateOneCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   updateOneCategory(
     where: $where,
@@ -826,21 +2987,115 @@ mutation UpdateOneCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -881,12 +3136,52 @@ mutation DeleteOneUser(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   deleteOneUser(
     where: $where
@@ -901,21 +3196,115 @@ mutation DeleteOneUser(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }
@@ -926,12 +3315,67 @@ mutation DeleteOnePost(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
-  $postsCountFilter: PostFilter,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
-  $categoriesCountFilter: CategoryFilter
+  $categoriesCountFilter: CategoryFilter,
+  $postsCountFilter: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter2: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter4: CategoryFilter,
+  $categoriesOrderBy4: [CategoryOrderBy!],
+  $categoriesLimit4: Int,
+  $categoriesOffset4: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $categoriesFilter5: CategoryFilter,
+  $categoriesOrderBy5: [CategoryOrderBy!],
+  $categoriesLimit5: Int,
+  $categoriesOffset5: Int,
+  $categoriesCountFilter4: CategoryFilter,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter6: CategoryFilter,
+  $categoriesOrderBy6: [CategoryOrderBy!],
+  $categoriesLimit6: Int,
+  $categoriesOffset6: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $categoriesFilter7: CategoryFilter,
+  $categoriesOrderBy7: [CategoryOrderBy!],
+  $categoriesLimit7: Int,
+  $categoriesOffset7: Int,
+  $categoriesCountFilter5: CategoryFilter,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter6: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter7: CategoryFilter
 ) {
   deleteOnePost(
     where: $where
@@ -946,32 +3390,160 @@ mutation DeleteOnePost(
         offset: $postsOffset
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter2,
+            orderBy: $postsOrderBy2,
+            limit: $postsLimit2,
+            offset: $postsOffset2
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter,
+              orderBy: $categoriesOrderBy,
+              limit: $categoriesLimit,
+              offset: $categoriesOffset
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter
+          )
+        }
+        categories(
+          filter: $categoriesFilter2,
+          orderBy: $categoriesOrderBy2,
+          limit: $categoriesLimit2,
+          offset: $categoriesOffset2
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter3,
+            orderBy: $postsOrderBy3,
+            limit: $postsLimit3,
+            offset: $postsOffset3
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter3,
+              orderBy: $categoriesOrderBy3,
+              limit: $categoriesLimit3,
+              offset: $categoriesOffset3
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter2
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter2
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter3
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter3
       )
     }
     categories(
-      filter: $categoriesFilter,
-      orderBy: $categoriesOrderBy,
-      limit: $categoriesLimit,
-      offset: $categoriesOffset
+      filter: $categoriesFilter4,
+      orderBy: $categoriesOrderBy4,
+      limit: $categoriesLimit4,
+      offset: $categoriesOffset4
     ) {
       ...category
       posts(
-        filter: $postsFilter,
-        orderBy: $postsOrderBy,
-        limit: $postsLimit,
-        offset: $postsOffset
+        filter: $postsFilter4,
+        orderBy: $postsOrderBy4,
+        limit: $postsLimit4,
+        offset: $postsOffset4
       ) {
         ...post
+        author {
+          ...user
+          posts(
+            filter: $postsFilter5,
+            orderBy: $postsOrderBy5,
+            limit: $postsLimit5,
+            offset: $postsOffset5
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter5,
+              orderBy: $categoriesOrderBy5,
+              limit: $categoriesLimit5,
+              offset: $categoriesOffset5
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter4
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter4
+          )
+        }
+        categories(
+          filter: $categoriesFilter6,
+          orderBy: $categoriesOrderBy6,
+          limit: $categoriesLimit6,
+          offset: $categoriesOffset6
+        ) {
+          ...category
+          posts(
+            filter: $postsFilter6,
+            orderBy: $postsOrderBy6,
+            limit: $postsLimit6,
+            offset: $postsOffset6
+          ) {
+            ...post
+            author {
+              ...user
+            }
+            categories(
+              filter: $categoriesFilter7,
+              orderBy: $categoriesOrderBy7,
+              limit: $categoriesLimit7,
+              offset: $categoriesOffset7
+            ) {
+              ...category
+            }
+            categoriesCount(
+              filter: $categoriesCountFilter5
+            )
+          }
+          postsCount(
+            filter: $postsCountFilter5
+          )
+        }
+        categoriesCount(
+          filter: $categoriesCountFilter6
+        )
       }
       postsCount(
-        filter: $postsCountFilter
+        filter: $postsCountFilter6
       )
     }
     categoriesCount(
-      filter: $categoriesCountFilter
+      filter: $categoriesCountFilter7
     )
   }
 }
@@ -982,12 +3554,52 @@ mutation DeleteOneCategory(
   $postsOrderBy: [PostOrderBy!],
   $postsLimit: Int,
   $postsOffset: Int,
+  $postsFilter2: PostFilter,
+  $postsOrderBy2: [PostOrderBy!],
+  $postsLimit2: Int,
+  $postsOffset2: Int,
+  $postsFilter3: PostFilter,
+  $postsOrderBy3: [PostOrderBy!],
+  $postsLimit3: Int,
+  $postsOffset3: Int,
+  $postsCountFilter: PostFilter,
   $categoriesFilter: CategoryFilter,
   $categoriesOrderBy: [CategoryOrderBy!],
   $categoriesLimit: Int,
   $categoriesOffset: Int,
+  $postsFilter4: PostFilter,
+  $postsOrderBy4: [PostOrderBy!],
+  $postsLimit4: Int,
+  $postsOffset4: Int,
+  $postsCountFilter2: PostFilter,
   $categoriesCountFilter: CategoryFilter,
-  $postsCountFilter: PostFilter
+  $postsCountFilter3: PostFilter,
+  $categoriesFilter2: CategoryFilter,
+  $categoriesOrderBy2: [CategoryOrderBy!],
+  $categoriesLimit2: Int,
+  $categoriesOffset2: Int,
+  $postsFilter5: PostFilter,
+  $postsOrderBy5: [PostOrderBy!],
+  $postsLimit5: Int,
+  $postsOffset5: Int,
+  $postsFilter6: PostFilter,
+  $postsOrderBy6: [PostOrderBy!],
+  $postsLimit6: Int,
+  $postsOffset6: Int,
+  $postsCountFilter4: PostFilter,
+  $categoriesFilter3: CategoryFilter,
+  $categoriesOrderBy3: [CategoryOrderBy!],
+  $categoriesLimit3: Int,
+  $categoriesOffset3: Int,
+  $postsFilter7: PostFilter,
+  $postsOrderBy7: [PostOrderBy!],
+  $postsLimit7: Int,
+  $postsOffset7: Int,
+  $postsCountFilter5: PostFilter,
+  $categoriesCountFilter2: CategoryFilter,
+  $postsCountFilter6: PostFilter,
+  $categoriesCountFilter3: CategoryFilter,
+  $postsCountFilter7: PostFilter
 ) {
   deleteOneCategory(
     where: $where
@@ -1002,21 +3614,115 @@ mutation DeleteOneCategory(
       ...post
       author {
         ...user
+        posts(
+          filter: $postsFilter2,
+          orderBy: $postsOrderBy2,
+          limit: $postsLimit2,
+          offset: $postsOffset2
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter3,
+              orderBy: $postsOrderBy3,
+              limit: $postsLimit3,
+              offset: $postsOffset3
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter
+            )
+          }
+          categories(
+            filter: $categoriesFilter,
+            orderBy: $categoriesOrderBy,
+            limit: $categoriesLimit,
+            offset: $categoriesOffset
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter4,
+              orderBy: $postsOrderBy4,
+              limit: $postsLimit4,
+              offset: $postsOffset4
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter2
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter3
+        )
       }
       categories(
-        filter: $categoriesFilter,
-        orderBy: $categoriesOrderBy,
-        limit: $categoriesLimit,
-        offset: $categoriesOffset
+        filter: $categoriesFilter2,
+        orderBy: $categoriesOrderBy2,
+        limit: $categoriesLimit2,
+        offset: $categoriesOffset2
       ) {
         ...category
+        posts(
+          filter: $postsFilter5,
+          orderBy: $postsOrderBy5,
+          limit: $postsLimit5,
+          offset: $postsOffset5
+        ) {
+          ...post
+          author {
+            ...user
+            posts(
+              filter: $postsFilter6,
+              orderBy: $postsOrderBy6,
+              limit: $postsLimit6,
+              offset: $postsOffset6
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter4
+            )
+          }
+          categories(
+            filter: $categoriesFilter3,
+            orderBy: $categoriesOrderBy3,
+            limit: $categoriesLimit3,
+            offset: $categoriesOffset3
+          ) {
+            ...category
+            posts(
+              filter: $postsFilter7,
+              orderBy: $postsOrderBy7,
+              limit: $postsLimit7,
+              offset: $postsOffset7
+            ) {
+              ...post
+            }
+            postsCount(
+              filter: $postsCountFilter5
+            )
+          }
+          categoriesCount(
+            filter: $categoriesCountFilter2
+          )
+        }
+        postsCount(
+          filter: $postsCountFilter6
+        )
       }
       categoriesCount(
-        filter: $categoriesCountFilter
+        filter: $categoriesCountFilter3
       )
     }
     postsCount(
-      filter: $postsCountFilter
+      filter: $postsCountFilter7
     )
   }
 }

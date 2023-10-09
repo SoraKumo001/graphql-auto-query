@@ -11,11 +11,18 @@ import {
   printSchema,
 } from "graphql/utilities";
 
+const readPackage = () => {
+  try {
+    return require(path.resolve(__dirname, "../../../package.json"));
+  } catch (e) {}
+  return require(path.resolve(__dirname, "../../package.json"));
+};
+
 const main = async () => {
   const argv = minimist(process.argv.slice(2));
 
   if (!argv._.length) {
-    const pkg = require(path.resolve(__dirname, "../../package.json"));
+    const pkg = readPackage();
     console.log(`${pkg.name} ${pkg.version}\n`.blue);
     console.log("USAGE".bold);
     console.log("\tcommand <path>");

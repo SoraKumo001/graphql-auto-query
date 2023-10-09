@@ -1,6 +1,6 @@
 # graphql-auto-query
 
-Automatic generation of GraphQL queries from GraphQL schemas
+This project automatically generates GraphQL queries from GraphQL schemas.
 
 [schema.graphql](https://raw.githubusercontent.com/SoraKumo001/graphql-auto-query/master/test/source.graphql) -> [query.graphql](https://raw.githubusercontent.com/SoraKumo001/graphql-auto-query/master/test/output.graphql)
 
@@ -13,8 +13,9 @@ Automatic generation of GraphQL queries from GraphQL schemas
 | **OPTIONS**   | _-d, --depth_      | Output depth levels (default 2) |
 |               | _-o, --output_     | output file path                |
 
-```sh
+### CLI
 
+```sh
 # Standard output from server
 graphql-auto-query http://localhost:3000/graphql
 
@@ -25,7 +26,7 @@ graphql-auto-query http://localhost:3000/graphql -d 3
 graphql-auto-query schema/schema.graphql -o query.graphql
 ```
 
-## When used as a library
+## library
 
 ```ts
 import fs from "fs";

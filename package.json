@@ -1,15 +1,15 @@
 {
   "name": "graphql-auto-query",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "author": "SoraKumo <info@croud.jp>",
   "description": "Automatic generation of GraphQL queries from GraphQL schemas",
   "scripts": {
     "build": "tsc && tspc -p ./tsconfig.esm.json && cpy esm dist",
     "test": "ts-node src/command",
-    "test:generate": "ts-node src/command test/source.graphql -o test/output.graphql"
+    "test:generate": "ts-node src/command test/source.graphql -o test/output.graphql -d 5"
   },
   "bin": {
-    "graphql-query-generator": "dist/csj/command/index.js"
+    "graphql-auto-query": "dist/cjs/command/index.js"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
