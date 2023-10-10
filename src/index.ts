@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   buildSchema,
   GraphQLEnumType,
@@ -12,7 +13,6 @@ import {
   GraphQLSchema,
   GraphQLType,
   GraphQLUnionType,
-  Kind,
 } from "graphql";
 
 /**
@@ -46,6 +46,7 @@ class AutoQuery {
   fragments: {
     [key: string]: string;
   } = {};
+  isFragmentUsed = new Set<string>();
 
   /**
    * Create an instance of AutoQuery
@@ -104,8 +105,7 @@ class AutoQuery {
    */
   createTypes() {
     return Object.values(this.schema.getTypeMap()).filter(
-      (obj): obj is GraphQLObjectType =>
-        obj.astNode?.kind === Kind.OBJECT_TYPE_DEFINITION
+      (obj): obj is GraphQLObjectType => obj instanceof GraphQLObjectType
     );
   }
 
@@ -160,6 +160,7 @@ class AutoQuery {
     if (level > maxLevel) return "";
     const type = this.getBaseType(field.type);
     const fragment = this.fragments[type.name];
+    if (fragment) this.isFragmentUsed.add(fragment);
     const fieldMaps = this.getFieldTypes(type);
     const fields = Object.values(fieldMaps).filter(
       (field) => field.args.length || this.isFields(field.type)
@@ -225,20 +226,37 @@ class AutoQuery {
 
   /**
    * Create a string of GraphQL fragments
-   * @returns String of GraphQL fragments
    */
   createFragment() {
-    return this.types
+    this.types
       .filter(
         ({ name }) => !["Query", "Mutation", "Subscription"].includes(name)
       )
-      .map((v) => {
+      .forEach((v) => {
         const name = this.generateFragmentName(this.fragments, v.name);
         this.fragments[v.name] = name;
-        return `fragment ${name} on ${v.name} ${this.createFragmentFields(
-          v.getFields()
+      });
+  }
+
+  /**
+   * Create a string of GraphQL operations for a given operation type
+   * @param operation Operation type
+   * @param maxLevel Maximum depth level
+   * @returns String of GraphQL operations
+   */
+  outputFragment() {
+    return Object.entries(this.fragments)
+      .map(([typeName, fragmentName]) => {
+        const type = this.types.find(
+          ({ name }) =>
+            name === typeName && this.isFragmentUsed.has(fragmentName)
+        );
+        if (!type) return "";
+        return `fragment ${fragmentName} on ${typeName} ${this.createFragmentFields(
+          type.getFields()
         )}\n`;
       })
+      .filter((v) => v)
       .join("\n");
   }
 
@@ -248,7 +266,7 @@ class AutoQuery {
    * @param maxLevel Maximum depth level
    * @returns String of GraphQL operations
    */
-  createOperations(operation: string, maxLevel = 2) {
+  outputOperations(operation: string, maxLevel = 2) {
     const name = lowercaseFirst(operation);
     return Object.values(
       this.types.find(({ name }) => name === operation)?.getFields() ?? {}
@@ -260,7 +278,7 @@ class AutoQuery {
 
         return (
           [
-            this.createOperation(name, upperFirst(v.name), args),
+            this.outputOperation(name, upperFirst(v.name), args),
             children,
             "}",
           ].join("\n") + "\n"
@@ -276,7 +294,7 @@ class AutoQuery {
    * @param args Array of argument names and types
    * @returns String of GraphQL operation arguments
    */
-  createOperation(operation: string, name: string, args: [string, string][]) {
+  outputOperation(operation: string, name: string, args: [string, string][]) {
     return `${operation} ${name}${
       args.length
         ? [
@@ -294,12 +312,13 @@ class AutoQuery {
    * @returns GraphQL query string
    */
   generate(depth: number) {
-    return [
-      this.createFragment(),
-      this.createOperations("Query", depth),
-      this.createOperations("Mutation", depth),
-      this.createOperations("Subscription", depth),
-    ].join("\n");
+    this.createFragment();
+    const operations = [
+      this.outputOperations("Query", depth),
+      this.outputOperations("Mutation", depth),
+      this.outputOperations("Subscription", depth),
+    ];
+    return [this.outputFragment(), ...operations].join("\n");
   }
 }
 

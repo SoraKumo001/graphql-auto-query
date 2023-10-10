@@ -44,7 +44,7 @@ const main = async () => {
           })
             .then((res) => res.json())
             .then((res) => {
-              return printSchema(buildClientSchema(res.data));
+              return buildClientSchema(res.data);
             })
         : fs.readFile(path, "utf-8");
 
