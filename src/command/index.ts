@@ -5,11 +5,7 @@ import path from "path";
 import minimist from "minimist";
 import "@colors/colors";
 import { generate } from "..";
-import {
-  buildClientSchema,
-  getIntrospectionQuery,
-  printSchema,
-} from "graphql/utilities";
+import { buildClientSchema, getIntrospectionQuery } from "graphql/utilities";
 
 const readPackage = () => {
   try {
