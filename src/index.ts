@@ -233,9 +233,19 @@ class AutoQuery {
         ({ name }) => !["Query", "Mutation", "Subscription"].includes(name)
       )
       .forEach((v) => {
-        const name = this.generateFragmentName(this.fragments, v.name);
-        this.fragments[v.name] = name;
+        const fragmentName = this.generateFragmentName(this.fragments, v.name);
+
+        this.fragments[v.name] = fragmentName;
       });
+
+    const newFragments = Object.entries(this.fragments).filter(([typeName]) => {
+      const type = this.types.find(({ name }) => name === typeName);
+      const fields = Object.values(type?.getFields() ?? {}).filter(
+        (field) => !field.args.length && !this.isFields(field.type)
+      );
+      return fields.length > 0;
+    });
+    this.fragments = Object.fromEntries(newFragments);
   }
 
   /**
@@ -259,7 +269,18 @@ class AutoQuery {
       .filter((v) => v)
       .join("\n");
   }
-
+  getTypeName(name: string) {
+    switch (name) {
+      case "Query":
+        return this.schema.getQueryType()?.name ?? lowercaseFirst(name);
+      case "Mutation":
+        return this.schema.getMutationType()?.name ?? lowercaseFirst(name);
+      case "Subscription":
+        return this.schema.getSubscriptionType()?.name ?? lowercaseFirst(name);
+      default:
+        return lowercaseFirst(name);
+    }
+  }
   /**
    * Create a string of GraphQL operations for a given operation type
    * @param operation Operation type
@@ -268,8 +289,9 @@ class AutoQuery {
    */
   outputOperations(operation: string, maxLevel = 2) {
     const name = lowercaseFirst(operation);
+    const typeName = this.getTypeName(operation);
     return Object.values(
-      this.types.find(({ name }) => name === operation)?.getFields() ?? {}
+      this.types.find(({ name }) => name === typeName)?.getFields() ?? {}
     )
       .map((v) => {
         const argsMap: { [key: string]: string } = {};
