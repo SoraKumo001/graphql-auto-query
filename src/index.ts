@@ -167,6 +167,7 @@ class AutoQuery {
       (field) => field.args.length || this.isFields(field.type)
     );
     const name = upperFirst(field.name);
+    const newArgsMap = { ...argsMap };
     const fieldOutput = `${createSpaces((level + 1) * 2)}${field.name}${
       field.args.length
         ? [
@@ -176,8 +177,8 @@ class AutoQuery {
                 const argName = level
                   ? `${name}${upperFirst(arg.name)}`
                   : arg.name;
-                const genName = this.generateArgsName(argsMap, argName);
-                argsMap[genName] = arg.type.toString();
+                const genName = this.generateArgsName(newArgsMap, argName);
+                newArgsMap[genName] = arg.type.toString();
                 return `${createSpaces((level + 2) * 2)}${
                   arg.name
                 }: $${genName}`;
@@ -190,7 +191,7 @@ class AutoQuery {
 
     const childOutput = fields
       .map((field) =>
-        this.createOutputFields(field, argsMap, maxLevel, level + 1)
+        this.createOutputFields(field, newArgsMap, maxLevel, level + 1)
       )
       .filter((v) => v)
       .join("\n");
@@ -204,6 +205,7 @@ class AutoQuery {
 
     if (childOutput === "" && fragmentOutput === "" && closingOutput !== "")
       return "";
+    Object.assign(argsMap, newArgsMap);
     return [fieldOutput, fragmentOutput, childOutput, closingOutput]
       .filter((v) => v)
       .join("\n");

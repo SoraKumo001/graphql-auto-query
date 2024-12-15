@@ -1,6 +1,6 @@
 {
   "name": "graphql-auto-query",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "SoraKumo <info@croud.jp>",
   "description": "Automatic generation of GraphQL queries from GraphQL schemas",
   "scripts": {
