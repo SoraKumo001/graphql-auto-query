@@ -50,6 +50,8 @@ const main = async () => {
     const schema = await readSchema(url);
     const text = generate(schema, depth);
     if (output) {
+      const dir = path.dirname(output);
+      await fs.mkdir(dir, { recursive: true });
       fs.writeFile(output, text);
     } else {
       console.log(text);

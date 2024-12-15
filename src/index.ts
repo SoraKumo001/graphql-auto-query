@@ -298,7 +298,6 @@ class AutoQuery {
         const argsMap: { [key: string]: string } = {};
         const children = this.createOutputFields(v, argsMap, maxLevel);
         const args = Object.entries(argsMap);
-
         return (
           [
             this.outputOperation(name, upperFirst(v.name), args),
