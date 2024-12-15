@@ -20467,7 +20467,7 @@ query Pokemon_v2_versionname_by_pk(
 }
 
 
-subscription Pokemon_v2_ability(
+subscription Pokemon_v2_ability_(
   $distinct_on: [pokemon_v2_ability_select_column!],
   $limit: Int,
   $offset: Int,
@@ -20602,7 +20602,7 @@ subscription Pokemon_v2_ability(
   }
 }
 
-subscription Pokemon_v2_ability_aggregate(
+subscription Pokemon_v2_ability_aggregate_(
   $distinct_on: [pokemon_v2_ability_select_column!],
   $limit: Int,
   $offset: Int,
@@ -20622,7 +20622,7 @@ subscription Pokemon_v2_ability_aggregate(
   }
 }
 
-subscription Pokemon_v2_ability_by_pk(
+subscription Pokemon_v2_ability_by_pk_(
   $id: Int!,
   $pokemon_v2_abilitychangesDistinct_on: [pokemon_v2_abilitychange_select_column!],
   $pokemon_v2_abilitychangesLimit: Int,
@@ -20880,7 +20880,7 @@ subscription Pokemon_v2_ability_stream(
   }
 }
 
-subscription Pokemon_v2_abilitychange(
+subscription Pokemon_v2_abilitychange_(
   $distinct_on: [pokemon_v2_abilitychange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -20923,7 +20923,7 @@ subscription Pokemon_v2_abilitychange(
   }
 }
 
-subscription Pokemon_v2_abilitychange_aggregate(
+subscription Pokemon_v2_abilitychange_aggregate_(
   $distinct_on: [pokemon_v2_abilitychange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -20943,7 +20943,7 @@ subscription Pokemon_v2_abilitychange_aggregate(
   }
 }
 
-subscription Pokemon_v2_abilitychange_by_pk(
+subscription Pokemon_v2_abilitychange_by_pk_(
   $id: Int!,
   $pokemon_v2_abilitychangeeffecttextsDistinct_on: [pokemon_v2_abilitychangeeffecttext_select_column!],
   $pokemon_v2_abilitychangeeffecttextsLimit: Int,
@@ -21017,7 +21017,7 @@ subscription Pokemon_v2_abilitychange_stream(
   }
 }
 
-subscription Pokemon_v2_abilitychangeeffecttext(
+subscription Pokemon_v2_abilitychangeeffecttext_(
   $distinct_on: [pokemon_v2_abilitychangeeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21041,7 +21041,7 @@ subscription Pokemon_v2_abilitychangeeffecttext(
   }
 }
 
-subscription Pokemon_v2_abilitychangeeffecttext_aggregate(
+subscription Pokemon_v2_abilitychangeeffecttext_aggregate_(
   $distinct_on: [pokemon_v2_abilitychangeeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21061,7 +21061,7 @@ subscription Pokemon_v2_abilitychangeeffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_abilitychangeeffecttext_by_pk(
+subscription Pokemon_v2_abilitychangeeffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_abilitychangeeffecttext_by_pk(
@@ -21097,7 +21097,7 @@ subscription Pokemon_v2_abilitychangeeffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_abilityeffecttext(
+subscription Pokemon_v2_abilityeffecttext_(
   $distinct_on: [pokemon_v2_abilityeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21121,7 +21121,7 @@ subscription Pokemon_v2_abilityeffecttext(
   }
 }
 
-subscription Pokemon_v2_abilityeffecttext_aggregate(
+subscription Pokemon_v2_abilityeffecttext_aggregate_(
   $distinct_on: [pokemon_v2_abilityeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21141,7 +21141,7 @@ subscription Pokemon_v2_abilityeffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_abilityeffecttext_by_pk(
+subscription Pokemon_v2_abilityeffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_abilityeffecttext_by_pk(
@@ -21177,7 +21177,7 @@ subscription Pokemon_v2_abilityeffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_abilityflavortext(
+subscription Pokemon_v2_abilityflavortext_(
   $distinct_on: [pokemon_v2_abilityflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21204,7 +21204,7 @@ subscription Pokemon_v2_abilityflavortext(
   }
 }
 
-subscription Pokemon_v2_abilityflavortext_aggregate(
+subscription Pokemon_v2_abilityflavortext_aggregate_(
   $distinct_on: [pokemon_v2_abilityflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21224,7 +21224,7 @@ subscription Pokemon_v2_abilityflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_abilityflavortext_by_pk(
+subscription Pokemon_v2_abilityflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_abilityflavortext_by_pk(
@@ -21266,7 +21266,7 @@ subscription Pokemon_v2_abilityflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_abilityname(
+subscription Pokemon_v2_abilityname_(
   $distinct_on: [pokemon_v2_abilityname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21290,7 +21290,7 @@ subscription Pokemon_v2_abilityname(
   }
 }
 
-subscription Pokemon_v2_abilityname_aggregate(
+subscription Pokemon_v2_abilityname_aggregate_(
   $distinct_on: [pokemon_v2_abilityname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21310,7 +21310,7 @@ subscription Pokemon_v2_abilityname_aggregate(
   }
 }
 
-subscription Pokemon_v2_abilityname_by_pk(
+subscription Pokemon_v2_abilityname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_abilityname_by_pk(
@@ -21346,7 +21346,7 @@ subscription Pokemon_v2_abilityname_stream(
   }
 }
 
-subscription Pokemon_v2_berry(
+subscription Pokemon_v2_berry_(
   $distinct_on: [pokemon_v2_berry_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21392,7 +21392,7 @@ subscription Pokemon_v2_berry(
   }
 }
 
-subscription Pokemon_v2_berry_aggregate(
+subscription Pokemon_v2_berry_aggregate_(
   $distinct_on: [pokemon_v2_berry_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21412,7 +21412,7 @@ subscription Pokemon_v2_berry_aggregate(
   }
 }
 
-subscription Pokemon_v2_berry_by_pk(
+subscription Pokemon_v2_berry_by_pk_(
   $id: Int!,
   $pokemon_v2_berryflavormapsDistinct_on: [pokemon_v2_berryflavormap_select_column!],
   $pokemon_v2_berryflavormapsLimit: Int,
@@ -21492,7 +21492,7 @@ subscription Pokemon_v2_berry_stream(
   }
 }
 
-subscription Pokemon_v2_berryfirmness(
+subscription Pokemon_v2_berryfirmness_(
   $distinct_on: [pokemon_v2_berryfirmness_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21548,7 +21548,7 @@ subscription Pokemon_v2_berryfirmness(
   }
 }
 
-subscription Pokemon_v2_berryfirmness_aggregate(
+subscription Pokemon_v2_berryfirmness_aggregate_(
   $distinct_on: [pokemon_v2_berryfirmness_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21568,7 +21568,7 @@ subscription Pokemon_v2_berryfirmness_aggregate(
   }
 }
 
-subscription Pokemon_v2_berryfirmness_by_pk(
+subscription Pokemon_v2_berryfirmness_by_pk_(
   $id: Int!,
   $pokemon_v2_berriesDistinct_on: [pokemon_v2_berry_select_column!],
   $pokemon_v2_berriesLimit: Int,
@@ -21668,7 +21668,7 @@ subscription Pokemon_v2_berryfirmness_stream(
   }
 }
 
-subscription Pokemon_v2_berryfirmnessname(
+subscription Pokemon_v2_berryfirmnessname_(
   $distinct_on: [pokemon_v2_berryfirmnessname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21692,7 +21692,7 @@ subscription Pokemon_v2_berryfirmnessname(
   }
 }
 
-subscription Pokemon_v2_berryfirmnessname_aggregate(
+subscription Pokemon_v2_berryfirmnessname_aggregate_(
   $distinct_on: [pokemon_v2_berryfirmnessname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21712,7 +21712,7 @@ subscription Pokemon_v2_berryfirmnessname_aggregate(
   }
 }
 
-subscription Pokemon_v2_berryfirmnessname_by_pk(
+subscription Pokemon_v2_berryfirmnessname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_berryfirmnessname_by_pk(
@@ -21748,7 +21748,7 @@ subscription Pokemon_v2_berryfirmnessname_stream(
   }
 }
 
-subscription Pokemon_v2_berryflavor(
+subscription Pokemon_v2_berryflavor_(
   $distinct_on: [pokemon_v2_berryflavor_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21845,7 +21845,7 @@ subscription Pokemon_v2_berryflavor(
   }
 }
 
-subscription Pokemon_v2_berryflavor_aggregate(
+subscription Pokemon_v2_berryflavor_aggregate_(
   $distinct_on: [pokemon_v2_berryflavor_select_column!],
   $limit: Int,
   $offset: Int,
@@ -21865,7 +21865,7 @@ subscription Pokemon_v2_berryflavor_aggregate(
   }
 }
 
-subscription Pokemon_v2_berryflavor_by_pk(
+subscription Pokemon_v2_berryflavor_by_pk_(
   $id: Int!,
   $pokemonV2NaturesByLikesFlavorIdDistinct_on: [pokemon_v2_nature_select_column!],
   $pokemonV2NaturesByLikesFlavorIdLimit: Int,
@@ -22047,7 +22047,7 @@ subscription Pokemon_v2_berryflavor_stream(
   }
 }
 
-subscription Pokemon_v2_berryflavormap(
+subscription Pokemon_v2_berryflavormap_(
   $distinct_on: [pokemon_v2_berryflavormap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22071,7 +22071,7 @@ subscription Pokemon_v2_berryflavormap(
   }
 }
 
-subscription Pokemon_v2_berryflavormap_aggregate(
+subscription Pokemon_v2_berryflavormap_aggregate_(
   $distinct_on: [pokemon_v2_berryflavormap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22091,7 +22091,7 @@ subscription Pokemon_v2_berryflavormap_aggregate(
   }
 }
 
-subscription Pokemon_v2_berryflavormap_by_pk(
+subscription Pokemon_v2_berryflavormap_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_berryflavormap_by_pk(
@@ -22127,7 +22127,7 @@ subscription Pokemon_v2_berryflavormap_stream(
   }
 }
 
-subscription Pokemon_v2_berryflavorname(
+subscription Pokemon_v2_berryflavorname_(
   $distinct_on: [pokemon_v2_berryflavorname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22151,7 +22151,7 @@ subscription Pokemon_v2_berryflavorname(
   }
 }
 
-subscription Pokemon_v2_berryflavorname_aggregate(
+subscription Pokemon_v2_berryflavorname_aggregate_(
   $distinct_on: [pokemon_v2_berryflavorname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22171,7 +22171,7 @@ subscription Pokemon_v2_berryflavorname_aggregate(
   }
 }
 
-subscription Pokemon_v2_berryflavorname_by_pk(
+subscription Pokemon_v2_berryflavorname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_berryflavorname_by_pk(
@@ -22207,7 +22207,7 @@ subscription Pokemon_v2_berryflavorname_stream(
   }
 }
 
-subscription Pokemon_v2_characteristic(
+subscription Pokemon_v2_characteristic_(
   $distinct_on: [pokemon_v2_characteristic_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22247,7 +22247,7 @@ subscription Pokemon_v2_characteristic(
   }
 }
 
-subscription Pokemon_v2_characteristic_aggregate(
+subscription Pokemon_v2_characteristic_aggregate_(
   $distinct_on: [pokemon_v2_characteristic_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22267,7 +22267,7 @@ subscription Pokemon_v2_characteristic_aggregate(
   }
 }
 
-subscription Pokemon_v2_characteristic_by_pk(
+subscription Pokemon_v2_characteristic_by_pk_(
   $id: Int!,
   $pokemon_v2_characteristicdescriptionsDistinct_on: [pokemon_v2_characteristicdescription_select_column!],
   $pokemon_v2_characteristicdescriptionsLimit: Int,
@@ -22335,7 +22335,7 @@ subscription Pokemon_v2_characteristic_stream(
   }
 }
 
-subscription Pokemon_v2_characteristicdescription(
+subscription Pokemon_v2_characteristicdescription_(
   $distinct_on: [pokemon_v2_characteristicdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22359,7 +22359,7 @@ subscription Pokemon_v2_characteristicdescription(
   }
 }
 
-subscription Pokemon_v2_characteristicdescription_aggregate(
+subscription Pokemon_v2_characteristicdescription_aggregate_(
   $distinct_on: [pokemon_v2_characteristicdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22379,7 +22379,7 @@ subscription Pokemon_v2_characteristicdescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_characteristicdescription_by_pk(
+subscription Pokemon_v2_characteristicdescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_characteristicdescription_by_pk(
@@ -22415,7 +22415,7 @@ subscription Pokemon_v2_characteristicdescription_stream(
   }
 }
 
-subscription Pokemon_v2_contestcombo(
+subscription Pokemon_v2_contestcombo_(
   $distinct_on: [pokemon_v2_contestcombo_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22439,7 +22439,7 @@ subscription Pokemon_v2_contestcombo(
   }
 }
 
-subscription Pokemon_v2_contestcombo_aggregate(
+subscription Pokemon_v2_contestcombo_aggregate_(
   $distinct_on: [pokemon_v2_contestcombo_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22459,7 +22459,7 @@ subscription Pokemon_v2_contestcombo_aggregate(
   }
 }
 
-subscription Pokemon_v2_contestcombo_by_pk(
+subscription Pokemon_v2_contestcombo_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_contestcombo_by_pk(
@@ -22495,7 +22495,7 @@ subscription Pokemon_v2_contestcombo_stream(
   }
 }
 
-subscription Pokemon_v2_contesteffect(
+subscription Pokemon_v2_contesteffect_(
   $distinct_on: [pokemon_v2_contesteffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22570,7 +22570,7 @@ subscription Pokemon_v2_contesteffect(
   }
 }
 
-subscription Pokemon_v2_contesteffect_aggregate(
+subscription Pokemon_v2_contesteffect_aggregate_(
   $distinct_on: [pokemon_v2_contesteffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22590,7 +22590,7 @@ subscription Pokemon_v2_contesteffect_aggregate(
   }
 }
 
-subscription Pokemon_v2_contesteffect_by_pk(
+subscription Pokemon_v2_contesteffect_by_pk_(
   $id: Int!,
   $pokemon_v2_contesteffecteffecttextsDistinct_on: [pokemon_v2_contesteffecteffecttext_select_column!],
   $pokemon_v2_contesteffecteffecttextsLimit: Int,
@@ -22728,7 +22728,7 @@ subscription Pokemon_v2_contesteffect_stream(
   }
 }
 
-subscription Pokemon_v2_contesteffecteffecttext(
+subscription Pokemon_v2_contesteffecteffecttext_(
   $distinct_on: [pokemon_v2_contesteffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22752,7 +22752,7 @@ subscription Pokemon_v2_contesteffecteffecttext(
   }
 }
 
-subscription Pokemon_v2_contesteffecteffecttext_aggregate(
+subscription Pokemon_v2_contesteffecteffecttext_aggregate_(
   $distinct_on: [pokemon_v2_contesteffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22772,7 +22772,7 @@ subscription Pokemon_v2_contesteffecteffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_contesteffecteffecttext_by_pk(
+subscription Pokemon_v2_contesteffecteffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_contesteffecteffecttext_by_pk(
@@ -22808,7 +22808,7 @@ subscription Pokemon_v2_contesteffecteffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_contesteffectflavortext(
+subscription Pokemon_v2_contesteffectflavortext_(
   $distinct_on: [pokemon_v2_contesteffectflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22832,7 +22832,7 @@ subscription Pokemon_v2_contesteffectflavortext(
   }
 }
 
-subscription Pokemon_v2_contesteffectflavortext_aggregate(
+subscription Pokemon_v2_contesteffectflavortext_aggregate_(
   $distinct_on: [pokemon_v2_contesteffectflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22852,7 +22852,7 @@ subscription Pokemon_v2_contesteffectflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_contesteffectflavortext_by_pk(
+subscription Pokemon_v2_contesteffectflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_contesteffectflavortext_by_pk(
@@ -22888,7 +22888,7 @@ subscription Pokemon_v2_contesteffectflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_contesttype(
+subscription Pokemon_v2_contesttype_(
   $distinct_on: [pokemon_v2_contesttype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22966,7 +22966,7 @@ subscription Pokemon_v2_contesttype(
   }
 }
 
-subscription Pokemon_v2_contesttype_aggregate(
+subscription Pokemon_v2_contesttype_aggregate_(
   $distinct_on: [pokemon_v2_contesttype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -22986,7 +22986,7 @@ subscription Pokemon_v2_contesttype_aggregate(
   }
 }
 
-subscription Pokemon_v2_contesttype_by_pk(
+subscription Pokemon_v2_contesttype_by_pk_(
   $id: Int!,
   $pokemon_v2_berryflavorsDistinct_on: [pokemon_v2_berryflavor_select_column!],
   $pokemon_v2_berryflavorsLimit: Int,
@@ -23130,7 +23130,7 @@ subscription Pokemon_v2_contesttype_stream(
   }
 }
 
-subscription Pokemon_v2_contesttypename(
+subscription Pokemon_v2_contesttypename_(
   $distinct_on: [pokemon_v2_contesttypename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23154,7 +23154,7 @@ subscription Pokemon_v2_contesttypename(
   }
 }
 
-subscription Pokemon_v2_contesttypename_aggregate(
+subscription Pokemon_v2_contesttypename_aggregate_(
   $distinct_on: [pokemon_v2_contesttypename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23174,7 +23174,7 @@ subscription Pokemon_v2_contesttypename_aggregate(
   }
 }
 
-subscription Pokemon_v2_contesttypename_by_pk(
+subscription Pokemon_v2_contesttypename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_contesttypename_by_pk(
@@ -23210,7 +23210,7 @@ subscription Pokemon_v2_contesttypename_stream(
   }
 }
 
-subscription Pokemon_v2_egggroup(
+subscription Pokemon_v2_egggroup_(
   $distinct_on: [pokemon_v2_egggroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23266,7 +23266,7 @@ subscription Pokemon_v2_egggroup(
   }
 }
 
-subscription Pokemon_v2_egggroup_aggregate(
+subscription Pokemon_v2_egggroup_aggregate_(
   $distinct_on: [pokemon_v2_egggroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23286,7 +23286,7 @@ subscription Pokemon_v2_egggroup_aggregate(
   }
 }
 
-subscription Pokemon_v2_egggroup_by_pk(
+subscription Pokemon_v2_egggroup_by_pk_(
   $id: Int!,
   $pokemon_v2_egggroupnamesDistinct_on: [pokemon_v2_egggroupname_select_column!],
   $pokemon_v2_egggroupnamesLimit: Int,
@@ -23386,7 +23386,7 @@ subscription Pokemon_v2_egggroup_stream(
   }
 }
 
-subscription Pokemon_v2_egggroupname(
+subscription Pokemon_v2_egggroupname_(
   $distinct_on: [pokemon_v2_egggroupname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23410,7 +23410,7 @@ subscription Pokemon_v2_egggroupname(
   }
 }
 
-subscription Pokemon_v2_egggroupname_aggregate(
+subscription Pokemon_v2_egggroupname_aggregate_(
   $distinct_on: [pokemon_v2_egggroupname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23430,7 +23430,7 @@ subscription Pokemon_v2_egggroupname_aggregate(
   }
 }
 
-subscription Pokemon_v2_egggroupname_by_pk(
+subscription Pokemon_v2_egggroupname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_egggroupname_by_pk(
@@ -23466,7 +23466,7 @@ subscription Pokemon_v2_egggroupname_stream(
   }
 }
 
-subscription Pokemon_v2_encounter(
+subscription Pokemon_v2_encounter_(
   $distinct_on: [pokemon_v2_encounter_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23515,7 +23515,7 @@ subscription Pokemon_v2_encounter(
   }
 }
 
-subscription Pokemon_v2_encounter_aggregate(
+subscription Pokemon_v2_encounter_aggregate_(
   $distinct_on: [pokemon_v2_encounter_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23535,7 +23535,7 @@ subscription Pokemon_v2_encounter_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounter_by_pk(
+subscription Pokemon_v2_encounter_by_pk_(
   $id: Int!,
   $pokemon_v2_encounterconditionvaluemapsDistinct_on: [pokemon_v2_encounterconditionvaluemap_select_column!],
   $pokemon_v2_encounterconditionvaluemapsLimit: Int,
@@ -23621,7 +23621,7 @@ subscription Pokemon_v2_encounter_stream(
   }
 }
 
-subscription Pokemon_v2_encountercondition(
+subscription Pokemon_v2_encountercondition_(
   $distinct_on: [pokemon_v2_encountercondition_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23677,7 +23677,7 @@ subscription Pokemon_v2_encountercondition(
   }
 }
 
-subscription Pokemon_v2_encountercondition_aggregate(
+subscription Pokemon_v2_encountercondition_aggregate_(
   $distinct_on: [pokemon_v2_encountercondition_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23697,7 +23697,7 @@ subscription Pokemon_v2_encountercondition_aggregate(
   }
 }
 
-subscription Pokemon_v2_encountercondition_by_pk(
+subscription Pokemon_v2_encountercondition_by_pk_(
   $id: Int!,
   $pokemon_v2_encounterconditionnamesDistinct_on: [pokemon_v2_encounterconditionname_select_column!],
   $pokemon_v2_encounterconditionnamesLimit: Int,
@@ -23797,7 +23797,7 @@ subscription Pokemon_v2_encountercondition_stream(
   }
 }
 
-subscription Pokemon_v2_encounterconditionname(
+subscription Pokemon_v2_encounterconditionname_(
   $distinct_on: [pokemon_v2_encounterconditionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23821,7 +23821,7 @@ subscription Pokemon_v2_encounterconditionname(
   }
 }
 
-subscription Pokemon_v2_encounterconditionname_aggregate(
+subscription Pokemon_v2_encounterconditionname_aggregate_(
   $distinct_on: [pokemon_v2_encounterconditionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23841,7 +23841,7 @@ subscription Pokemon_v2_encounterconditionname_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounterconditionname_by_pk(
+subscription Pokemon_v2_encounterconditionname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_encounterconditionname_by_pk(
@@ -23877,7 +23877,7 @@ subscription Pokemon_v2_encounterconditionname_stream(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvalue(
+subscription Pokemon_v2_encounterconditionvalue_(
   $distinct_on: [pokemon_v2_encounterconditionvalue_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23936,7 +23936,7 @@ subscription Pokemon_v2_encounterconditionvalue(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvalue_aggregate(
+subscription Pokemon_v2_encounterconditionvalue_aggregate_(
   $distinct_on: [pokemon_v2_encounterconditionvalue_select_column!],
   $limit: Int,
   $offset: Int,
@@ -23956,7 +23956,7 @@ subscription Pokemon_v2_encounterconditionvalue_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvalue_by_pk(
+subscription Pokemon_v2_encounterconditionvalue_by_pk_(
   $id: Int!,
   $pokemon_v2_encounterconditionvaluemapsDistinct_on: [pokemon_v2_encounterconditionvaluemap_select_column!],
   $pokemon_v2_encounterconditionvaluemapsLimit: Int,
@@ -24062,7 +24062,7 @@ subscription Pokemon_v2_encounterconditionvalue_stream(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluemap(
+subscription Pokemon_v2_encounterconditionvaluemap_(
   $distinct_on: [pokemon_v2_encounterconditionvaluemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24086,7 +24086,7 @@ subscription Pokemon_v2_encounterconditionvaluemap(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluemap_aggregate(
+subscription Pokemon_v2_encounterconditionvaluemap_aggregate_(
   $distinct_on: [pokemon_v2_encounterconditionvaluemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24106,7 +24106,7 @@ subscription Pokemon_v2_encounterconditionvaluemap_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluemap_by_pk(
+subscription Pokemon_v2_encounterconditionvaluemap_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_encounterconditionvaluemap_by_pk(
@@ -24142,7 +24142,7 @@ subscription Pokemon_v2_encounterconditionvaluemap_stream(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluename(
+subscription Pokemon_v2_encounterconditionvaluename_(
   $distinct_on: [pokemon_v2_encounterconditionvaluename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24166,7 +24166,7 @@ subscription Pokemon_v2_encounterconditionvaluename(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluename_aggregate(
+subscription Pokemon_v2_encounterconditionvaluename_aggregate_(
   $distinct_on: [pokemon_v2_encounterconditionvaluename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24186,7 +24186,7 @@ subscription Pokemon_v2_encounterconditionvaluename_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounterconditionvaluename_by_pk(
+subscription Pokemon_v2_encounterconditionvaluename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_encounterconditionvaluename_by_pk(
@@ -24222,7 +24222,7 @@ subscription Pokemon_v2_encounterconditionvaluename_stream(
   }
 }
 
-subscription Pokemon_v2_encountermethod(
+subscription Pokemon_v2_encountermethod_(
   $distinct_on: [pokemon_v2_encountermethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24297,7 +24297,7 @@ subscription Pokemon_v2_encountermethod(
   }
 }
 
-subscription Pokemon_v2_encountermethod_aggregate(
+subscription Pokemon_v2_encountermethod_aggregate_(
   $distinct_on: [pokemon_v2_encountermethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24317,7 +24317,7 @@ subscription Pokemon_v2_encountermethod_aggregate(
   }
 }
 
-subscription Pokemon_v2_encountermethod_by_pk(
+subscription Pokemon_v2_encountermethod_by_pk_(
   $id: Int!,
   $pokemon_v2_encountermethodnamesDistinct_on: [pokemon_v2_encountermethodname_select_column!],
   $pokemon_v2_encountermethodnamesLimit: Int,
@@ -24455,7 +24455,7 @@ subscription Pokemon_v2_encountermethod_stream(
   }
 }
 
-subscription Pokemon_v2_encountermethodname(
+subscription Pokemon_v2_encountermethodname_(
   $distinct_on: [pokemon_v2_encountermethodname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24479,7 +24479,7 @@ subscription Pokemon_v2_encountermethodname(
   }
 }
 
-subscription Pokemon_v2_encountermethodname_aggregate(
+subscription Pokemon_v2_encountermethodname_aggregate_(
   $distinct_on: [pokemon_v2_encountermethodname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24499,7 +24499,7 @@ subscription Pokemon_v2_encountermethodname_aggregate(
   }
 }
 
-subscription Pokemon_v2_encountermethodname_by_pk(
+subscription Pokemon_v2_encountermethodname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_encountermethodname_by_pk(
@@ -24535,7 +24535,7 @@ subscription Pokemon_v2_encountermethodname_stream(
   }
 }
 
-subscription Pokemon_v2_encounterslot(
+subscription Pokemon_v2_encounterslot_(
   $distinct_on: [pokemon_v2_encounterslot_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24578,7 +24578,7 @@ subscription Pokemon_v2_encounterslot(
   }
 }
 
-subscription Pokemon_v2_encounterslot_aggregate(
+subscription Pokemon_v2_encounterslot_aggregate_(
   $distinct_on: [pokemon_v2_encounterslot_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24598,7 +24598,7 @@ subscription Pokemon_v2_encounterslot_aggregate(
   }
 }
 
-subscription Pokemon_v2_encounterslot_by_pk(
+subscription Pokemon_v2_encounterslot_by_pk_(
   $id: Int!,
   $pokemon_v2_encountersDistinct_on: [pokemon_v2_encounter_select_column!],
   $pokemon_v2_encountersLimit: Int,
@@ -24672,7 +24672,7 @@ subscription Pokemon_v2_encounterslot_stream(
   }
 }
 
-subscription Pokemon_v2_evolutionchain(
+subscription Pokemon_v2_evolutionchain_(
   $distinct_on: [pokemon_v2_evolutionchain_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24712,7 +24712,7 @@ subscription Pokemon_v2_evolutionchain(
   }
 }
 
-subscription Pokemon_v2_evolutionchain_aggregate(
+subscription Pokemon_v2_evolutionchain_aggregate_(
   $distinct_on: [pokemon_v2_evolutionchain_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24732,7 +24732,7 @@ subscription Pokemon_v2_evolutionchain_aggregate(
   }
 }
 
-subscription Pokemon_v2_evolutionchain_by_pk(
+subscription Pokemon_v2_evolutionchain_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemonspeciesDistinct_on: [pokemon_v2_pokemonspecies_select_column!],
   $pokemon_v2_pokemonspeciesLimit: Int,
@@ -24800,7 +24800,7 @@ subscription Pokemon_v2_evolutionchain_stream(
   }
 }
 
-subscription Pokemon_v2_evolutiontrigger(
+subscription Pokemon_v2_evolutiontrigger_(
   $distinct_on: [pokemon_v2_evolutiontrigger_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24856,7 +24856,7 @@ subscription Pokemon_v2_evolutiontrigger(
   }
 }
 
-subscription Pokemon_v2_evolutiontrigger_aggregate(
+subscription Pokemon_v2_evolutiontrigger_aggregate_(
   $distinct_on: [pokemon_v2_evolutiontrigger_select_column!],
   $limit: Int,
   $offset: Int,
@@ -24876,7 +24876,7 @@ subscription Pokemon_v2_evolutiontrigger_aggregate(
   }
 }
 
-subscription Pokemon_v2_evolutiontrigger_by_pk(
+subscription Pokemon_v2_evolutiontrigger_by_pk_(
   $id: Int!,
   $pokemon_v2_evolutiontriggernamesDistinct_on: [pokemon_v2_evolutiontriggername_select_column!],
   $pokemon_v2_evolutiontriggernamesLimit: Int,
@@ -24976,7 +24976,7 @@ subscription Pokemon_v2_evolutiontrigger_stream(
   }
 }
 
-subscription Pokemon_v2_evolutiontriggername(
+subscription Pokemon_v2_evolutiontriggername_(
   $distinct_on: [pokemon_v2_evolutiontriggername_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25000,7 +25000,7 @@ subscription Pokemon_v2_evolutiontriggername(
   }
 }
 
-subscription Pokemon_v2_evolutiontriggername_aggregate(
+subscription Pokemon_v2_evolutiontriggername_aggregate_(
   $distinct_on: [pokemon_v2_evolutiontriggername_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25020,7 +25020,7 @@ subscription Pokemon_v2_evolutiontriggername_aggregate(
   }
 }
 
-subscription Pokemon_v2_evolutiontriggername_by_pk(
+subscription Pokemon_v2_evolutiontriggername_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_evolutiontriggername_by_pk(
@@ -25056,7 +25056,7 @@ subscription Pokemon_v2_evolutiontriggername_stream(
   }
 }
 
-subscription Pokemon_v2_experience(
+subscription Pokemon_v2_experience_(
   $distinct_on: [pokemon_v2_experience_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25077,7 +25077,7 @@ subscription Pokemon_v2_experience(
   }
 }
 
-subscription Pokemon_v2_experience_aggregate(
+subscription Pokemon_v2_experience_aggregate_(
   $distinct_on: [pokemon_v2_experience_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25097,7 +25097,7 @@ subscription Pokemon_v2_experience_aggregate(
   }
 }
 
-subscription Pokemon_v2_experience_by_pk(
+subscription Pokemon_v2_experience_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_experience_by_pk(
@@ -25127,7 +25127,7 @@ subscription Pokemon_v2_experience_stream(
   }
 }
 
-subscription Pokemon_v2_gender(
+subscription Pokemon_v2_gender_(
   $distinct_on: [pokemon_v2_gender_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25164,7 +25164,7 @@ subscription Pokemon_v2_gender(
   }
 }
 
-subscription Pokemon_v2_gender_aggregate(
+subscription Pokemon_v2_gender_aggregate_(
   $distinct_on: [pokemon_v2_gender_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25184,7 +25184,7 @@ subscription Pokemon_v2_gender_aggregate(
   }
 }
 
-subscription Pokemon_v2_gender_by_pk(
+subscription Pokemon_v2_gender_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemonevolutionsDistinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $pokemon_v2_pokemonevolutionsLimit: Int,
@@ -25246,7 +25246,7 @@ subscription Pokemon_v2_gender_stream(
   }
 }
 
-subscription Pokemon_v2_generation(
+subscription Pokemon_v2_generation_(
   $distinct_on: [pokemon_v2_generation_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25514,7 +25514,7 @@ subscription Pokemon_v2_generation(
   }
 }
 
-subscription Pokemon_v2_generation_aggregate(
+subscription Pokemon_v2_generation_aggregate_(
   $distinct_on: [pokemon_v2_generation_select_column!],
   $limit: Int,
   $offset: Int,
@@ -25534,7 +25534,7 @@ subscription Pokemon_v2_generation_aggregate(
   }
 }
 
-subscription Pokemon_v2_generation_by_pk(
+subscription Pokemon_v2_generation_by_pk_(
   $id: Int!,
   $pokemon_v2_abilitiesDistinct_on: [pokemon_v2_ability_select_column!],
   $pokemon_v2_abilitiesLimit: Int,
@@ -26058,7 +26058,7 @@ subscription Pokemon_v2_generation_stream(
   }
 }
 
-subscription Pokemon_v2_generationname(
+subscription Pokemon_v2_generationname_(
   $distinct_on: [pokemon_v2_generationname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26082,7 +26082,7 @@ subscription Pokemon_v2_generationname(
   }
 }
 
-subscription Pokemon_v2_generationname_aggregate(
+subscription Pokemon_v2_generationname_aggregate_(
   $distinct_on: [pokemon_v2_generationname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26102,7 +26102,7 @@ subscription Pokemon_v2_generationname_aggregate(
   }
 }
 
-subscription Pokemon_v2_generationname_by_pk(
+subscription Pokemon_v2_generationname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_generationname_by_pk(
@@ -26138,7 +26138,7 @@ subscription Pokemon_v2_generationname_stream(
   }
 }
 
-subscription Pokemon_v2_growthrate(
+subscription Pokemon_v2_growthrate_(
   $distinct_on: [pokemon_v2_growthrate_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26232,7 +26232,7 @@ subscription Pokemon_v2_growthrate(
   }
 }
 
-subscription Pokemon_v2_growthrate_aggregate(
+subscription Pokemon_v2_growthrate_aggregate_(
   $distinct_on: [pokemon_v2_growthrate_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26252,7 +26252,7 @@ subscription Pokemon_v2_growthrate_aggregate(
   }
 }
 
-subscription Pokemon_v2_growthrate_by_pk(
+subscription Pokemon_v2_growthrate_by_pk_(
   $id: Int!,
   $pokemon_v2_experiencesDistinct_on: [pokemon_v2_experience_select_column!],
   $pokemon_v2_experiencesLimit: Int,
@@ -26428,7 +26428,7 @@ subscription Pokemon_v2_growthrate_stream(
   }
 }
 
-subscription Pokemon_v2_growthratedescription(
+subscription Pokemon_v2_growthratedescription_(
   $distinct_on: [pokemon_v2_growthratedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26452,7 +26452,7 @@ subscription Pokemon_v2_growthratedescription(
   }
 }
 
-subscription Pokemon_v2_growthratedescription_aggregate(
+subscription Pokemon_v2_growthratedescription_aggregate_(
   $distinct_on: [pokemon_v2_growthratedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26472,7 +26472,7 @@ subscription Pokemon_v2_growthratedescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_growthratedescription_by_pk(
+subscription Pokemon_v2_growthratedescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_growthratedescription_by_pk(
@@ -26508,7 +26508,7 @@ subscription Pokemon_v2_growthratedescription_stream(
   }
 }
 
-subscription Pokemon_v2_item(
+subscription Pokemon_v2_item_(
   $distinct_on: [pokemon_v2_item_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26760,7 +26760,7 @@ subscription Pokemon_v2_item(
   }
 }
 
-subscription Pokemon_v2_item_aggregate(
+subscription Pokemon_v2_item_aggregate_(
   $distinct_on: [pokemon_v2_item_select_column!],
   $limit: Int,
   $offset: Int,
@@ -26780,7 +26780,7 @@ subscription Pokemon_v2_item_aggregate(
   }
 }
 
-subscription Pokemon_v2_item_by_pk(
+subscription Pokemon_v2_item_by_pk_(
   $id: Int!,
   $pokemonV2PokemonevolutionsByHeldItemIdDistinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $pokemonV2PokemonevolutionsByHeldItemIdLimit: Int,
@@ -27272,7 +27272,7 @@ subscription Pokemon_v2_item_stream(
   }
 }
 
-subscription Pokemon_v2_itemattribute(
+subscription Pokemon_v2_itemattribute_(
   $distinct_on: [pokemon_v2_itemattribute_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27347,7 +27347,7 @@ subscription Pokemon_v2_itemattribute(
   }
 }
 
-subscription Pokemon_v2_itemattribute_aggregate(
+subscription Pokemon_v2_itemattribute_aggregate_(
   $distinct_on: [pokemon_v2_itemattribute_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27367,7 +27367,7 @@ subscription Pokemon_v2_itemattribute_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemattribute_by_pk(
+subscription Pokemon_v2_itemattribute_by_pk_(
   $id: Int!,
   $pokemon_v2_itemattributedescriptionsDistinct_on: [pokemon_v2_itemattributedescription_select_column!],
   $pokemon_v2_itemattributedescriptionsLimit: Int,
@@ -27505,7 +27505,7 @@ subscription Pokemon_v2_itemattribute_stream(
   }
 }
 
-subscription Pokemon_v2_itemattributedescription(
+subscription Pokemon_v2_itemattributedescription_(
   $distinct_on: [pokemon_v2_itemattributedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27529,7 +27529,7 @@ subscription Pokemon_v2_itemattributedescription(
   }
 }
 
-subscription Pokemon_v2_itemattributedescription_aggregate(
+subscription Pokemon_v2_itemattributedescription_aggregate_(
   $distinct_on: [pokemon_v2_itemattributedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27549,7 +27549,7 @@ subscription Pokemon_v2_itemattributedescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemattributedescription_by_pk(
+subscription Pokemon_v2_itemattributedescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemattributedescription_by_pk(
@@ -27585,7 +27585,7 @@ subscription Pokemon_v2_itemattributedescription_stream(
   }
 }
 
-subscription Pokemon_v2_itemattributemap(
+subscription Pokemon_v2_itemattributemap_(
   $distinct_on: [pokemon_v2_itemattributemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27609,7 +27609,7 @@ subscription Pokemon_v2_itemattributemap(
   }
 }
 
-subscription Pokemon_v2_itemattributemap_aggregate(
+subscription Pokemon_v2_itemattributemap_aggregate_(
   $distinct_on: [pokemon_v2_itemattributemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27629,7 +27629,7 @@ subscription Pokemon_v2_itemattributemap_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemattributemap_by_pk(
+subscription Pokemon_v2_itemattributemap_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemattributemap_by_pk(
@@ -27665,7 +27665,7 @@ subscription Pokemon_v2_itemattributemap_stream(
   }
 }
 
-subscription Pokemon_v2_itemattributename(
+subscription Pokemon_v2_itemattributename_(
   $distinct_on: [pokemon_v2_itemattributename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27689,7 +27689,7 @@ subscription Pokemon_v2_itemattributename(
   }
 }
 
-subscription Pokemon_v2_itemattributename_aggregate(
+subscription Pokemon_v2_itemattributename_aggregate_(
   $distinct_on: [pokemon_v2_itemattributename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27709,7 +27709,7 @@ subscription Pokemon_v2_itemattributename_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemattributename_by_pk(
+subscription Pokemon_v2_itemattributename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemattributename_by_pk(
@@ -27745,7 +27745,7 @@ subscription Pokemon_v2_itemattributename_stream(
   }
 }
 
-subscription Pokemon_v2_itemcategory(
+subscription Pokemon_v2_itemcategory_(
   $distinct_on: [pokemon_v2_itemcategory_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27804,7 +27804,7 @@ subscription Pokemon_v2_itemcategory(
   }
 }
 
-subscription Pokemon_v2_itemcategory_aggregate(
+subscription Pokemon_v2_itemcategory_aggregate_(
   $distinct_on: [pokemon_v2_itemcategory_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27824,7 +27824,7 @@ subscription Pokemon_v2_itemcategory_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemcategory_by_pk(
+subscription Pokemon_v2_itemcategory_by_pk_(
   $id: Int!,
   $pokemon_v2_itemcategorynamesDistinct_on: [pokemon_v2_itemcategoryname_select_column!],
   $pokemon_v2_itemcategorynamesLimit: Int,
@@ -27930,7 +27930,7 @@ subscription Pokemon_v2_itemcategory_stream(
   }
 }
 
-subscription Pokemon_v2_itemcategoryname(
+subscription Pokemon_v2_itemcategoryname_(
   $distinct_on: [pokemon_v2_itemcategoryname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27954,7 +27954,7 @@ subscription Pokemon_v2_itemcategoryname(
   }
 }
 
-subscription Pokemon_v2_itemcategoryname_aggregate(
+subscription Pokemon_v2_itemcategoryname_aggregate_(
   $distinct_on: [pokemon_v2_itemcategoryname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -27974,7 +27974,7 @@ subscription Pokemon_v2_itemcategoryname_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemcategoryname_by_pk(
+subscription Pokemon_v2_itemcategoryname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemcategoryname_by_pk(
@@ -28010,7 +28010,7 @@ subscription Pokemon_v2_itemcategoryname_stream(
   }
 }
 
-subscription Pokemon_v2_itemeffecttext(
+subscription Pokemon_v2_itemeffecttext_(
   $distinct_on: [pokemon_v2_itemeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28034,7 +28034,7 @@ subscription Pokemon_v2_itemeffecttext(
   }
 }
 
-subscription Pokemon_v2_itemeffecttext_aggregate(
+subscription Pokemon_v2_itemeffecttext_aggregate_(
   $distinct_on: [pokemon_v2_itemeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28054,7 +28054,7 @@ subscription Pokemon_v2_itemeffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemeffecttext_by_pk(
+subscription Pokemon_v2_itemeffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemeffecttext_by_pk(
@@ -28090,7 +28090,7 @@ subscription Pokemon_v2_itemeffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_itemflavortext(
+subscription Pokemon_v2_itemflavortext_(
   $distinct_on: [pokemon_v2_itemflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28117,7 +28117,7 @@ subscription Pokemon_v2_itemflavortext(
   }
 }
 
-subscription Pokemon_v2_itemflavortext_aggregate(
+subscription Pokemon_v2_itemflavortext_aggregate_(
   $distinct_on: [pokemon_v2_itemflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28137,7 +28137,7 @@ subscription Pokemon_v2_itemflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemflavortext_by_pk(
+subscription Pokemon_v2_itemflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemflavortext_by_pk(
@@ -28179,7 +28179,7 @@ subscription Pokemon_v2_itemflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_itemflingeffect(
+subscription Pokemon_v2_itemflingeffect_(
   $distinct_on: [pokemon_v2_itemflingeffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28235,7 +28235,7 @@ subscription Pokemon_v2_itemflingeffect(
   }
 }
 
-subscription Pokemon_v2_itemflingeffect_aggregate(
+subscription Pokemon_v2_itemflingeffect_aggregate_(
   $distinct_on: [pokemon_v2_itemflingeffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28255,7 +28255,7 @@ subscription Pokemon_v2_itemflingeffect_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemflingeffect_by_pk(
+subscription Pokemon_v2_itemflingeffect_by_pk_(
   $id: Int!,
   $pokemon_v2_itemflingeffecteffecttextsDistinct_on: [pokemon_v2_itemflingeffecteffecttext_select_column!],
   $pokemon_v2_itemflingeffecteffecttextsLimit: Int,
@@ -28355,7 +28355,7 @@ subscription Pokemon_v2_itemflingeffect_stream(
   }
 }
 
-subscription Pokemon_v2_itemflingeffecteffecttext(
+subscription Pokemon_v2_itemflingeffecteffecttext_(
   $distinct_on: [pokemon_v2_itemflingeffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28379,7 +28379,7 @@ subscription Pokemon_v2_itemflingeffecteffecttext(
   }
 }
 
-subscription Pokemon_v2_itemflingeffecteffecttext_aggregate(
+subscription Pokemon_v2_itemflingeffecteffecttext_aggregate_(
   $distinct_on: [pokemon_v2_itemflingeffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28399,7 +28399,7 @@ subscription Pokemon_v2_itemflingeffecteffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemflingeffecteffecttext_by_pk(
+subscription Pokemon_v2_itemflingeffecteffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemflingeffecteffecttext_by_pk(
@@ -28435,7 +28435,7 @@ subscription Pokemon_v2_itemflingeffecteffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_itemgameindex(
+subscription Pokemon_v2_itemgameindex_(
   $distinct_on: [pokemon_v2_itemgameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28459,7 +28459,7 @@ subscription Pokemon_v2_itemgameindex(
   }
 }
 
-subscription Pokemon_v2_itemgameindex_aggregate(
+subscription Pokemon_v2_itemgameindex_aggregate_(
   $distinct_on: [pokemon_v2_itemgameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28479,7 +28479,7 @@ subscription Pokemon_v2_itemgameindex_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemgameindex_by_pk(
+subscription Pokemon_v2_itemgameindex_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemgameindex_by_pk(
@@ -28515,7 +28515,7 @@ subscription Pokemon_v2_itemgameindex_stream(
   }
 }
 
-subscription Pokemon_v2_itemname(
+subscription Pokemon_v2_itemname_(
   $distinct_on: [pokemon_v2_itemname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28539,7 +28539,7 @@ subscription Pokemon_v2_itemname(
   }
 }
 
-subscription Pokemon_v2_itemname_aggregate(
+subscription Pokemon_v2_itemname_aggregate_(
   $distinct_on: [pokemon_v2_itemname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28559,7 +28559,7 @@ subscription Pokemon_v2_itemname_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemname_by_pk(
+subscription Pokemon_v2_itemname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itemname_by_pk(
@@ -28595,7 +28595,7 @@ subscription Pokemon_v2_itemname_stream(
   }
 }
 
-subscription Pokemon_v2_itempocket(
+subscription Pokemon_v2_itempocket_(
   $distinct_on: [pokemon_v2_itempocket_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28651,7 +28651,7 @@ subscription Pokemon_v2_itempocket(
   }
 }
 
-subscription Pokemon_v2_itempocket_aggregate(
+subscription Pokemon_v2_itempocket_aggregate_(
   $distinct_on: [pokemon_v2_itempocket_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28671,7 +28671,7 @@ subscription Pokemon_v2_itempocket_aggregate(
   }
 }
 
-subscription Pokemon_v2_itempocket_by_pk(
+subscription Pokemon_v2_itempocket_by_pk_(
   $id: Int!,
   $pokemon_v2_itemcategoriesDistinct_on: [pokemon_v2_itemcategory_select_column!],
   $pokemon_v2_itemcategoriesLimit: Int,
@@ -28771,7 +28771,7 @@ subscription Pokemon_v2_itempocket_stream(
   }
 }
 
-subscription Pokemon_v2_itempocketname(
+subscription Pokemon_v2_itempocketname_(
   $distinct_on: [pokemon_v2_itempocketname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28795,7 +28795,7 @@ subscription Pokemon_v2_itempocketname(
   }
 }
 
-subscription Pokemon_v2_itempocketname_aggregate(
+subscription Pokemon_v2_itempocketname_aggregate_(
   $distinct_on: [pokemon_v2_itempocketname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28815,7 +28815,7 @@ subscription Pokemon_v2_itempocketname_aggregate(
   }
 }
 
-subscription Pokemon_v2_itempocketname_by_pk(
+subscription Pokemon_v2_itempocketname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_itempocketname_by_pk(
@@ -28851,7 +28851,7 @@ subscription Pokemon_v2_itempocketname_stream(
   }
 }
 
-subscription Pokemon_v2_itemsprites(
+subscription Pokemon_v2_itemsprites_(
   $distinct_on: [pokemon_v2_itemsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28876,7 +28876,7 @@ subscription Pokemon_v2_itemsprites(
   }
 }
 
-subscription Pokemon_v2_itemsprites_aggregate(
+subscription Pokemon_v2_itemsprites_aggregate_(
   $distinct_on: [pokemon_v2_itemsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -28896,7 +28896,7 @@ subscription Pokemon_v2_itemsprites_aggregate(
   }
 }
 
-subscription Pokemon_v2_itemsprites_by_pk(
+subscription Pokemon_v2_itemsprites_by_pk_(
   $id: Int!,
   $spritesPath: String
 ) {
@@ -28934,7 +28934,7 @@ subscription Pokemon_v2_itemsprites_stream(
   }
 }
 
-subscription Pokemon_v2_language(
+subscription Pokemon_v2_language_(
   $distinct_on: [pokemon_v2_language_select_column!],
   $limit: Int,
   $offset: Int,
@@ -30111,7 +30111,7 @@ subscription Pokemon_v2_language(
   }
 }
 
-subscription Pokemon_v2_language_aggregate(
+subscription Pokemon_v2_language_aggregate_(
   $distinct_on: [pokemon_v2_language_select_column!],
   $limit: Int,
   $offset: Int,
@@ -30131,7 +30131,7 @@ subscription Pokemon_v2_language_aggregate(
   }
 }
 
-subscription Pokemon_v2_language_by_pk(
+subscription Pokemon_v2_language_by_pk_(
   $id: Int!,
   $pokemonV2LanguagenamesByLocalLanguageIdDistinct_on: [pokemon_v2_languagename_select_column!],
   $pokemonV2LanguagenamesByLocalLanguageIdLimit: Int,
@@ -32473,7 +32473,7 @@ subscription Pokemon_v2_language_stream(
   }
 }
 
-subscription Pokemon_v2_languagename(
+subscription Pokemon_v2_languagename_(
   $distinct_on: [pokemon_v2_languagename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32497,7 +32497,7 @@ subscription Pokemon_v2_languagename(
   }
 }
 
-subscription Pokemon_v2_languagename_aggregate(
+subscription Pokemon_v2_languagename_aggregate_(
   $distinct_on: [pokemon_v2_languagename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32517,7 +32517,7 @@ subscription Pokemon_v2_languagename_aggregate(
   }
 }
 
-subscription Pokemon_v2_languagename_by_pk(
+subscription Pokemon_v2_languagename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_languagename_by_pk(
@@ -32553,7 +32553,7 @@ subscription Pokemon_v2_languagename_stream(
   }
 }
 
-subscription Pokemon_v2_location(
+subscription Pokemon_v2_location_(
   $distinct_on: [pokemon_v2_location_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32650,7 +32650,7 @@ subscription Pokemon_v2_location(
   }
 }
 
-subscription Pokemon_v2_location_aggregate(
+subscription Pokemon_v2_location_aggregate_(
   $distinct_on: [pokemon_v2_location_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32670,7 +32670,7 @@ subscription Pokemon_v2_location_aggregate(
   }
 }
 
-subscription Pokemon_v2_location_by_pk(
+subscription Pokemon_v2_location_by_pk_(
   $id: Int!,
   $pokemon_v2_locationareasDistinct_on: [pokemon_v2_locationarea_select_column!],
   $pokemon_v2_locationareasLimit: Int,
@@ -32852,7 +32852,7 @@ subscription Pokemon_v2_location_stream(
   }
 }
 
-subscription Pokemon_v2_locationarea(
+subscription Pokemon_v2_locationarea_(
   $distinct_on: [pokemon_v2_locationarea_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32930,7 +32930,7 @@ subscription Pokemon_v2_locationarea(
   }
 }
 
-subscription Pokemon_v2_locationarea_aggregate(
+subscription Pokemon_v2_locationarea_aggregate_(
   $distinct_on: [pokemon_v2_locationarea_select_column!],
   $limit: Int,
   $offset: Int,
@@ -32950,7 +32950,7 @@ subscription Pokemon_v2_locationarea_aggregate(
   }
 }
 
-subscription Pokemon_v2_locationarea_by_pk(
+subscription Pokemon_v2_locationarea_by_pk_(
   $id: Int!,
   $pokemon_v2_encountersDistinct_on: [pokemon_v2_encounter_select_column!],
   $pokemon_v2_encountersLimit: Int,
@@ -33094,7 +33094,7 @@ subscription Pokemon_v2_locationarea_stream(
   }
 }
 
-subscription Pokemon_v2_locationareaencounterrate(
+subscription Pokemon_v2_locationareaencounterrate_(
   $distinct_on: [pokemon_v2_locationareaencounterrate_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33121,7 +33121,7 @@ subscription Pokemon_v2_locationareaencounterrate(
   }
 }
 
-subscription Pokemon_v2_locationareaencounterrate_aggregate(
+subscription Pokemon_v2_locationareaencounterrate_aggregate_(
   $distinct_on: [pokemon_v2_locationareaencounterrate_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33141,7 +33141,7 @@ subscription Pokemon_v2_locationareaencounterrate_aggregate(
   }
 }
 
-subscription Pokemon_v2_locationareaencounterrate_by_pk(
+subscription Pokemon_v2_locationareaencounterrate_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_locationareaencounterrate_by_pk(
@@ -33183,7 +33183,7 @@ subscription Pokemon_v2_locationareaencounterrate_stream(
   }
 }
 
-subscription Pokemon_v2_locationareaname(
+subscription Pokemon_v2_locationareaname_(
   $distinct_on: [pokemon_v2_locationareaname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33207,7 +33207,7 @@ subscription Pokemon_v2_locationareaname(
   }
 }
 
-subscription Pokemon_v2_locationareaname_aggregate(
+subscription Pokemon_v2_locationareaname_aggregate_(
   $distinct_on: [pokemon_v2_locationareaname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33227,7 +33227,7 @@ subscription Pokemon_v2_locationareaname_aggregate(
   }
 }
 
-subscription Pokemon_v2_locationareaname_by_pk(
+subscription Pokemon_v2_locationareaname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_locationareaname_by_pk(
@@ -33263,7 +33263,7 @@ subscription Pokemon_v2_locationareaname_stream(
   }
 }
 
-subscription Pokemon_v2_locationgameindex(
+subscription Pokemon_v2_locationgameindex_(
   $distinct_on: [pokemon_v2_locationgameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33287,7 +33287,7 @@ subscription Pokemon_v2_locationgameindex(
   }
 }
 
-subscription Pokemon_v2_locationgameindex_aggregate(
+subscription Pokemon_v2_locationgameindex_aggregate_(
   $distinct_on: [pokemon_v2_locationgameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33307,7 +33307,7 @@ subscription Pokemon_v2_locationgameindex_aggregate(
   }
 }
 
-subscription Pokemon_v2_locationgameindex_by_pk(
+subscription Pokemon_v2_locationgameindex_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_locationgameindex_by_pk(
@@ -33343,7 +33343,7 @@ subscription Pokemon_v2_locationgameindex_stream(
   }
 }
 
-subscription Pokemon_v2_locationname(
+subscription Pokemon_v2_locationname_(
   $distinct_on: [pokemon_v2_locationname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33367,7 +33367,7 @@ subscription Pokemon_v2_locationname(
   }
 }
 
-subscription Pokemon_v2_locationname_aggregate(
+subscription Pokemon_v2_locationname_aggregate_(
   $distinct_on: [pokemon_v2_locationname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33387,7 +33387,7 @@ subscription Pokemon_v2_locationname_aggregate(
   }
 }
 
-subscription Pokemon_v2_locationname_by_pk(
+subscription Pokemon_v2_locationname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_locationname_by_pk(
@@ -33423,7 +33423,7 @@ subscription Pokemon_v2_locationname_stream(
   }
 }
 
-subscription Pokemon_v2_machine(
+subscription Pokemon_v2_machine_(
   $distinct_on: [pokemon_v2_machine_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33453,7 +33453,7 @@ subscription Pokemon_v2_machine(
   }
 }
 
-subscription Pokemon_v2_machine_aggregate(
+subscription Pokemon_v2_machine_aggregate_(
   $distinct_on: [pokemon_v2_machine_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33473,7 +33473,7 @@ subscription Pokemon_v2_machine_aggregate(
   }
 }
 
-subscription Pokemon_v2_machine_by_pk(
+subscription Pokemon_v2_machine_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_machine_by_pk(
@@ -33521,7 +33521,7 @@ subscription Pokemon_v2_machine_stream(
   }
 }
 
-subscription Pokemon_v2_move(
+subscription Pokemon_v2_move_(
   $distinct_on: [pokemon_v2_move_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33813,7 +33813,7 @@ subscription Pokemon_v2_move(
   }
 }
 
-subscription Pokemon_v2_move_aggregate(
+subscription Pokemon_v2_move_aggregate_(
   $distinct_on: [pokemon_v2_move_select_column!],
   $limit: Int,
   $offset: Int,
@@ -33833,7 +33833,7 @@ subscription Pokemon_v2_move_aggregate(
   }
 }
 
-subscription Pokemon_v2_move_by_pk(
+subscription Pokemon_v2_move_by_pk_(
   $id: Int!,
   $pokemonV2ContestcombosBySecondMoveIdDistinct_on: [pokemon_v2_contestcombo_select_column!],
   $pokemonV2ContestcombosBySecondMoveIdLimit: Int,
@@ -34405,7 +34405,7 @@ subscription Pokemon_v2_move_stream(
   }
 }
 
-subscription Pokemon_v2_moveattribute(
+subscription Pokemon_v2_moveattribute_(
   $distinct_on: [pokemon_v2_moveattribute_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34480,7 +34480,7 @@ subscription Pokemon_v2_moveattribute(
   }
 }
 
-subscription Pokemon_v2_moveattribute_aggregate(
+subscription Pokemon_v2_moveattribute_aggregate_(
   $distinct_on: [pokemon_v2_moveattribute_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34500,7 +34500,7 @@ subscription Pokemon_v2_moveattribute_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveattribute_by_pk(
+subscription Pokemon_v2_moveattribute_by_pk_(
   $id: Int!,
   $pokemon_v2_moveattributedescriptionsDistinct_on: [pokemon_v2_moveattributedescription_select_column!],
   $pokemon_v2_moveattributedescriptionsLimit: Int,
@@ -34638,7 +34638,7 @@ subscription Pokemon_v2_moveattribute_stream(
   }
 }
 
-subscription Pokemon_v2_moveattributedescription(
+subscription Pokemon_v2_moveattributedescription_(
   $distinct_on: [pokemon_v2_moveattributedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34662,7 +34662,7 @@ subscription Pokemon_v2_moveattributedescription(
   }
 }
 
-subscription Pokemon_v2_moveattributedescription_aggregate(
+subscription Pokemon_v2_moveattributedescription_aggregate_(
   $distinct_on: [pokemon_v2_moveattributedescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34682,7 +34682,7 @@ subscription Pokemon_v2_moveattributedescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveattributedescription_by_pk(
+subscription Pokemon_v2_moveattributedescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveattributedescription_by_pk(
@@ -34718,7 +34718,7 @@ subscription Pokemon_v2_moveattributedescription_stream(
   }
 }
 
-subscription Pokemon_v2_moveattributemap(
+subscription Pokemon_v2_moveattributemap_(
   $distinct_on: [pokemon_v2_moveattributemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34742,7 +34742,7 @@ subscription Pokemon_v2_moveattributemap(
   }
 }
 
-subscription Pokemon_v2_moveattributemap_aggregate(
+subscription Pokemon_v2_moveattributemap_aggregate_(
   $distinct_on: [pokemon_v2_moveattributemap_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34762,7 +34762,7 @@ subscription Pokemon_v2_moveattributemap_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveattributemap_by_pk(
+subscription Pokemon_v2_moveattributemap_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveattributemap_by_pk(
@@ -34798,7 +34798,7 @@ subscription Pokemon_v2_moveattributemap_stream(
   }
 }
 
-subscription Pokemon_v2_moveattributename(
+subscription Pokemon_v2_moveattributename_(
   $distinct_on: [pokemon_v2_moveattributename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34822,7 +34822,7 @@ subscription Pokemon_v2_moveattributename(
   }
 }
 
-subscription Pokemon_v2_moveattributename_aggregate(
+subscription Pokemon_v2_moveattributename_aggregate_(
   $distinct_on: [pokemon_v2_moveattributename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34842,7 +34842,7 @@ subscription Pokemon_v2_moveattributename_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveattributename_by_pk(
+subscription Pokemon_v2_moveattributename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveattributename_by_pk(
@@ -34878,7 +34878,7 @@ subscription Pokemon_v2_moveattributename_stream(
   }
 }
 
-subscription Pokemon_v2_movebattlestyle(
+subscription Pokemon_v2_movebattlestyle_(
   $distinct_on: [pokemon_v2_movebattlestyle_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34934,7 +34934,7 @@ subscription Pokemon_v2_movebattlestyle(
   }
 }
 
-subscription Pokemon_v2_movebattlestyle_aggregate(
+subscription Pokemon_v2_movebattlestyle_aggregate_(
   $distinct_on: [pokemon_v2_movebattlestyle_select_column!],
   $limit: Int,
   $offset: Int,
@@ -34954,7 +34954,7 @@ subscription Pokemon_v2_movebattlestyle_aggregate(
   }
 }
 
-subscription Pokemon_v2_movebattlestyle_by_pk(
+subscription Pokemon_v2_movebattlestyle_by_pk_(
   $id: Int!,
   $pokemon_v2_movebattlestylenamesDistinct_on: [pokemon_v2_movebattlestylename_select_column!],
   $pokemon_v2_movebattlestylenamesLimit: Int,
@@ -35054,7 +35054,7 @@ subscription Pokemon_v2_movebattlestyle_stream(
   }
 }
 
-subscription Pokemon_v2_movebattlestylename(
+subscription Pokemon_v2_movebattlestylename_(
   $distinct_on: [pokemon_v2_movebattlestylename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35078,7 +35078,7 @@ subscription Pokemon_v2_movebattlestylename(
   }
 }
 
-subscription Pokemon_v2_movebattlestylename_aggregate(
+subscription Pokemon_v2_movebattlestylename_aggregate_(
   $distinct_on: [pokemon_v2_movebattlestylename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35098,7 +35098,7 @@ subscription Pokemon_v2_movebattlestylename_aggregate(
   }
 }
 
-subscription Pokemon_v2_movebattlestylename_by_pk(
+subscription Pokemon_v2_movebattlestylename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movebattlestylename_by_pk(
@@ -35134,7 +35134,7 @@ subscription Pokemon_v2_movebattlestylename_stream(
   }
 }
 
-subscription Pokemon_v2_movechange(
+subscription Pokemon_v2_movechange_(
   $distinct_on: [pokemon_v2_movechange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35164,7 +35164,7 @@ subscription Pokemon_v2_movechange(
   }
 }
 
-subscription Pokemon_v2_movechange_aggregate(
+subscription Pokemon_v2_movechange_aggregate_(
   $distinct_on: [pokemon_v2_movechange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35184,7 +35184,7 @@ subscription Pokemon_v2_movechange_aggregate(
   }
 }
 
-subscription Pokemon_v2_movechange_by_pk(
+subscription Pokemon_v2_movechange_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movechange_by_pk(
@@ -35232,7 +35232,7 @@ subscription Pokemon_v2_movechange_stream(
   }
 }
 
-subscription Pokemon_v2_movedamageclass(
+subscription Pokemon_v2_movedamageclass_(
   $distinct_on: [pokemon_v2_movedamageclass_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35345,7 +35345,7 @@ subscription Pokemon_v2_movedamageclass(
   }
 }
 
-subscription Pokemon_v2_movedamageclass_aggregate(
+subscription Pokemon_v2_movedamageclass_aggregate_(
   $distinct_on: [pokemon_v2_movedamageclass_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35365,7 +35365,7 @@ subscription Pokemon_v2_movedamageclass_aggregate(
   }
 }
 
-subscription Pokemon_v2_movedamageclass_by_pk(
+subscription Pokemon_v2_movedamageclass_by_pk_(
   $id: Int!,
   $pokemon_v2_movedamageclassdescriptionsDistinct_on: [pokemon_v2_movedamageclassdescription_select_column!],
   $pokemon_v2_movedamageclassdescriptionsLimit: Int,
@@ -35579,7 +35579,7 @@ subscription Pokemon_v2_movedamageclass_stream(
   }
 }
 
-subscription Pokemon_v2_movedamageclassdescription(
+subscription Pokemon_v2_movedamageclassdescription_(
   $distinct_on: [pokemon_v2_movedamageclassdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35603,7 +35603,7 @@ subscription Pokemon_v2_movedamageclassdescription(
   }
 }
 
-subscription Pokemon_v2_movedamageclassdescription_aggregate(
+subscription Pokemon_v2_movedamageclassdescription_aggregate_(
   $distinct_on: [pokemon_v2_movedamageclassdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35623,7 +35623,7 @@ subscription Pokemon_v2_movedamageclassdescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_movedamageclassdescription_by_pk(
+subscription Pokemon_v2_movedamageclassdescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movedamageclassdescription_by_pk(
@@ -35659,7 +35659,7 @@ subscription Pokemon_v2_movedamageclassdescription_stream(
   }
 }
 
-subscription Pokemon_v2_movedamageclassname(
+subscription Pokemon_v2_movedamageclassname_(
   $distinct_on: [pokemon_v2_movedamageclassname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35683,7 +35683,7 @@ subscription Pokemon_v2_movedamageclassname(
   }
 }
 
-subscription Pokemon_v2_movedamageclassname_aggregate(
+subscription Pokemon_v2_movedamageclassname_aggregate_(
   $distinct_on: [pokemon_v2_movedamageclassname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35703,7 +35703,7 @@ subscription Pokemon_v2_movedamageclassname_aggregate(
   }
 }
 
-subscription Pokemon_v2_movedamageclassname_by_pk(
+subscription Pokemon_v2_movedamageclassname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movedamageclassname_by_pk(
@@ -35739,7 +35739,7 @@ subscription Pokemon_v2_movedamageclassname_stream(
   }
 }
 
-subscription Pokemon_v2_moveeffect(
+subscription Pokemon_v2_moveeffect_(
   $distinct_on: [pokemon_v2_moveeffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35833,7 +35833,7 @@ subscription Pokemon_v2_moveeffect(
   }
 }
 
-subscription Pokemon_v2_moveeffect_aggregate(
+subscription Pokemon_v2_moveeffect_aggregate_(
   $distinct_on: [pokemon_v2_moveeffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -35853,7 +35853,7 @@ subscription Pokemon_v2_moveeffect_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveeffect_by_pk(
+subscription Pokemon_v2_moveeffect_by_pk_(
   $id: Int!,
   $pokemon_v2_movechangesDistinct_on: [pokemon_v2_movechange_select_column!],
   $pokemon_v2_movechangesLimit: Int,
@@ -36029,7 +36029,7 @@ subscription Pokemon_v2_moveeffect_stream(
   }
 }
 
-subscription Pokemon_v2_moveeffectchange(
+subscription Pokemon_v2_moveeffectchange_(
   $distinct_on: [pokemon_v2_moveeffectchange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36072,7 +36072,7 @@ subscription Pokemon_v2_moveeffectchange(
   }
 }
 
-subscription Pokemon_v2_moveeffectchange_aggregate(
+subscription Pokemon_v2_moveeffectchange_aggregate_(
   $distinct_on: [pokemon_v2_moveeffectchange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36092,7 +36092,7 @@ subscription Pokemon_v2_moveeffectchange_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveeffectchange_by_pk(
+subscription Pokemon_v2_moveeffectchange_by_pk_(
   $id: Int!,
   $pokemon_v2_moveeffectchangeeffecttextsDistinct_on: [pokemon_v2_moveeffectchangeeffecttext_select_column!],
   $pokemon_v2_moveeffectchangeeffecttextsLimit: Int,
@@ -36166,7 +36166,7 @@ subscription Pokemon_v2_moveeffectchange_stream(
   }
 }
 
-subscription Pokemon_v2_moveeffectchangeeffecttext(
+subscription Pokemon_v2_moveeffectchangeeffecttext_(
   $distinct_on: [pokemon_v2_moveeffectchangeeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36190,7 +36190,7 @@ subscription Pokemon_v2_moveeffectchangeeffecttext(
   }
 }
 
-subscription Pokemon_v2_moveeffectchangeeffecttext_aggregate(
+subscription Pokemon_v2_moveeffectchangeeffecttext_aggregate_(
   $distinct_on: [pokemon_v2_moveeffectchangeeffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36210,7 +36210,7 @@ subscription Pokemon_v2_moveeffectchangeeffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveeffectchangeeffecttext_by_pk(
+subscription Pokemon_v2_moveeffectchangeeffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveeffectchangeeffecttext_by_pk(
@@ -36246,7 +36246,7 @@ subscription Pokemon_v2_moveeffectchangeeffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_moveeffecteffecttext(
+subscription Pokemon_v2_moveeffecteffecttext_(
   $distinct_on: [pokemon_v2_moveeffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36270,7 +36270,7 @@ subscription Pokemon_v2_moveeffecteffecttext(
   }
 }
 
-subscription Pokemon_v2_moveeffecteffecttext_aggregate(
+subscription Pokemon_v2_moveeffecteffecttext_aggregate_(
   $distinct_on: [pokemon_v2_moveeffecteffecttext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36290,7 +36290,7 @@ subscription Pokemon_v2_moveeffecteffecttext_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveeffecteffecttext_by_pk(
+subscription Pokemon_v2_moveeffecteffecttext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveeffecteffecttext_by_pk(
@@ -36326,7 +36326,7 @@ subscription Pokemon_v2_moveeffecteffecttext_stream(
   }
 }
 
-subscription Pokemon_v2_moveflavortext(
+subscription Pokemon_v2_moveflavortext_(
   $distinct_on: [pokemon_v2_moveflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36353,7 +36353,7 @@ subscription Pokemon_v2_moveflavortext(
   }
 }
 
-subscription Pokemon_v2_moveflavortext_aggregate(
+subscription Pokemon_v2_moveflavortext_aggregate_(
   $distinct_on: [pokemon_v2_moveflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36373,7 +36373,7 @@ subscription Pokemon_v2_moveflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_moveflavortext_by_pk(
+subscription Pokemon_v2_moveflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_moveflavortext_by_pk(
@@ -36415,7 +36415,7 @@ subscription Pokemon_v2_moveflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_movelearnmethod(
+subscription Pokemon_v2_movelearnmethod_(
   $distinct_on: [pokemon_v2_movelearnmethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36509,7 +36509,7 @@ subscription Pokemon_v2_movelearnmethod(
   }
 }
 
-subscription Pokemon_v2_movelearnmethod_aggregate(
+subscription Pokemon_v2_movelearnmethod_aggregate_(
   $distinct_on: [pokemon_v2_movelearnmethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36529,7 +36529,7 @@ subscription Pokemon_v2_movelearnmethod_aggregate(
   }
 }
 
-subscription Pokemon_v2_movelearnmethod_by_pk(
+subscription Pokemon_v2_movelearnmethod_by_pk_(
   $id: Int!,
   $pokemon_v2_movelearnmethoddescriptionsDistinct_on: [pokemon_v2_movelearnmethoddescription_select_column!],
   $pokemon_v2_movelearnmethoddescriptionsLimit: Int,
@@ -36705,7 +36705,7 @@ subscription Pokemon_v2_movelearnmethod_stream(
   }
 }
 
-subscription Pokemon_v2_movelearnmethoddescription(
+subscription Pokemon_v2_movelearnmethoddescription_(
   $distinct_on: [pokemon_v2_movelearnmethoddescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36729,7 +36729,7 @@ subscription Pokemon_v2_movelearnmethoddescription(
   }
 }
 
-subscription Pokemon_v2_movelearnmethoddescription_aggregate(
+subscription Pokemon_v2_movelearnmethoddescription_aggregate_(
   $distinct_on: [pokemon_v2_movelearnmethoddescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36749,7 +36749,7 @@ subscription Pokemon_v2_movelearnmethoddescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_movelearnmethoddescription_by_pk(
+subscription Pokemon_v2_movelearnmethoddescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movelearnmethoddescription_by_pk(
@@ -36785,7 +36785,7 @@ subscription Pokemon_v2_movelearnmethoddescription_stream(
   }
 }
 
-subscription Pokemon_v2_movelearnmethodname(
+subscription Pokemon_v2_movelearnmethodname_(
   $distinct_on: [pokemon_v2_movelearnmethodname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36809,7 +36809,7 @@ subscription Pokemon_v2_movelearnmethodname(
   }
 }
 
-subscription Pokemon_v2_movelearnmethodname_aggregate(
+subscription Pokemon_v2_movelearnmethodname_aggregate_(
   $distinct_on: [pokemon_v2_movelearnmethodname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36829,7 +36829,7 @@ subscription Pokemon_v2_movelearnmethodname_aggregate(
   }
 }
 
-subscription Pokemon_v2_movelearnmethodname_by_pk(
+subscription Pokemon_v2_movelearnmethodname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movelearnmethodname_by_pk(
@@ -36865,7 +36865,7 @@ subscription Pokemon_v2_movelearnmethodname_stream(
   }
 }
 
-subscription Pokemon_v2_movemeta(
+subscription Pokemon_v2_movemeta_(
   $distinct_on: [pokemon_v2_movemeta_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36892,7 +36892,7 @@ subscription Pokemon_v2_movemeta(
   }
 }
 
-subscription Pokemon_v2_movemeta_aggregate(
+subscription Pokemon_v2_movemeta_aggregate_(
   $distinct_on: [pokemon_v2_movemeta_select_column!],
   $limit: Int,
   $offset: Int,
@@ -36912,7 +36912,7 @@ subscription Pokemon_v2_movemeta_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemeta_by_pk(
+subscription Pokemon_v2_movemeta_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movemeta_by_pk(
@@ -36954,7 +36954,7 @@ subscription Pokemon_v2_movemeta_stream(
   }
 }
 
-subscription Pokemon_v2_movemetaailment(
+subscription Pokemon_v2_movemetaailment_(
   $distinct_on: [pokemon_v2_movemetaailment_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37010,7 +37010,7 @@ subscription Pokemon_v2_movemetaailment(
   }
 }
 
-subscription Pokemon_v2_movemetaailment_aggregate(
+subscription Pokemon_v2_movemetaailment_aggregate_(
   $distinct_on: [pokemon_v2_movemetaailment_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37030,7 +37030,7 @@ subscription Pokemon_v2_movemetaailment_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemetaailment_by_pk(
+subscription Pokemon_v2_movemetaailment_by_pk_(
   $id: Int!,
   $pokemon_v2_movemetaDistinct_on: [pokemon_v2_movemeta_select_column!],
   $pokemon_v2_movemetaLimit: Int,
@@ -37130,7 +37130,7 @@ subscription Pokemon_v2_movemetaailment_stream(
   }
 }
 
-subscription Pokemon_v2_movemetaailmentname(
+subscription Pokemon_v2_movemetaailmentname_(
   $distinct_on: [pokemon_v2_movemetaailmentname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37154,7 +37154,7 @@ subscription Pokemon_v2_movemetaailmentname(
   }
 }
 
-subscription Pokemon_v2_movemetaailmentname_aggregate(
+subscription Pokemon_v2_movemetaailmentname_aggregate_(
   $distinct_on: [pokemon_v2_movemetaailmentname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37174,7 +37174,7 @@ subscription Pokemon_v2_movemetaailmentname_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemetaailmentname_by_pk(
+subscription Pokemon_v2_movemetaailmentname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movemetaailmentname_by_pk(
@@ -37210,7 +37210,7 @@ subscription Pokemon_v2_movemetaailmentname_stream(
   }
 }
 
-subscription Pokemon_v2_movemetacategory(
+subscription Pokemon_v2_movemetacategory_(
   $distinct_on: [pokemon_v2_movemetacategory_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37266,7 +37266,7 @@ subscription Pokemon_v2_movemetacategory(
   }
 }
 
-subscription Pokemon_v2_movemetacategory_aggregate(
+subscription Pokemon_v2_movemetacategory_aggregate_(
   $distinct_on: [pokemon_v2_movemetacategory_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37286,7 +37286,7 @@ subscription Pokemon_v2_movemetacategory_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemetacategory_by_pk(
+subscription Pokemon_v2_movemetacategory_by_pk_(
   $id: Int!,
   $pokemon_v2_movemetaDistinct_on: [pokemon_v2_movemeta_select_column!],
   $pokemon_v2_movemetaLimit: Int,
@@ -37386,7 +37386,7 @@ subscription Pokemon_v2_movemetacategory_stream(
   }
 }
 
-subscription Pokemon_v2_movemetacategorydescription(
+subscription Pokemon_v2_movemetacategorydescription_(
   $distinct_on: [pokemon_v2_movemetacategorydescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37410,7 +37410,7 @@ subscription Pokemon_v2_movemetacategorydescription(
   }
 }
 
-subscription Pokemon_v2_movemetacategorydescription_aggregate(
+subscription Pokemon_v2_movemetacategorydescription_aggregate_(
   $distinct_on: [pokemon_v2_movemetacategorydescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37430,7 +37430,7 @@ subscription Pokemon_v2_movemetacategorydescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemetacategorydescription_by_pk(
+subscription Pokemon_v2_movemetacategorydescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movemetacategorydescription_by_pk(
@@ -37466,7 +37466,7 @@ subscription Pokemon_v2_movemetacategorydescription_stream(
   }
 }
 
-subscription Pokemon_v2_movemetastatchange(
+subscription Pokemon_v2_movemetastatchange_(
   $distinct_on: [pokemon_v2_movemetastatchange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37490,7 +37490,7 @@ subscription Pokemon_v2_movemetastatchange(
   }
 }
 
-subscription Pokemon_v2_movemetastatchange_aggregate(
+subscription Pokemon_v2_movemetastatchange_aggregate_(
   $distinct_on: [pokemon_v2_movemetastatchange_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37510,7 +37510,7 @@ subscription Pokemon_v2_movemetastatchange_aggregate(
   }
 }
 
-subscription Pokemon_v2_movemetastatchange_by_pk(
+subscription Pokemon_v2_movemetastatchange_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movemetastatchange_by_pk(
@@ -37546,7 +37546,7 @@ subscription Pokemon_v2_movemetastatchange_stream(
   }
 }
 
-subscription Pokemon_v2_movename(
+subscription Pokemon_v2_movename_(
   $distinct_on: [pokemon_v2_movename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37570,7 +37570,7 @@ subscription Pokemon_v2_movename(
   }
 }
 
-subscription Pokemon_v2_movename_aggregate(
+subscription Pokemon_v2_movename_aggregate_(
   $distinct_on: [pokemon_v2_movename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37590,7 +37590,7 @@ subscription Pokemon_v2_movename_aggregate(
   }
 }
 
-subscription Pokemon_v2_movename_by_pk(
+subscription Pokemon_v2_movename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movename_by_pk(
@@ -37626,7 +37626,7 @@ subscription Pokemon_v2_movename_stream(
   }
 }
 
-subscription Pokemon_v2_movetarget(
+subscription Pokemon_v2_movetarget_(
   $distinct_on: [pokemon_v2_movetarget_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37701,7 +37701,7 @@ subscription Pokemon_v2_movetarget(
   }
 }
 
-subscription Pokemon_v2_movetarget_aggregate(
+subscription Pokemon_v2_movetarget_aggregate_(
   $distinct_on: [pokemon_v2_movetarget_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37721,7 +37721,7 @@ subscription Pokemon_v2_movetarget_aggregate(
   }
 }
 
-subscription Pokemon_v2_movetarget_by_pk(
+subscription Pokemon_v2_movetarget_by_pk_(
   $id: Int!,
   $pokemon_v2_movesDistinct_on: [pokemon_v2_move_select_column!],
   $pokemon_v2_movesLimit: Int,
@@ -37859,7 +37859,7 @@ subscription Pokemon_v2_movetarget_stream(
   }
 }
 
-subscription Pokemon_v2_movetargetdescription(
+subscription Pokemon_v2_movetargetdescription_(
   $distinct_on: [pokemon_v2_movetargetdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37883,7 +37883,7 @@ subscription Pokemon_v2_movetargetdescription(
   }
 }
 
-subscription Pokemon_v2_movetargetdescription_aggregate(
+subscription Pokemon_v2_movetargetdescription_aggregate_(
   $distinct_on: [pokemon_v2_movetargetdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37903,7 +37903,7 @@ subscription Pokemon_v2_movetargetdescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_movetargetdescription_by_pk(
+subscription Pokemon_v2_movetargetdescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movetargetdescription_by_pk(
@@ -37939,7 +37939,7 @@ subscription Pokemon_v2_movetargetdescription_stream(
   }
 }
 
-subscription Pokemon_v2_movetargetname(
+subscription Pokemon_v2_movetargetname_(
   $distinct_on: [pokemon_v2_movetargetname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37963,7 +37963,7 @@ subscription Pokemon_v2_movetargetname(
   }
 }
 
-subscription Pokemon_v2_movetargetname_aggregate(
+subscription Pokemon_v2_movetargetname_aggregate_(
   $distinct_on: [pokemon_v2_movetargetname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -37983,7 +37983,7 @@ subscription Pokemon_v2_movetargetname_aggregate(
   }
 }
 
-subscription Pokemon_v2_movetargetname_by_pk(
+subscription Pokemon_v2_movetargetname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_movetargetname_by_pk(
@@ -38019,7 +38019,7 @@ subscription Pokemon_v2_movetargetname_stream(
   }
 }
 
-subscription Pokemon_v2_nature(
+subscription Pokemon_v2_nature_(
   $distinct_on: [pokemon_v2_nature_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38106,7 +38106,7 @@ subscription Pokemon_v2_nature(
   }
 }
 
-subscription Pokemon_v2_nature_aggregate(
+subscription Pokemon_v2_nature_aggregate_(
   $distinct_on: [pokemon_v2_nature_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38126,7 +38126,7 @@ subscription Pokemon_v2_nature_aggregate(
   }
 }
 
-subscription Pokemon_v2_nature_by_pk(
+subscription Pokemon_v2_nature_by_pk_(
   $id: Int!,
   $pokemon_v2_naturebattlestylepreferencesDistinct_on: [pokemon_v2_naturebattlestylepreference_select_column!],
   $pokemon_v2_naturebattlestylepreferencesLimit: Int,
@@ -38288,7 +38288,7 @@ subscription Pokemon_v2_nature_stream(
   }
 }
 
-subscription Pokemon_v2_naturebattlestylepreference(
+subscription Pokemon_v2_naturebattlestylepreference_(
   $distinct_on: [pokemon_v2_naturebattlestylepreference_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38312,7 +38312,7 @@ subscription Pokemon_v2_naturebattlestylepreference(
   }
 }
 
-subscription Pokemon_v2_naturebattlestylepreference_aggregate(
+subscription Pokemon_v2_naturebattlestylepreference_aggregate_(
   $distinct_on: [pokemon_v2_naturebattlestylepreference_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38332,7 +38332,7 @@ subscription Pokemon_v2_naturebattlestylepreference_aggregate(
   }
 }
 
-subscription Pokemon_v2_naturebattlestylepreference_by_pk(
+subscription Pokemon_v2_naturebattlestylepreference_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_naturebattlestylepreference_by_pk(
@@ -38368,7 +38368,7 @@ subscription Pokemon_v2_naturebattlestylepreference_stream(
   }
 }
 
-subscription Pokemon_v2_naturename(
+subscription Pokemon_v2_naturename_(
   $distinct_on: [pokemon_v2_naturename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38392,7 +38392,7 @@ subscription Pokemon_v2_naturename(
   }
 }
 
-subscription Pokemon_v2_naturename_aggregate(
+subscription Pokemon_v2_naturename_aggregate_(
   $distinct_on: [pokemon_v2_naturename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38412,7 +38412,7 @@ subscription Pokemon_v2_naturename_aggregate(
   }
 }
 
-subscription Pokemon_v2_naturename_by_pk(
+subscription Pokemon_v2_naturename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_naturename_by_pk(
@@ -38448,7 +38448,7 @@ subscription Pokemon_v2_naturename_stream(
   }
 }
 
-subscription Pokemon_v2_naturepokeathlonstat(
+subscription Pokemon_v2_naturepokeathlonstat_(
   $distinct_on: [pokemon_v2_naturepokeathlonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38472,7 +38472,7 @@ subscription Pokemon_v2_naturepokeathlonstat(
   }
 }
 
-subscription Pokemon_v2_naturepokeathlonstat_aggregate(
+subscription Pokemon_v2_naturepokeathlonstat_aggregate_(
   $distinct_on: [pokemon_v2_naturepokeathlonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38492,7 +38492,7 @@ subscription Pokemon_v2_naturepokeathlonstat_aggregate(
   }
 }
 
-subscription Pokemon_v2_naturepokeathlonstat_by_pk(
+subscription Pokemon_v2_naturepokeathlonstat_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_naturepokeathlonstat_by_pk(
@@ -38528,7 +38528,7 @@ subscription Pokemon_v2_naturepokeathlonstat_stream(
   }
 }
 
-subscription Pokemon_v2_palpark(
+subscription Pokemon_v2_palpark_(
   $distinct_on: [pokemon_v2_palpark_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38552,7 +38552,7 @@ subscription Pokemon_v2_palpark(
   }
 }
 
-subscription Pokemon_v2_palpark_aggregate(
+subscription Pokemon_v2_palpark_aggregate_(
   $distinct_on: [pokemon_v2_palpark_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38572,7 +38572,7 @@ subscription Pokemon_v2_palpark_aggregate(
   }
 }
 
-subscription Pokemon_v2_palpark_by_pk(
+subscription Pokemon_v2_palpark_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_palpark_by_pk(
@@ -38608,7 +38608,7 @@ subscription Pokemon_v2_palpark_stream(
   }
 }
 
-subscription Pokemon_v2_palparkarea(
+subscription Pokemon_v2_palparkarea_(
   $distinct_on: [pokemon_v2_palparkarea_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38664,7 +38664,7 @@ subscription Pokemon_v2_palparkarea(
   }
 }
 
-subscription Pokemon_v2_palparkarea_aggregate(
+subscription Pokemon_v2_palparkarea_aggregate_(
   $distinct_on: [pokemon_v2_palparkarea_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38684,7 +38684,7 @@ subscription Pokemon_v2_palparkarea_aggregate(
   }
 }
 
-subscription Pokemon_v2_palparkarea_by_pk(
+subscription Pokemon_v2_palparkarea_by_pk_(
   $id: Int!,
   $pokemon_v2_palparkareanamesDistinct_on: [pokemon_v2_palparkareaname_select_column!],
   $pokemon_v2_palparkareanamesLimit: Int,
@@ -38784,7 +38784,7 @@ subscription Pokemon_v2_palparkarea_stream(
   }
 }
 
-subscription Pokemon_v2_palparkareaname(
+subscription Pokemon_v2_palparkareaname_(
   $distinct_on: [pokemon_v2_palparkareaname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38808,7 +38808,7 @@ subscription Pokemon_v2_palparkareaname(
   }
 }
 
-subscription Pokemon_v2_palparkareaname_aggregate(
+subscription Pokemon_v2_palparkareaname_aggregate_(
   $distinct_on: [pokemon_v2_palparkareaname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38828,7 +38828,7 @@ subscription Pokemon_v2_palparkareaname_aggregate(
   }
 }
 
-subscription Pokemon_v2_palparkareaname_by_pk(
+subscription Pokemon_v2_palparkareaname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_palparkareaname_by_pk(
@@ -38864,7 +38864,7 @@ subscription Pokemon_v2_palparkareaname_stream(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstat(
+subscription Pokemon_v2_pokeathlonstat_(
   $distinct_on: [pokemon_v2_pokeathlonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38920,7 +38920,7 @@ subscription Pokemon_v2_pokeathlonstat(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstat_aggregate(
+subscription Pokemon_v2_pokeathlonstat_aggregate_(
   $distinct_on: [pokemon_v2_pokeathlonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -38940,7 +38940,7 @@ subscription Pokemon_v2_pokeathlonstat_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstat_by_pk(
+subscription Pokemon_v2_pokeathlonstat_by_pk_(
   $id: Int!,
   $pokemon_v2_naturepokeathlonstatsDistinct_on: [pokemon_v2_naturepokeathlonstat_select_column!],
   $pokemon_v2_naturepokeathlonstatsLimit: Int,
@@ -39040,7 +39040,7 @@ subscription Pokemon_v2_pokeathlonstat_stream(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstatname(
+subscription Pokemon_v2_pokeathlonstatname_(
   $distinct_on: [pokemon_v2_pokeathlonstatname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39064,7 +39064,7 @@ subscription Pokemon_v2_pokeathlonstatname(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstatname_aggregate(
+subscription Pokemon_v2_pokeathlonstatname_aggregate_(
   $distinct_on: [pokemon_v2_pokeathlonstatname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39084,7 +39084,7 @@ subscription Pokemon_v2_pokeathlonstatname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokeathlonstatname_by_pk(
+subscription Pokemon_v2_pokeathlonstatname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokeathlonstatname_by_pk(
@@ -39120,7 +39120,7 @@ subscription Pokemon_v2_pokeathlonstatname_stream(
   }
 }
 
-subscription Pokemon_v2_pokedex(
+subscription Pokemon_v2_pokedex_(
   $distinct_on: [pokemon_v2_pokedex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39217,7 +39217,7 @@ subscription Pokemon_v2_pokedex(
   }
 }
 
-subscription Pokemon_v2_pokedex_aggregate(
+subscription Pokemon_v2_pokedex_aggregate_(
   $distinct_on: [pokemon_v2_pokedex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39237,7 +39237,7 @@ subscription Pokemon_v2_pokedex_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokedex_by_pk(
+subscription Pokemon_v2_pokedex_by_pk_(
   $id: Int!,
   $pokemon_v2_pokedexdescriptionsDistinct_on: [pokemon_v2_pokedexdescription_select_column!],
   $pokemon_v2_pokedexdescriptionsLimit: Int,
@@ -39419,7 +39419,7 @@ subscription Pokemon_v2_pokedex_stream(
   }
 }
 
-subscription Pokemon_v2_pokedexdescription(
+subscription Pokemon_v2_pokedexdescription_(
   $distinct_on: [pokemon_v2_pokedexdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39443,7 +39443,7 @@ subscription Pokemon_v2_pokedexdescription(
   }
 }
 
-subscription Pokemon_v2_pokedexdescription_aggregate(
+subscription Pokemon_v2_pokedexdescription_aggregate_(
   $distinct_on: [pokemon_v2_pokedexdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39463,7 +39463,7 @@ subscription Pokemon_v2_pokedexdescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokedexdescription_by_pk(
+subscription Pokemon_v2_pokedexdescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokedexdescription_by_pk(
@@ -39499,7 +39499,7 @@ subscription Pokemon_v2_pokedexdescription_stream(
   }
 }
 
-subscription Pokemon_v2_pokedexname(
+subscription Pokemon_v2_pokedexname_(
   $distinct_on: [pokemon_v2_pokedexname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39523,7 +39523,7 @@ subscription Pokemon_v2_pokedexname(
   }
 }
 
-subscription Pokemon_v2_pokedexname_aggregate(
+subscription Pokemon_v2_pokedexname_aggregate_(
   $distinct_on: [pokemon_v2_pokedexname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39543,7 +39543,7 @@ subscription Pokemon_v2_pokedexname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokedexname_by_pk(
+subscription Pokemon_v2_pokedexname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokedexname_by_pk(
@@ -39579,7 +39579,7 @@ subscription Pokemon_v2_pokedexname_stream(
   }
 }
 
-subscription Pokemon_v2_pokedexversiongroup(
+subscription Pokemon_v2_pokedexversiongroup_(
   $distinct_on: [pokemon_v2_pokedexversiongroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39603,7 +39603,7 @@ subscription Pokemon_v2_pokedexversiongroup(
   }
 }
 
-subscription Pokemon_v2_pokedexversiongroup_aggregate(
+subscription Pokemon_v2_pokedexversiongroup_aggregate_(
   $distinct_on: [pokemon_v2_pokedexversiongroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39623,7 +39623,7 @@ subscription Pokemon_v2_pokedexversiongroup_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokedexversiongroup_by_pk(
+subscription Pokemon_v2_pokedexversiongroup_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokedexversiongroup_by_pk(
@@ -39659,7 +39659,7 @@ subscription Pokemon_v2_pokedexversiongroup_stream(
   }
 }
 
-subscription Pokemon_v2_pokemon(
+subscription Pokemon_v2_pokemon_(
   $distinct_on: [pokemon_v2_pokemon_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39908,7 +39908,7 @@ subscription Pokemon_v2_pokemon(
   }
 }
 
-subscription Pokemon_v2_pokemon_aggregate(
+subscription Pokemon_v2_pokemon_aggregate_(
   $distinct_on: [pokemon_v2_pokemon_select_column!],
   $limit: Int,
   $offset: Int,
@@ -39928,7 +39928,7 @@ subscription Pokemon_v2_pokemon_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemon_by_pk(
+subscription Pokemon_v2_pokemon_by_pk_(
   $id: Int!,
   $pokemon_v2_encountersDistinct_on: [pokemon_v2_encounter_select_column!],
   $pokemon_v2_encountersLimit: Int,
@@ -40414,7 +40414,7 @@ subscription Pokemon_v2_pokemon_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonability(
+subscription Pokemon_v2_pokemonability_(
   $distinct_on: [pokemon_v2_pokemonability_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40438,7 +40438,7 @@ subscription Pokemon_v2_pokemonability(
   }
 }
 
-subscription Pokemon_v2_pokemonability_aggregate(
+subscription Pokemon_v2_pokemonability_aggregate_(
   $distinct_on: [pokemon_v2_pokemonability_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40458,7 +40458,7 @@ subscription Pokemon_v2_pokemonability_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonability_by_pk(
+subscription Pokemon_v2_pokemonability_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonability_by_pk(
@@ -40494,7 +40494,7 @@ subscription Pokemon_v2_pokemonability_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonabilitypast(
+subscription Pokemon_v2_pokemonabilitypast_(
   $distinct_on: [pokemon_v2_pokemonabilitypast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40521,7 +40521,7 @@ subscription Pokemon_v2_pokemonabilitypast(
   }
 }
 
-subscription Pokemon_v2_pokemonabilitypast_aggregate(
+subscription Pokemon_v2_pokemonabilitypast_aggregate_(
   $distinct_on: [pokemon_v2_pokemonabilitypast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40541,7 +40541,7 @@ subscription Pokemon_v2_pokemonabilitypast_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonabilitypast_by_pk(
+subscription Pokemon_v2_pokemonabilitypast_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonabilitypast_by_pk(
@@ -40583,7 +40583,7 @@ subscription Pokemon_v2_pokemonabilitypast_stream(
   }
 }
 
-subscription Pokemon_v2_pokemoncolor(
+subscription Pokemon_v2_pokemoncolor_(
   $distinct_on: [pokemon_v2_pokemoncolor_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40639,7 +40639,7 @@ subscription Pokemon_v2_pokemoncolor(
   }
 }
 
-subscription Pokemon_v2_pokemoncolor_aggregate(
+subscription Pokemon_v2_pokemoncolor_aggregate_(
   $distinct_on: [pokemon_v2_pokemoncolor_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40659,7 +40659,7 @@ subscription Pokemon_v2_pokemoncolor_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemoncolor_by_pk(
+subscription Pokemon_v2_pokemoncolor_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemoncolornamesDistinct_on: [pokemon_v2_pokemoncolorname_select_column!],
   $pokemon_v2_pokemoncolornamesLimit: Int,
@@ -40759,7 +40759,7 @@ subscription Pokemon_v2_pokemoncolor_stream(
   }
 }
 
-subscription Pokemon_v2_pokemoncolorname(
+subscription Pokemon_v2_pokemoncolorname_(
   $distinct_on: [pokemon_v2_pokemoncolorname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40783,7 +40783,7 @@ subscription Pokemon_v2_pokemoncolorname(
   }
 }
 
-subscription Pokemon_v2_pokemoncolorname_aggregate(
+subscription Pokemon_v2_pokemoncolorname_aggregate_(
   $distinct_on: [pokemon_v2_pokemoncolorname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40803,7 +40803,7 @@ subscription Pokemon_v2_pokemoncolorname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemoncolorname_by_pk(
+subscription Pokemon_v2_pokemoncolorname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemoncolorname_by_pk(
@@ -40839,7 +40839,7 @@ subscription Pokemon_v2_pokemoncolorname_stream(
   }
 }
 
-subscription Pokemon_v2_pokemoncries(
+subscription Pokemon_v2_pokemoncries_(
   $distinct_on: [pokemon_v2_pokemoncries_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40864,7 +40864,7 @@ subscription Pokemon_v2_pokemoncries(
   }
 }
 
-subscription Pokemon_v2_pokemoncries_aggregate(
+subscription Pokemon_v2_pokemoncries_aggregate_(
   $distinct_on: [pokemon_v2_pokemoncries_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40884,7 +40884,7 @@ subscription Pokemon_v2_pokemoncries_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemoncries_by_pk(
+subscription Pokemon_v2_pokemoncries_by_pk_(
   $id: Int!,
   $criesPath: String
 ) {
@@ -40922,7 +40922,7 @@ subscription Pokemon_v2_pokemoncries_stream(
   }
 }
 
-subscription Pokemon_v2_pokemondexnumber(
+subscription Pokemon_v2_pokemondexnumber_(
   $distinct_on: [pokemon_v2_pokemondexnumber_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40946,7 +40946,7 @@ subscription Pokemon_v2_pokemondexnumber(
   }
 }
 
-subscription Pokemon_v2_pokemondexnumber_aggregate(
+subscription Pokemon_v2_pokemondexnumber_aggregate_(
   $distinct_on: [pokemon_v2_pokemondexnumber_select_column!],
   $limit: Int,
   $offset: Int,
@@ -40966,7 +40966,7 @@ subscription Pokemon_v2_pokemondexnumber_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemondexnumber_by_pk(
+subscription Pokemon_v2_pokemondexnumber_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemondexnumber_by_pk(
@@ -41002,7 +41002,7 @@ subscription Pokemon_v2_pokemondexnumber_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonegggroup(
+subscription Pokemon_v2_pokemonegggroup_(
   $distinct_on: [pokemon_v2_pokemonegggroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41026,7 +41026,7 @@ subscription Pokemon_v2_pokemonegggroup(
   }
 }
 
-subscription Pokemon_v2_pokemonegggroup_aggregate(
+subscription Pokemon_v2_pokemonegggroup_aggregate_(
   $distinct_on: [pokemon_v2_pokemonegggroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41046,7 +41046,7 @@ subscription Pokemon_v2_pokemonegggroup_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonegggroup_by_pk(
+subscription Pokemon_v2_pokemonegggroup_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonegggroup_by_pk(
@@ -41082,7 +41082,7 @@ subscription Pokemon_v2_pokemonegggroup_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonevolution(
+subscription Pokemon_v2_pokemonevolution_(
   $distinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41133,7 +41133,7 @@ subscription Pokemon_v2_pokemonevolution(
   }
 }
 
-subscription Pokemon_v2_pokemonevolution_aggregate(
+subscription Pokemon_v2_pokemonevolution_aggregate_(
   $distinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41153,7 +41153,7 @@ subscription Pokemon_v2_pokemonevolution_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonevolution_by_pk(
+subscription Pokemon_v2_pokemonevolution_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonevolution_by_pk(
@@ -41243,7 +41243,7 @@ subscription Pokemon_v2_pokemonevolution_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonform(
+subscription Pokemon_v2_pokemonform_(
   $distinct_on: [pokemon_v2_pokemonform_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41343,7 +41343,7 @@ subscription Pokemon_v2_pokemonform(
   }
 }
 
-subscription Pokemon_v2_pokemonform_aggregate(
+subscription Pokemon_v2_pokemonform_aggregate_(
   $distinct_on: [pokemon_v2_pokemonform_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41363,7 +41363,7 @@ subscription Pokemon_v2_pokemonform_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonform_by_pk(
+subscription Pokemon_v2_pokemonform_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemonformgenerationsDistinct_on: [pokemon_v2_pokemonformgeneration_select_column!],
   $pokemon_v2_pokemonformgenerationsLimit: Int,
@@ -41551,7 +41551,7 @@ subscription Pokemon_v2_pokemonform_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonformgeneration(
+subscription Pokemon_v2_pokemonformgeneration_(
   $distinct_on: [pokemon_v2_pokemonformgeneration_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41575,7 +41575,7 @@ subscription Pokemon_v2_pokemonformgeneration(
   }
 }
 
-subscription Pokemon_v2_pokemonformgeneration_aggregate(
+subscription Pokemon_v2_pokemonformgeneration_aggregate_(
   $distinct_on: [pokemon_v2_pokemonformgeneration_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41595,7 +41595,7 @@ subscription Pokemon_v2_pokemonformgeneration_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonformgeneration_by_pk(
+subscription Pokemon_v2_pokemonformgeneration_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonformgeneration_by_pk(
@@ -41631,7 +41631,7 @@ subscription Pokemon_v2_pokemonformgeneration_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonformname(
+subscription Pokemon_v2_pokemonformname_(
   $distinct_on: [pokemon_v2_pokemonformname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41655,7 +41655,7 @@ subscription Pokemon_v2_pokemonformname(
   }
 }
 
-subscription Pokemon_v2_pokemonformname_aggregate(
+subscription Pokemon_v2_pokemonformname_aggregate_(
   $distinct_on: [pokemon_v2_pokemonformname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41675,7 +41675,7 @@ subscription Pokemon_v2_pokemonformname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonformname_by_pk(
+subscription Pokemon_v2_pokemonformname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonformname_by_pk(
@@ -41711,7 +41711,7 @@ subscription Pokemon_v2_pokemonformname_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonformsprites(
+subscription Pokemon_v2_pokemonformsprites_(
   $distinct_on: [pokemon_v2_pokemonformsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41736,7 +41736,7 @@ subscription Pokemon_v2_pokemonformsprites(
   }
 }
 
-subscription Pokemon_v2_pokemonformsprites_aggregate(
+subscription Pokemon_v2_pokemonformsprites_aggregate_(
   $distinct_on: [pokemon_v2_pokemonformsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41756,7 +41756,7 @@ subscription Pokemon_v2_pokemonformsprites_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonformsprites_by_pk(
+subscription Pokemon_v2_pokemonformsprites_by_pk_(
   $id: Int!,
   $spritesPath: String
 ) {
@@ -41794,7 +41794,7 @@ subscription Pokemon_v2_pokemonformsprites_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonformtype(
+subscription Pokemon_v2_pokemonformtype_(
   $distinct_on: [pokemon_v2_pokemonformtype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41818,7 +41818,7 @@ subscription Pokemon_v2_pokemonformtype(
   }
 }
 
-subscription Pokemon_v2_pokemonformtype_aggregate(
+subscription Pokemon_v2_pokemonformtype_aggregate_(
   $distinct_on: [pokemon_v2_pokemonformtype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41838,7 +41838,7 @@ subscription Pokemon_v2_pokemonformtype_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonformtype_by_pk(
+subscription Pokemon_v2_pokemonformtype_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonformtype_by_pk(
@@ -41874,7 +41874,7 @@ subscription Pokemon_v2_pokemonformtype_stream(
   }
 }
 
-subscription Pokemon_v2_pokemongameindex(
+subscription Pokemon_v2_pokemongameindex_(
   $distinct_on: [pokemon_v2_pokemongameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41898,7 +41898,7 @@ subscription Pokemon_v2_pokemongameindex(
   }
 }
 
-subscription Pokemon_v2_pokemongameindex_aggregate(
+subscription Pokemon_v2_pokemongameindex_aggregate_(
   $distinct_on: [pokemon_v2_pokemongameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -41918,7 +41918,7 @@ subscription Pokemon_v2_pokemongameindex_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemongameindex_by_pk(
+subscription Pokemon_v2_pokemongameindex_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemongameindex_by_pk(
@@ -41954,7 +41954,7 @@ subscription Pokemon_v2_pokemongameindex_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitat(
+subscription Pokemon_v2_pokemonhabitat_(
   $distinct_on: [pokemon_v2_pokemonhabitat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42010,7 +42010,7 @@ subscription Pokemon_v2_pokemonhabitat(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitat_aggregate(
+subscription Pokemon_v2_pokemonhabitat_aggregate_(
   $distinct_on: [pokemon_v2_pokemonhabitat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42030,7 +42030,7 @@ subscription Pokemon_v2_pokemonhabitat_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitat_by_pk(
+subscription Pokemon_v2_pokemonhabitat_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemonhabitatnamesDistinct_on: [pokemon_v2_pokemonhabitatname_select_column!],
   $pokemon_v2_pokemonhabitatnamesLimit: Int,
@@ -42130,7 +42130,7 @@ subscription Pokemon_v2_pokemonhabitat_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitatname(
+subscription Pokemon_v2_pokemonhabitatname_(
   $distinct_on: [pokemon_v2_pokemonhabitatname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42154,7 +42154,7 @@ subscription Pokemon_v2_pokemonhabitatname(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitatname_aggregate(
+subscription Pokemon_v2_pokemonhabitatname_aggregate_(
   $distinct_on: [pokemon_v2_pokemonhabitatname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42174,7 +42174,7 @@ subscription Pokemon_v2_pokemonhabitatname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonhabitatname_by_pk(
+subscription Pokemon_v2_pokemonhabitatname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonhabitatname_by_pk(
@@ -42210,7 +42210,7 @@ subscription Pokemon_v2_pokemonhabitatname_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonitem(
+subscription Pokemon_v2_pokemonitem_(
   $distinct_on: [pokemon_v2_pokemonitem_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42237,7 +42237,7 @@ subscription Pokemon_v2_pokemonitem(
   }
 }
 
-subscription Pokemon_v2_pokemonitem_aggregate(
+subscription Pokemon_v2_pokemonitem_aggregate_(
   $distinct_on: [pokemon_v2_pokemonitem_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42257,7 +42257,7 @@ subscription Pokemon_v2_pokemonitem_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonitem_by_pk(
+subscription Pokemon_v2_pokemonitem_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonitem_by_pk(
@@ -42299,7 +42299,7 @@ subscription Pokemon_v2_pokemonitem_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonmove(
+subscription Pokemon_v2_pokemonmove_(
   $distinct_on: [pokemon_v2_pokemonmove_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42329,7 +42329,7 @@ subscription Pokemon_v2_pokemonmove(
   }
 }
 
-subscription Pokemon_v2_pokemonmove_aggregate(
+subscription Pokemon_v2_pokemonmove_aggregate_(
   $distinct_on: [pokemon_v2_pokemonmove_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42349,7 +42349,7 @@ subscription Pokemon_v2_pokemonmove_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonmove_by_pk(
+subscription Pokemon_v2_pokemonmove_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonmove_by_pk(
@@ -42397,7 +42397,7 @@ subscription Pokemon_v2_pokemonmove_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonshape(
+subscription Pokemon_v2_pokemonshape_(
   $distinct_on: [pokemon_v2_pokemonshape_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42453,7 +42453,7 @@ subscription Pokemon_v2_pokemonshape(
   }
 }
 
-subscription Pokemon_v2_pokemonshape_aggregate(
+subscription Pokemon_v2_pokemonshape_aggregate_(
   $distinct_on: [pokemon_v2_pokemonshape_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42473,7 +42473,7 @@ subscription Pokemon_v2_pokemonshape_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonshape_by_pk(
+subscription Pokemon_v2_pokemonshape_by_pk_(
   $id: Int!,
   $pokemon_v2_pokemonshapenamesDistinct_on: [pokemon_v2_pokemonshapename_select_column!],
   $pokemon_v2_pokemonshapenamesLimit: Int,
@@ -42573,7 +42573,7 @@ subscription Pokemon_v2_pokemonshape_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonshapename(
+subscription Pokemon_v2_pokemonshapename_(
   $distinct_on: [pokemon_v2_pokemonshapename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42597,7 +42597,7 @@ subscription Pokemon_v2_pokemonshapename(
   }
 }
 
-subscription Pokemon_v2_pokemonshapename_aggregate(
+subscription Pokemon_v2_pokemonshapename_aggregate_(
   $distinct_on: [pokemon_v2_pokemonshapename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42617,7 +42617,7 @@ subscription Pokemon_v2_pokemonshapename_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonshapename_by_pk(
+subscription Pokemon_v2_pokemonshapename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonshapename_by_pk(
@@ -42653,7 +42653,7 @@ subscription Pokemon_v2_pokemonshapename_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonspecies(
+subscription Pokemon_v2_pokemonspecies_(
   $distinct_on: [pokemon_v2_pokemonspecies_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42901,7 +42901,7 @@ subscription Pokemon_v2_pokemonspecies(
   }
 }
 
-subscription Pokemon_v2_pokemonspecies_aggregate(
+subscription Pokemon_v2_pokemonspecies_aggregate_(
   $distinct_on: [pokemon_v2_pokemonspecies_select_column!],
   $limit: Int,
   $offset: Int,
@@ -42921,7 +42921,7 @@ subscription Pokemon_v2_pokemonspecies_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonspecies_by_pk(
+subscription Pokemon_v2_pokemonspecies_by_pk_(
   $id: Int!,
   $pokemonV2PokemonevolutionsByPartySpeciesIdDistinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $pokemonV2PokemonevolutionsByPartySpeciesIdLimit: Int,
@@ -43405,7 +43405,7 @@ subscription Pokemon_v2_pokemonspecies_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesdescription(
+subscription Pokemon_v2_pokemonspeciesdescription_(
   $distinct_on: [pokemon_v2_pokemonspeciesdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43429,7 +43429,7 @@ subscription Pokemon_v2_pokemonspeciesdescription(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesdescription_aggregate(
+subscription Pokemon_v2_pokemonspeciesdescription_aggregate_(
   $distinct_on: [pokemon_v2_pokemonspeciesdescription_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43449,7 +43449,7 @@ subscription Pokemon_v2_pokemonspeciesdescription_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesdescription_by_pk(
+subscription Pokemon_v2_pokemonspeciesdescription_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonspeciesdescription_by_pk(
@@ -43485,7 +43485,7 @@ subscription Pokemon_v2_pokemonspeciesdescription_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesflavortext(
+subscription Pokemon_v2_pokemonspeciesflavortext_(
   $distinct_on: [pokemon_v2_pokemonspeciesflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43512,7 +43512,7 @@ subscription Pokemon_v2_pokemonspeciesflavortext(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesflavortext_aggregate(
+subscription Pokemon_v2_pokemonspeciesflavortext_aggregate_(
   $distinct_on: [pokemon_v2_pokemonspeciesflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43532,7 +43532,7 @@ subscription Pokemon_v2_pokemonspeciesflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesflavortext_by_pk(
+subscription Pokemon_v2_pokemonspeciesflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonspeciesflavortext_by_pk(
@@ -43574,7 +43574,7 @@ subscription Pokemon_v2_pokemonspeciesflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesname(
+subscription Pokemon_v2_pokemonspeciesname_(
   $distinct_on: [pokemon_v2_pokemonspeciesname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43598,7 +43598,7 @@ subscription Pokemon_v2_pokemonspeciesname(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesname_aggregate(
+subscription Pokemon_v2_pokemonspeciesname_aggregate_(
   $distinct_on: [pokemon_v2_pokemonspeciesname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43618,7 +43618,7 @@ subscription Pokemon_v2_pokemonspeciesname_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonspeciesname_by_pk(
+subscription Pokemon_v2_pokemonspeciesname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonspeciesname_by_pk(
@@ -43654,7 +43654,7 @@ subscription Pokemon_v2_pokemonspeciesname_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonsprites(
+subscription Pokemon_v2_pokemonsprites_(
   $distinct_on: [pokemon_v2_pokemonsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43679,7 +43679,7 @@ subscription Pokemon_v2_pokemonsprites(
   }
 }
 
-subscription Pokemon_v2_pokemonsprites_aggregate(
+subscription Pokemon_v2_pokemonsprites_aggregate_(
   $distinct_on: [pokemon_v2_pokemonsprites_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43699,7 +43699,7 @@ subscription Pokemon_v2_pokemonsprites_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonsprites_by_pk(
+subscription Pokemon_v2_pokemonsprites_by_pk_(
   $id: Int!,
   $spritesPath: String
 ) {
@@ -43737,7 +43737,7 @@ subscription Pokemon_v2_pokemonsprites_stream(
   }
 }
 
-subscription Pokemon_v2_pokemonstat(
+subscription Pokemon_v2_pokemonstat_(
   $distinct_on: [pokemon_v2_pokemonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43761,7 +43761,7 @@ subscription Pokemon_v2_pokemonstat(
   }
 }
 
-subscription Pokemon_v2_pokemonstat_aggregate(
+subscription Pokemon_v2_pokemonstat_aggregate_(
   $distinct_on: [pokemon_v2_pokemonstat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43781,7 +43781,7 @@ subscription Pokemon_v2_pokemonstat_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemonstat_by_pk(
+subscription Pokemon_v2_pokemonstat_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemonstat_by_pk(
@@ -43817,7 +43817,7 @@ subscription Pokemon_v2_pokemonstat_stream(
   }
 }
 
-subscription Pokemon_v2_pokemontype(
+subscription Pokemon_v2_pokemontype_(
   $distinct_on: [pokemon_v2_pokemontype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43841,7 +43841,7 @@ subscription Pokemon_v2_pokemontype(
   }
 }
 
-subscription Pokemon_v2_pokemontype_aggregate(
+subscription Pokemon_v2_pokemontype_aggregate_(
   $distinct_on: [pokemon_v2_pokemontype_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43861,7 +43861,7 @@ subscription Pokemon_v2_pokemontype_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemontype_by_pk(
+subscription Pokemon_v2_pokemontype_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemontype_by_pk(
@@ -43897,7 +43897,7 @@ subscription Pokemon_v2_pokemontype_stream(
   }
 }
 
-subscription Pokemon_v2_pokemontypepast(
+subscription Pokemon_v2_pokemontypepast_(
   $distinct_on: [pokemon_v2_pokemontypepast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43924,7 +43924,7 @@ subscription Pokemon_v2_pokemontypepast(
   }
 }
 
-subscription Pokemon_v2_pokemontypepast_aggregate(
+subscription Pokemon_v2_pokemontypepast_aggregate_(
   $distinct_on: [pokemon_v2_pokemontypepast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -43944,7 +43944,7 @@ subscription Pokemon_v2_pokemontypepast_aggregate(
   }
 }
 
-subscription Pokemon_v2_pokemontypepast_by_pk(
+subscription Pokemon_v2_pokemontypepast_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_pokemontypepast_by_pk(
@@ -43986,7 +43986,7 @@ subscription Pokemon_v2_pokemontypepast_stream(
   }
 }
 
-subscription Pokemon_v2_region(
+subscription Pokemon_v2_region_(
   $distinct_on: [pokemon_v2_region_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44102,7 +44102,7 @@ subscription Pokemon_v2_region(
   }
 }
 
-subscription Pokemon_v2_region_aggregate(
+subscription Pokemon_v2_region_aggregate_(
   $distinct_on: [pokemon_v2_region_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44122,7 +44122,7 @@ subscription Pokemon_v2_region_aggregate(
   }
 }
 
-subscription Pokemon_v2_region_by_pk(
+subscription Pokemon_v2_region_by_pk_(
   $id: Int!,
   $pokemon_v2_generationsDistinct_on: [pokemon_v2_generation_select_column!],
   $pokemon_v2_generationsLimit: Int,
@@ -44342,7 +44342,7 @@ subscription Pokemon_v2_region_stream(
   }
 }
 
-subscription Pokemon_v2_regionname(
+subscription Pokemon_v2_regionname_(
   $distinct_on: [pokemon_v2_regionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44366,7 +44366,7 @@ subscription Pokemon_v2_regionname(
   }
 }
 
-subscription Pokemon_v2_regionname_aggregate(
+subscription Pokemon_v2_regionname_aggregate_(
   $distinct_on: [pokemon_v2_regionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44386,7 +44386,7 @@ subscription Pokemon_v2_regionname_aggregate(
   }
 }
 
-subscription Pokemon_v2_regionname_by_pk(
+subscription Pokemon_v2_regionname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_regionname_by_pk(
@@ -44422,7 +44422,7 @@ subscription Pokemon_v2_regionname_stream(
   }
 }
 
-subscription Pokemon_v2_stat(
+subscription Pokemon_v2_stat_(
   $distinct_on: [pokemon_v2_stat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44557,7 +44557,7 @@ subscription Pokemon_v2_stat(
   }
 }
 
-subscription Pokemon_v2_stat_aggregate(
+subscription Pokemon_v2_stat_aggregate_(
   $distinct_on: [pokemon_v2_stat_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44577,7 +44577,7 @@ subscription Pokemon_v2_stat_aggregate(
   }
 }
 
-subscription Pokemon_v2_stat_by_pk(
+subscription Pokemon_v2_stat_by_pk_(
   $id: Int!,
   $pokemonV2NaturesByIncreasedStatIdDistinct_on: [pokemon_v2_nature_select_column!],
   $pokemonV2NaturesByIncreasedStatIdLimit: Int,
@@ -44835,7 +44835,7 @@ subscription Pokemon_v2_stat_stream(
   }
 }
 
-subscription Pokemon_v2_statname(
+subscription Pokemon_v2_statname_(
   $distinct_on: [pokemon_v2_statname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44859,7 +44859,7 @@ subscription Pokemon_v2_statname(
   }
 }
 
-subscription Pokemon_v2_statname_aggregate(
+subscription Pokemon_v2_statname_aggregate_(
   $distinct_on: [pokemon_v2_statname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44879,7 +44879,7 @@ subscription Pokemon_v2_statname_aggregate(
   }
 }
 
-subscription Pokemon_v2_statname_by_pk(
+subscription Pokemon_v2_statname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_statname_by_pk(
@@ -44915,7 +44915,7 @@ subscription Pokemon_v2_statname_stream(
   }
 }
 
-subscription Pokemon_v2_supercontestcombo(
+subscription Pokemon_v2_supercontestcombo_(
   $distinct_on: [pokemon_v2_supercontestcombo_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44939,7 +44939,7 @@ subscription Pokemon_v2_supercontestcombo(
   }
 }
 
-subscription Pokemon_v2_supercontestcombo_aggregate(
+subscription Pokemon_v2_supercontestcombo_aggregate_(
   $distinct_on: [pokemon_v2_supercontestcombo_select_column!],
   $limit: Int,
   $offset: Int,
@@ -44959,7 +44959,7 @@ subscription Pokemon_v2_supercontestcombo_aggregate(
   }
 }
 
-subscription Pokemon_v2_supercontestcombo_by_pk(
+subscription Pokemon_v2_supercontestcombo_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_supercontestcombo_by_pk(
@@ -44995,7 +44995,7 @@ subscription Pokemon_v2_supercontestcombo_stream(
   }
 }
 
-subscription Pokemon_v2_supercontesteffect(
+subscription Pokemon_v2_supercontesteffect_(
   $distinct_on: [pokemon_v2_supercontesteffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45051,7 +45051,7 @@ subscription Pokemon_v2_supercontesteffect(
   }
 }
 
-subscription Pokemon_v2_supercontesteffect_aggregate(
+subscription Pokemon_v2_supercontesteffect_aggregate_(
   $distinct_on: [pokemon_v2_supercontesteffect_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45071,7 +45071,7 @@ subscription Pokemon_v2_supercontesteffect_aggregate(
   }
 }
 
-subscription Pokemon_v2_supercontesteffect_by_pk(
+subscription Pokemon_v2_supercontesteffect_by_pk_(
   $id: Int!,
   $pokemon_v2_movesDistinct_on: [pokemon_v2_move_select_column!],
   $pokemon_v2_movesLimit: Int,
@@ -45171,7 +45171,7 @@ subscription Pokemon_v2_supercontesteffect_stream(
   }
 }
 
-subscription Pokemon_v2_supercontesteffectflavortext(
+subscription Pokemon_v2_supercontesteffectflavortext_(
   $distinct_on: [pokemon_v2_supercontesteffectflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45195,7 +45195,7 @@ subscription Pokemon_v2_supercontesteffectflavortext(
   }
 }
 
-subscription Pokemon_v2_supercontesteffectflavortext_aggregate(
+subscription Pokemon_v2_supercontesteffectflavortext_aggregate_(
   $distinct_on: [pokemon_v2_supercontesteffectflavortext_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45215,7 +45215,7 @@ subscription Pokemon_v2_supercontesteffectflavortext_aggregate(
   }
 }
 
-subscription Pokemon_v2_supercontesteffectflavortext_by_pk(
+subscription Pokemon_v2_supercontesteffectflavortext_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_supercontesteffectflavortext_by_pk(
@@ -45251,7 +45251,7 @@ subscription Pokemon_v2_supercontesteffectflavortext_stream(
   }
 }
 
-subscription Pokemon_v2_type(
+subscription Pokemon_v2_type_(
   $distinct_on: [pokemon_v2_type_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45541,7 +45541,7 @@ subscription Pokemon_v2_type(
   }
 }
 
-subscription Pokemon_v2_type_aggregate(
+subscription Pokemon_v2_type_aggregate_(
   $distinct_on: [pokemon_v2_type_select_column!],
   $limit: Int,
   $offset: Int,
@@ -45561,7 +45561,7 @@ subscription Pokemon_v2_type_aggregate(
   }
 }
 
-subscription Pokemon_v2_type_by_pk(
+subscription Pokemon_v2_type_by_pk_(
   $id: Int!,
   $pokemonV2PokemonevolutionsByPartyTypeIdDistinct_on: [pokemon_v2_pokemonevolution_select_column!],
   $pokemonV2PokemonevolutionsByPartyTypeIdLimit: Int,
@@ -46129,7 +46129,7 @@ subscription Pokemon_v2_type_stream(
   }
 }
 
-subscription Pokemon_v2_typeefficacy(
+subscription Pokemon_v2_typeefficacy_(
   $distinct_on: [pokemon_v2_typeefficacy_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46153,7 +46153,7 @@ subscription Pokemon_v2_typeefficacy(
   }
 }
 
-subscription Pokemon_v2_typeefficacy_aggregate(
+subscription Pokemon_v2_typeefficacy_aggregate_(
   $distinct_on: [pokemon_v2_typeefficacy_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46173,7 +46173,7 @@ subscription Pokemon_v2_typeefficacy_aggregate(
   }
 }
 
-subscription Pokemon_v2_typeefficacy_by_pk(
+subscription Pokemon_v2_typeefficacy_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_typeefficacy_by_pk(
@@ -46209,7 +46209,7 @@ subscription Pokemon_v2_typeefficacy_stream(
   }
 }
 
-subscription Pokemon_v2_typeefficacypast(
+subscription Pokemon_v2_typeefficacypast_(
   $distinct_on: [pokemon_v2_typeefficacypast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46236,7 +46236,7 @@ subscription Pokemon_v2_typeefficacypast(
   }
 }
 
-subscription Pokemon_v2_typeefficacypast_aggregate(
+subscription Pokemon_v2_typeefficacypast_aggregate_(
   $distinct_on: [pokemon_v2_typeefficacypast_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46256,7 +46256,7 @@ subscription Pokemon_v2_typeefficacypast_aggregate(
   }
 }
 
-subscription Pokemon_v2_typeefficacypast_by_pk(
+subscription Pokemon_v2_typeefficacypast_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_typeefficacypast_by_pk(
@@ -46298,7 +46298,7 @@ subscription Pokemon_v2_typeefficacypast_stream(
   }
 }
 
-subscription Pokemon_v2_typegameindex(
+subscription Pokemon_v2_typegameindex_(
   $distinct_on: [pokemon_v2_typegameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46322,7 +46322,7 @@ subscription Pokemon_v2_typegameindex(
   }
 }
 
-subscription Pokemon_v2_typegameindex_aggregate(
+subscription Pokemon_v2_typegameindex_aggregate_(
   $distinct_on: [pokemon_v2_typegameindex_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46342,7 +46342,7 @@ subscription Pokemon_v2_typegameindex_aggregate(
   }
 }
 
-subscription Pokemon_v2_typegameindex_by_pk(
+subscription Pokemon_v2_typegameindex_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_typegameindex_by_pk(
@@ -46378,7 +46378,7 @@ subscription Pokemon_v2_typegameindex_stream(
   }
 }
 
-subscription Pokemon_v2_typename(
+subscription Pokemon_v2_typename_(
   $distinct_on: [pokemon_v2_typename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46402,7 +46402,7 @@ subscription Pokemon_v2_typename(
   }
 }
 
-subscription Pokemon_v2_typename_aggregate(
+subscription Pokemon_v2_typename_aggregate_(
   $distinct_on: [pokemon_v2_typename_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46422,7 +46422,7 @@ subscription Pokemon_v2_typename_aggregate(
   }
 }
 
-subscription Pokemon_v2_typename_by_pk(
+subscription Pokemon_v2_typename_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_typename_by_pk(
@@ -46458,7 +46458,7 @@ subscription Pokemon_v2_typename_stream(
   }
 }
 
-subscription Pokemon_v2_version(
+subscription Pokemon_v2_version_(
   $distinct_on: [pokemon_v2_version_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46593,7 +46593,7 @@ subscription Pokemon_v2_version(
   }
 }
 
-subscription Pokemon_v2_version_aggregate(
+subscription Pokemon_v2_version_aggregate_(
   $distinct_on: [pokemon_v2_version_select_column!],
   $limit: Int,
   $offset: Int,
@@ -46613,7 +46613,7 @@ subscription Pokemon_v2_version_aggregate(
   }
 }
 
-subscription Pokemon_v2_version_by_pk(
+subscription Pokemon_v2_version_by_pk_(
   $id: Int!,
   $pokemon_v2_encountersDistinct_on: [pokemon_v2_encounter_select_column!],
   $pokemon_v2_encountersLimit: Int,
@@ -46871,7 +46871,7 @@ subscription Pokemon_v2_version_stream(
   }
 }
 
-subscription Pokemon_v2_versiongroup(
+subscription Pokemon_v2_versiongroup_(
   $distinct_on: [pokemon_v2_versiongroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47158,7 +47158,7 @@ subscription Pokemon_v2_versiongroup(
   }
 }
 
-subscription Pokemon_v2_versiongroup_aggregate(
+subscription Pokemon_v2_versiongroup_aggregate_(
   $distinct_on: [pokemon_v2_versiongroup_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47178,7 +47178,7 @@ subscription Pokemon_v2_versiongroup_aggregate(
   }
 }
 
-subscription Pokemon_v2_versiongroup_by_pk(
+subscription Pokemon_v2_versiongroup_by_pk_(
   $id: Int!,
   $pokemon_v2_abilitychangesDistinct_on: [pokemon_v2_abilitychange_select_column!],
   $pokemon_v2_abilitychangesLimit: Int,
@@ -47740,7 +47740,7 @@ subscription Pokemon_v2_versiongroup_stream(
   }
 }
 
-subscription Pokemon_v2_versiongroupmovelearnmethod(
+subscription Pokemon_v2_versiongroupmovelearnmethod_(
   $distinct_on: [pokemon_v2_versiongroupmovelearnmethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47764,7 +47764,7 @@ subscription Pokemon_v2_versiongroupmovelearnmethod(
   }
 }
 
-subscription Pokemon_v2_versiongroupmovelearnmethod_aggregate(
+subscription Pokemon_v2_versiongroupmovelearnmethod_aggregate_(
   $distinct_on: [pokemon_v2_versiongroupmovelearnmethod_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47784,7 +47784,7 @@ subscription Pokemon_v2_versiongroupmovelearnmethod_aggregate(
   }
 }
 
-subscription Pokemon_v2_versiongroupmovelearnmethod_by_pk(
+subscription Pokemon_v2_versiongroupmovelearnmethod_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_versiongroupmovelearnmethod_by_pk(
@@ -47820,7 +47820,7 @@ subscription Pokemon_v2_versiongroupmovelearnmethod_stream(
   }
 }
 
-subscription Pokemon_v2_versiongroupregion(
+subscription Pokemon_v2_versiongroupregion_(
   $distinct_on: [pokemon_v2_versiongroupregion_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47844,7 +47844,7 @@ subscription Pokemon_v2_versiongroupregion(
   }
 }
 
-subscription Pokemon_v2_versiongroupregion_aggregate(
+subscription Pokemon_v2_versiongroupregion_aggregate_(
   $distinct_on: [pokemon_v2_versiongroupregion_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47864,7 +47864,7 @@ subscription Pokemon_v2_versiongroupregion_aggregate(
   }
 }
 
-subscription Pokemon_v2_versiongroupregion_by_pk(
+subscription Pokemon_v2_versiongroupregion_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_versiongroupregion_by_pk(
@@ -47900,7 +47900,7 @@ subscription Pokemon_v2_versiongroupregion_stream(
   }
 }
 
-subscription Pokemon_v2_versionname(
+subscription Pokemon_v2_versionname_(
   $distinct_on: [pokemon_v2_versionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47924,7 +47924,7 @@ subscription Pokemon_v2_versionname(
   }
 }
 
-subscription Pokemon_v2_versionname_aggregate(
+subscription Pokemon_v2_versionname_aggregate_(
   $distinct_on: [pokemon_v2_versionname_select_column!],
   $limit: Int,
   $offset: Int,
@@ -47944,7 +47944,7 @@ subscription Pokemon_v2_versionname_aggregate(
   }
 }
 
-subscription Pokemon_v2_versionname_by_pk(
+subscription Pokemon_v2_versionname_by_pk_(
   $id: Int!
 ) {
   pokemon_v2_versionname_by_pk(

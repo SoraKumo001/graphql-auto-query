@@ -43,6 +43,7 @@ const createSpaces = (num: number) => Array(num).fill(" ").join("");
 class AutoQuery {
   schema: GraphQLSchema;
   types: GraphQLObjectType<any, any>[];
+  operations = new Set<string>();
   fragments: {
     [key: string]: string;
   } = {};
@@ -282,6 +283,39 @@ class AutoQuery {
         return lowercaseFirst(name);
     }
   }
+
+  /**
+   * Create a unique operation name
+   * @param name Operation name
+   * @returns   Unique operation name
+   */
+  createOperationName(name: string) {
+    let newName = upperFirst(name);
+    while (this.operations.has(newName)) {
+      newName = `${newName}_`;
+    }
+    return newName;
+  }
+  /**
+   * Create a string of GraphQL operation arguments
+   * @param operation Operation type
+   * @param name Operation name
+   * @param args Array of argument names and types
+   * @returns String of GraphQL operation arguments
+   */
+  outputOperation(operation: string, name: string, args: [string, string][]) {
+    this.operations.add(name);
+    return `${operation} ${name}${
+      args.length
+        ? [
+            "(",
+            args.map(([name, type]) => `  $${name}: ${type}`).join(",\n"),
+            ")",
+          ].join("\n")
+        : ""
+    } {`;
+  }
+
   /**
    * Create a string of GraphQL operations for a given operation type
    * @param operation Operation type
@@ -300,32 +334,13 @@ class AutoQuery {
         const args = Object.entries(argsMap);
         return (
           [
-            this.outputOperation(name, upperFirst(v.name), args),
+            this.outputOperation(name, this.createOperationName(v.name), args),
             children,
             "}",
           ].join("\n") + "\n"
         );
       })
       .join("\n");
-  }
-
-  /**
-   * Create a string of GraphQL operation arguments
-   * @param operation Operation type
-   * @param name Operation name
-   * @param args Array of argument names and types
-   * @returns String of GraphQL operation arguments
-   */
-  outputOperation(operation: string, name: string, args: [string, string][]) {
-    return `${operation} ${name}${
-      args.length
-        ? [
-            "(",
-            args.map(([name, type]) => `  $${name}: ${type}`).join(",\n"),
-            ")",
-          ].join("\n")
-        : ""
-    } {`;
   }
 
   /**
