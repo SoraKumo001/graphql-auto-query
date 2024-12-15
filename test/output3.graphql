@@ -1,0 +1,493 @@
+fragment ability on Ability {
+  key
+  bulbapediaPage
+  desc
+  isFieldAbility
+  isNonstandard
+  name
+  serebiiPage
+  shortDesc
+  smogonPage
+}
+
+fragment pokemon on Pokemon {
+  key
+  backSprite
+  baseForme
+  baseSpecies
+  baseStatsTotal
+  bulbapediaPage
+  classification
+  respelling
+  ipa
+  color
+  cosmeticFormes
+  cry
+  eggGroups
+  evolutionLevel
+  forme
+  formeLetter
+  height
+  isEggObtainable
+  levellingRate
+  maximumHatchTime
+  minimumHatchTime
+  num
+  otherFormes
+  serebiiPage
+  shinyBackSprite
+  shinySprite
+  smogonPage
+  smogonTier
+  species
+  sprite
+  weight
+  mythical
+  legendary
+}
+
+fragment pokemonType on PokemonType {
+  name
+}
+
+fragment stats on Stats {
+  attack
+  defense
+  hp
+  specialattack
+  specialdefense
+  speed
+}
+
+fragment catchRate on CatchRate {
+  base
+  percentageWithOrdinaryPokeballAtFullHealth
+}
+
+fragment evYields on EvYields {
+  attack
+  defense
+  hp
+  specialattack
+  specialdefense
+  speed
+}
+
+fragment flavor on Flavor {
+  flavor
+  game
+}
+
+fragment gender on Gender {
+  female
+  male
+}
+
+fragment item on Item {
+  key
+  bulbapediaPage
+  desc
+  generationIntroduced
+  isNonstandard
+  name
+  serebiiPage
+  shortDesc
+  smogonPage
+  sprite
+}
+
+fragment learnset on Learnset {
+  backSprite
+  color
+  pokemonKey
+  num
+  shinyBackSprite
+  shinySprite
+  species
+  sprite
+}
+
+fragment learnsetMove on LearnsetMove {
+  generation
+}
+
+fragment learnsetLevelUpMove on LearnsetLevelUpMove {
+  generation
+  level
+}
+
+fragment move on Move {
+  key
+  accuracy
+  basePower
+  bulbapediaPage
+  category
+  contestType
+  desc
+  isFieldMove
+  isGMax
+  isNonstandard
+  isZ
+  maxMovePower
+  name
+  pp
+  priority
+  serebiiPage
+  shortDesc
+  smogonPage
+  target
+  type
+  zMovePower
+}
+
+fragment typeEffectiveness on TypeEffectiveness {
+  doubleEffectiveTypes
+  doubleResistedTypes
+  effectiveTypes
+  effectlessTypes
+  normalTypes
+  resistedTypes
+}
+
+query GetAbility(
+  $ability: AbilitiesEnum!
+) {
+  getAbility(
+    ability: $ability
+  ) {
+    ...ability
+    pokemonThatHaveThisAbility {
+      ...pokemon
+    }
+  }
+}
+
+query GetFuzzyAbility(
+  $offset: Int,
+  $take: Int,
+  $reverse: Boolean,
+  $ability: String!
+) {
+  getFuzzyAbility(
+    offset: $offset,
+    take: $take,
+    reverse: $reverse,
+    ability: $ability
+  ) {
+    ...ability
+    pokemonThatHaveThisAbility {
+      ...pokemon
+    }
+  }
+}
+
+query GetPokemonByDexNumber(
+  $offsetFlavorTexts: Int,
+  $takeFlavorTexts: Int,
+  $reverseFlavorTexts: Boolean,
+  $number: Int!
+) {
+  getPokemonByDexNumber(
+    offsetFlavorTexts: $offsetFlavorTexts,
+    takeFlavorTexts: $takeFlavorTexts,
+    reverseFlavorTexts: $reverseFlavorTexts,
+    number: $number
+  ) {
+    ...pokemon
+    baseStats {
+      ...stats
+    }
+    catchRate {
+      ...catchRate
+    }
+    evolutions {
+      ...pokemon
+    }
+    evYields {
+      ...evYields
+    }
+    flavorTexts {
+      ...flavor
+    }
+    gender {
+      ...gender
+    }
+    preevolutions {
+      ...pokemon
+    }
+    types {
+      ...pokemonType
+    }
+  }
+}
+
+query GetPokemon(
+  $offsetFlavorTexts: Int,
+  $takeFlavorTexts: Int,
+  $reverseFlavorTexts: Boolean,
+  $pokemon: PokemonEnum!
+) {
+  getPokemon(
+    offsetFlavorTexts: $offsetFlavorTexts,
+    takeFlavorTexts: $takeFlavorTexts,
+    reverseFlavorTexts: $reverseFlavorTexts,
+    pokemon: $pokemon
+  ) {
+    ...pokemon
+    baseStats {
+      ...stats
+    }
+    catchRate {
+      ...catchRate
+    }
+    evolutions {
+      ...pokemon
+    }
+    evYields {
+      ...evYields
+    }
+    flavorTexts {
+      ...flavor
+    }
+    gender {
+      ...gender
+    }
+    preevolutions {
+      ...pokemon
+    }
+    types {
+      ...pokemonType
+    }
+  }
+}
+
+query GetFuzzyPokemon(
+  $offset: Int,
+  $take: Int,
+  $reverse: Boolean,
+  $pokemon: String!,
+  $offsetFlavorTexts: Int,
+  $takeFlavorTexts: Int,
+  $reverseFlavorTexts: Boolean
+) {
+  getFuzzyPokemon(
+    offset: $offset,
+    take: $take,
+    reverse: $reverse,
+    pokemon: $pokemon,
+    offsetFlavorTexts: $offsetFlavorTexts,
+    takeFlavorTexts: $takeFlavorTexts,
+    reverseFlavorTexts: $reverseFlavorTexts
+  ) {
+    ...pokemon
+    baseStats {
+      ...stats
+    }
+    catchRate {
+      ...catchRate
+    }
+    evolutions {
+      ...pokemon
+    }
+    evYields {
+      ...evYields
+    }
+    flavorTexts {
+      ...flavor
+    }
+    gender {
+      ...gender
+    }
+    preevolutions {
+      ...pokemon
+    }
+    types {
+      ...pokemonType
+    }
+  }
+}
+
+query GetAllPokemon(
+  $offset: Int,
+  $take: Int,
+  $reverse: Boolean,
+  $offsetFlavorTexts: Int,
+  $takeFlavorTexts: Int,
+  $reverseFlavorTexts: Boolean
+) {
+  getAllPokemon(
+    offset: $offset,
+    take: $take,
+    reverse: $reverse,
+    offsetFlavorTexts: $offsetFlavorTexts,
+    takeFlavorTexts: $takeFlavorTexts,
+    reverseFlavorTexts: $reverseFlavorTexts
+  ) {
+    ...pokemon
+    baseStats {
+      ...stats
+    }
+    catchRate {
+      ...catchRate
+    }
+    evolutions {
+      ...pokemon
+    }
+    evYields {
+      ...evYields
+    }
+    flavorTexts {
+      ...flavor
+    }
+    gender {
+      ...gender
+    }
+    preevolutions {
+      ...pokemon
+    }
+    types {
+      ...pokemonType
+    }
+  }
+}
+
+query GetItem(
+  $item: ItemsEnum!
+) {
+  getItem(
+    item: $item
+  ) {
+    ...item
+  }
+}
+
+query GetFuzzyItem(
+  $offset: Int,
+  $take: Int,
+  $reverse: Boolean,
+  $item: String!
+) {
+  getFuzzyItem(
+    offset: $offset,
+    take: $take,
+    reverse: $reverse,
+    item: $item
+  ) {
+    ...item
+  }
+}
+
+query GetLearnset(
+  $generation: Int,
+  $moves: [MovesEnum!]!,
+  $pokemon: PokemonEnum!
+) {
+  getLearnset(
+    generation: $generation,
+    moves: $moves,
+    pokemon: $pokemon
+  ) {
+    ...learnset
+    dreamworldMoves {
+      ...learnsetMove
+    }
+    eggMoves {
+      ...learnsetMove
+    }
+    eventMoves {
+      ...learnsetMove
+    }
+    levelUpMoves {
+      ...learnsetLevelUpMove
+    }
+    tmMoves {
+      ...learnsetMove
+    }
+    tutorMoves {
+      ...learnsetMove
+    }
+    virtualTransferMoves {
+      ...learnsetMove
+    }
+  }
+}
+
+query GetFuzzyLearnset(
+  $generation: Int,
+  $moves: [String!]!,
+  $pokemon: String!
+) {
+  getFuzzyLearnset(
+    generation: $generation,
+    moves: $moves,
+    pokemon: $pokemon
+  ) {
+    ...learnset
+    dreamworldMoves {
+      ...learnsetMove
+    }
+    eggMoves {
+      ...learnsetMove
+    }
+    eventMoves {
+      ...learnsetMove
+    }
+    levelUpMoves {
+      ...learnsetLevelUpMove
+    }
+    tmMoves {
+      ...learnsetMove
+    }
+    tutorMoves {
+      ...learnsetMove
+    }
+    virtualTransferMoves {
+      ...learnsetMove
+    }
+  }
+}
+
+query GetMove(
+  $move: MovesEnum!
+) {
+  getMove(
+    move: $move
+  ) {
+    ...move
+  }
+}
+
+query GetFuzzyMove(
+  $offset: Int,
+  $take: Int,
+  $reverse: Boolean,
+  $move: String!
+) {
+  getFuzzyMove(
+    offset: $offset,
+    take: $take,
+    reverse: $reverse,
+    move: $move
+  ) {
+    ...move
+  }
+}
+
+query GetTypeMatchup(
+  $primaryType: TypesEnum!,
+  $secondaryType: TypesEnum
+) {
+  getTypeMatchup(
+    primaryType: $primaryType,
+    secondaryType: $secondaryType
+  ) {
+    attacking {
+      ...typeEffectiveness
+    }
+    defending {
+      ...typeEffectiveness
+    }
+  }
+}
+
+

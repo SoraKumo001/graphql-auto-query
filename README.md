@@ -24,6 +24,11 @@ graphql-auto-query http://localhost:3000/graphql -d 3
 
 # File output from local files
 graphql-auto-query schema/schema.graphql -o query.graphql
+
+# other
+graphql-auto-query https://beta.pokeapi.co/graphql/v1beta -o test/output2.graphql -d 1
+graphql-auto-query https://graphqlpokemon.favware.tech/v8 -o test/output3.graphql -d 1
+
 ```
 
 ## library

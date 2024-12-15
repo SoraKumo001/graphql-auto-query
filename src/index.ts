@@ -165,7 +165,6 @@ class AutoQuery {
     const fields = Object.values(fieldMaps).filter(
       (field) => field.args.length || this.isFields(field.type)
     );
-
     const name = upperFirst(field.name);
     const fieldOutput = `${createSpaces((level + 1) * 2)}${field.name}${
       field.args.length
@@ -202,6 +201,8 @@ class AutoQuery {
     const closingOutput =
       fragment || fields.length ? `${createSpaces((level + 1) * 2)}}` : "";
 
+    if (childOutput === "" && fragmentOutput === "" && closingOutput !== "")
+      return "";
     return [fieldOutput, fragmentOutput, childOutput, closingOutput]
       .filter((v) => v)
       .join("\n");

@@ -1,14 +1,14 @@
 {
   "name": "graphql-auto-query",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "author": "SoraKumo <info@croud.jp>",
   "description": "Automatic generation of GraphQL queries from GraphQL schemas",
   "scripts": {
     "build": "tsc && tspc -p ./tsconfig.esm.json && cpy esm dist",
     "test": "ts-node src/command",
     "test:generate": "ts-node src/command test/source.graphql -o test/output.graphql -d 5",
-    "test:generate2": "ts-node src/command http://localhost:3000/graphql -o test/output.graphql -d 5",
-    "test:generate3": "ts-node src/command https://beta.pokeapi.co/graphql/v1beta -o test/output2.graphql -d 1"
+    "test:generate2": "ts-node src/command https://beta.pokeapi.co/graphql/v1beta -o test/output2.graphql -d 1",
+    "test:generate3": "ts-node src/command https://graphqlpokemon.favware.tech/v8 -o test/output3.graphql -d 1"
   },
   "bin": {
     "graphql-auto-query": "dist/cjs/command/index.js"
@@ -21,17 +21,17 @@
   },
   "dependencies": {
     "@colors/colors": "^1.6.0",
-    "@types/node": "^20.8.3",
-    "graphql": "^16.8.1",
+    "@types/node": "^22.10.2",
+    "graphql": "^16.9.0",
     "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "@types/minimist": "^1.2.3",
+    "@types/minimist": "^1.2.5",
     "cpy-cli": "^5.0.0",
-    "ts-node": "^10.9.1",
-    "ts-patch": "^3.0.2",
-    "typescript": "^5.2.2",
-    "typescript-transform-paths": "^3.4.6"
+    "ts-node": "^10.9.2",
+    "ts-patch": "^3.3.0",
+    "typescript": "^5.7.2",
+    "typescript-transform-paths": "^3.5.2"
   },
   "license": "MIT",
   "repository": {
