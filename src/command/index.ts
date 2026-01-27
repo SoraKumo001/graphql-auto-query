@@ -1,16 +1,19 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 import { promises as fs } from "fs";
 import path from "path";
+import { buildClientSchema, getIntrospectionQuery } from "graphql/utilities";
 import minimist from "minimist";
 import "@colors/colors";
 import { generate } from "..";
-import { buildClientSchema, getIntrospectionQuery } from "graphql/utilities";
 
 const readPackage = () => {
   try {
     return require(path.resolve(__dirname, "../../../package.json"));
-  } catch (e) {}
+  } catch {
+    //
+  }
   return require(path.resolve(__dirname, "../../package.json"));
 };
 

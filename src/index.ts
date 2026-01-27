@@ -42,7 +42,7 @@ const createSpaces = (num: number) => Array(num).fill(" ").join("");
  */
 class AutoQuery {
   schema: GraphQLSchema;
-  types: GraphQLObjectType<any, any>[];
+  types: (GraphQLObjectType<any, any> | GraphQLInterfaceType)[];
   operations = new Set<string>();
   fragments: {
     [key: string]: string;
@@ -64,7 +64,7 @@ class AutoQuery {
    * @returns Base type
    */
   getBaseType(
-    type: GraphQLOutputType
+    type: GraphQLOutputType,
   ):
     | GraphQLEnumType
     | GraphQLInterfaceType
@@ -86,7 +86,10 @@ class AutoQuery {
    * @returns Field types
    */
   getFieldTypes(type: GraphQLType) {
-    return type instanceof GraphQLObjectType ? type.getFields() : {};
+    return type instanceof GraphQLObjectType ||
+      type instanceof GraphQLInterfaceType
+      ? type.getFields()
+      : {};
   }
 
   /**
@@ -106,7 +109,8 @@ class AutoQuery {
    */
   createTypes() {
     return Object.values(this.schema.getTypeMap()).filter(
-      (obj): obj is GraphQLObjectType => obj instanceof GraphQLObjectType
+      (obj): obj is GraphQLObjectType | GraphQLInterfaceType =>
+        obj instanceof GraphQLObjectType || obj instanceof GraphQLInterfaceType,
     );
   }
 
@@ -117,7 +121,7 @@ class AutoQuery {
    */
   createFragmentFields(fieldMaps: GraphQLFieldMap<any, any>): string {
     const fields = Object.values(fieldMaps).filter(
-      (field) => !field.args.length && !this.isFields(field.type)
+      (field) => !field.args.length && !this.isFields(field.type),
     );
     return [
       "{",
@@ -156,7 +160,7 @@ class AutoQuery {
       [key: string]: string;
     },
     maxLevel: number,
-    level = 0
+    level = 0,
   ): string {
     if (level > maxLevel) return "";
     const type = this.getBaseType(field.type);
@@ -164,7 +168,7 @@ class AutoQuery {
     if (fragment) this.isFragmentUsed.add(fragment);
     const fieldMaps = this.getFieldTypes(type);
     const fields = Object.values(fieldMaps).filter(
-      (field) => field.args.length || this.isFields(field.type)
+      (field) => field.args.length || this.isFields(field.type),
     );
     const name = upperFirst(field.name);
     const newArgsMap = { ...argsMap };
@@ -191,7 +195,7 @@ class AutoQuery {
 
     const childOutput = fields
       .map((field) =>
-        this.createOutputFields(field, newArgsMap, maxLevel, level + 1)
+        this.createOutputFields(field, newArgsMap, maxLevel, level + 1),
       )
       .filter((v) => v)
       .join("\n");
@@ -234,7 +238,7 @@ class AutoQuery {
   createFragment() {
     this.types
       .filter(
-        ({ name }) => !["Query", "Mutation", "Subscription"].includes(name)
+        ({ name }) => !["Query", "Mutation", "Subscription"].includes(name),
       )
       .forEach((v) => {
         const fragmentName = this.generateFragmentName(this.fragments, v.name);
@@ -245,7 +249,7 @@ class AutoQuery {
     const newFragments = Object.entries(this.fragments).filter(([typeName]) => {
       const type = this.types.find(({ name }) => name === typeName);
       const fields = Object.values(type?.getFields() ?? {}).filter(
-        (field) => !field.args.length && !this.isFields(field.type)
+        (field) => !field.args.length && !this.isFields(field.type),
       );
       return fields.length > 0;
     });
@@ -263,11 +267,11 @@ class AutoQuery {
       .map(([typeName, fragmentName]) => {
         const type = this.types.find(
           ({ name }) =>
-            name === typeName && this.isFragmentUsed.has(fragmentName)
+            name === typeName && this.isFragmentUsed.has(fragmentName),
         );
         if (!type) return "";
         return `fragment ${fragmentName} on ${typeName} ${this.createFragmentFields(
-          type.getFields()
+          type.getFields(),
         )}\n`;
       })
       .filter((v) => v)
@@ -328,7 +332,7 @@ class AutoQuery {
     const name = lowercaseFirst(operation);
     const typeName = this.getTypeName(operation);
     return Object.values(
-      this.types.find(({ name }) => name === typeName)?.getFields() ?? {}
+      this.types.find(({ name }) => name === typeName)?.getFields() ?? {},
     )
       .map((v) => {
         const argsMap: { [key: string]: string } = {};
@@ -369,7 +373,7 @@ class AutoQuery {
  */
 export const generate = (schema: string | GraphQLSchema, depth = 2) => {
   const autoQuery = new AutoQuery(
-    schema instanceof GraphQLSchema ? schema : buildSchema(schema)
+    schema instanceof GraphQLSchema ? schema : buildSchema(schema),
   );
   return autoQuery.generate(depth);
 };
