@@ -3,7 +3,7 @@
 [![](https://img.shields.io/npm/l/graphql-auto-query)](https://www.npmjs.com/package/graphql-auto-query)
 [![](https://img.shields.io/npm/v/graphql-auto-query)](https://www.npmjs.com/package/graphql-auto-query)
 [![](https://img.shields.io/npm/dw/graphql-auto-query)](https://www.npmjs.com/package/graphql-auto-query)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/node-libraries/graphql-auto-query)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sorakumo001/graphql-auto-query)
 
 `graphql-auto-query` is a powerful tool and library for automatically generating GraphQL queries, mutations, and subscriptions from a GraphQL schema. It simplifies the testing and introspection process by creating comprehensive query documents based on your schema definitions.
 
