@@ -29,6 +29,9 @@ const main = async () => {
     console.log(`\t<path> url or path of schema.graphql`);
     console.log("OPTIONS".bold);
     console.log(`\t-d, --depth Output depth levels`);
+    console.log(`\t--queryDepth Query depth levels`);
+    console.log(`\t--mutationDepth Mutation depth levels`);
+    console.log(`\t--subscriptionDepth Subscription depth levels`);
     console.log(`\t-o, --output output file path`);
   } else {
     const readSchema = (path: string) =>
@@ -50,8 +53,16 @@ const main = async () => {
     const url = argv._[0];
     const output = argv.o ?? argv.output;
     const depth = argv.d ?? argv.depth;
+    const queryDepth = argv.queryDepth;
+    const mutationDepth = argv.mutationDepth;
+    const subscriptionDepth = argv.subscriptionDepth;
     const schema = await readSchema(url);
-    const text = generate(schema, depth);
+    const text = generate(schema, {
+      depth,
+      queryDepth,
+      mutationDepth,
+      subscriptionDepth,
+    });
     if (output) {
       const dir = path.dirname(output);
       await fs.mkdir(dir, { recursive: true });
