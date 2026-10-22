@@ -1,5 +1,5 @@
 import { buildSchema, GraphQLSchema } from "graphql";
-import { AutoQuery } from "./AutoQuery";
+import { AutoQuery } from "./AutoQuery.js";
 
 export { AutoQuery };
 

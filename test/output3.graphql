@@ -149,6 +149,15 @@ fragment typeEffectiveness on TypeEffectiveness {
   resistedTypes
 }
 
+fragment nature on Nature {
+  key
+  name
+  increasedStat
+  decreasedStat
+  preferredFlavor
+  dislikedFlavor
+}
+
 query GetAbility(
   $ability: AbilitiesEnum!
 ) {
@@ -487,6 +496,22 @@ query GetTypeMatchup(
     defending {
       ...typeEffectiveness
     }
+  }
+}
+
+query GetNature(
+  $nature: NaturesEnum!
+) {
+  getNature(
+    nature: $nature
+  ) {
+    ...nature
+  }
+}
+
+query GetAllNatures {
+  getAllNatures {
+    ...nature
   }
 }
 

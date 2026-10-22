@@ -6,7 +6,7 @@ import path from "path";
 import { buildClientSchema, getIntrospectionQuery } from "graphql/utilities";
 import minimist from "minimist";
 import "@colors/colors";
-import { generate } from "..";
+import { generate } from "../index.js";
 
 const readPackage = () => {
   try {

@@ -13,7 +13,7 @@ import {
   GraphQLType,
   GraphQLUnionType,
 } from "graphql";
-import { createSpaces, lowercaseFirst, upperFirst } from "./utils";
+import { createSpaces, lowercaseFirst, upperFirst } from "./utils.js";
 
 /**
  * Class representing an auto query generator

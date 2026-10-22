@@ -1,6 +1,6 @@
 {
   "name": "graphql-auto-query",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "author": "SoraKumo <info@croud.jp>",
   "description": "Automatic generation of GraphQL queries from GraphQL schemas",
   "scripts": {
@@ -19,32 +19,38 @@
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    ".": {
+      "types": {
+        "import": "./dist/esm/index.d.ts",
+        "require": "./dist/cjs/index.d.ts"
+      },
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "dependencies": {
-    "@colors/colors": "^1.6.0",
-    "@types/node": "^25.0.10",
-    "graphql": "^16.12.0",
+    "@colors/colors": "^1.6.1",
+    "@types/node": "^26.6.5",
+    "graphql": "^17.0.2",
     "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.2",
+    "@eslint/js": "10.0.1",
     "@types/minimist": "^1.2.5",
-    "@vitest/coverage-v8": "4.0.18",
-    "cpy-cli": "^6.0.0",
-    "eslint": "^9.39.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "cpy-cli": "^7.0.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "5.5.5",
-    "prettier": "3.8.1",
+    "eslint-plugin-prettier": "5.5.7",
+    "prettier": "3.9.10",
     "ts-node": "^10.9.2",
-    "ts-patch": "^3.3.0",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0",
-    "typescript-transform-paths": "^3.5.6",
-    "vitest": "4.0.18"
+    "ts-patch": "^4.0.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "typescript-transform-paths": "^4.0.0",
+    "vitest": "5.0.5"
   },
   "license": "MIT",
   "repository": {
