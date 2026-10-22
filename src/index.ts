@@ -21,7 +21,7 @@ export const generate = (
       } = 2,
 ) => {
   const autoQuery = new AutoQuery(
-    schema instanceof GraphQLSchema ? schema : buildSchema(schema),
+    typeof schema === "string" ? buildSchema(schema) : schema,
   );
   return autoQuery.generate(options);
 };
